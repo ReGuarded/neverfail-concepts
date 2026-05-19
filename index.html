@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Neverfail — Website Concepts</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,300;0,400;0,500;1,300&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg:      #08090c;
+  --bg-2:    #0c0e0a;
+  --bg-3:    #111409;
+  --border:  rgba(255,255,255,0.08);
+  --border2: rgba(255,255,255,0.14);
+  --white:   #ffffff;
+  --grey:    rgba(255,255,255,0.72);
+  --grey2:   rgba(255,255,255,0.45);
+  --grey3:   rgba(255,255,255,0.25);
+  --khaki:   #B5A882;
+  --slate:   #92A6B8;
+  --green:   #4A5C3E;
+  --font-b:  'Instrument Sans', sans-serif;
+  --font-d:  'Instrument Serif', serif;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--white);
+  font-family: var(--font-b);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ── BACKGROUND ── */
+.bg-glow {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.bg-glow::before {
+  content: '';
+  position: absolute;
+  top: -300px; left: 50%;
+  transform: translateX(-50%);
+  width: 1000px; height: 700px;
+  background: radial-gradient(ellipse, rgba(181,168,130,0.05) 0%, transparent 65%);
+}
+
+.bg-glow::after {
+  content: '';
+  position: absolute;
+  bottom: -200px; right: -200px;
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(74,92,62,0.06) 0%, transparent 65%);
+}
+
+/* ── HEADER ── */
+header {
+  position: relative;
+  z-index: 10;
+  padding: 52px 64px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo-mark {
+  width: 32px; height: 32px;
+  border: 1px solid rgba(181,168,130,0.35);
+  border-radius: 7px;
+  display: flex; align-items: center; justify-content: center;
+  background: linear-gradient(135deg, rgba(181,168,130,0.1), transparent);
+  position: relative;
+}
+
+.logo-mark svg {
+  width: 16px; height: 16px;
+  fill: none; stroke: #B5A882;
+  stroke-width: 1.5;
+}
+
+.logo-name {
+  font-family: var(--font-b);
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--white);
+}
+
+.header-meta {
+  font-size: 12px;
+  font-weight: 300;
+  color: var(--grey3);
+  letter-spacing: 0.06em;
+  text-align: right;
+  line-height: 1.8;
+}
+
+.header-meta strong {
+  color: var(--grey2);
+  font-weight: 400;
+  display: block;
+}
+
+/* ── HERO ── */
+.hero {
+  position: relative;
+  z-index: 10;
+  padding: 80px 64px 72px;
+  max-width: 1200px;
+}
+
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 10px;
+  font-weight: 400;
+  color: rgba(181,168,130,0.75);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 7px 16px;
+  border: 1px solid rgba(181,168,130,0.22);
+  border-radius: 100px;
+  background: rgba(181,168,130,0.05);
+  margin-bottom: 36px;
+}
+
+.pulse {
+  width: 5px; height: 5px;
+  background: #B5A882;
+  border-radius: 50%;
+  animation: breathe 3s ease-in-out infinite;
+}
+
+@keyframes breathe {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 1; }
+}
+
+.hero h1 {
+  font-family: var(--font-d);
+  font-size: clamp(40px, 5vw, 68px);
+  font-weight: 400;
+  font-style: italic;
+  line-height: 1.08;
+  letter-spacing: -0.01em;
+  color: var(--white);
+  margin-bottom: 24px;
+}
+
+.hero h1 em {
+  font-style: normal;
+  font-family: var(--font-b);
+  font-weight: 300;
+  font-size: 0.65em;
+  color: var(--grey);
+  display: block;
+  margin-bottom: 8px;
+  letter-spacing: 0.01em;
+}
+
+.hero-sub {
+  font-size: 16px;
+  font-weight: 300;
+  color: var(--grey);
+  max-width: 600px;
+  line-height: 1.8;
+}
+
+/* ── DIVIDER ── */
+.divider {
+  position: relative;
+  z-index: 10;
+  margin: 0 64px;
+  height: 1px;
+  background: var(--border);
+}
+
+/* ── CONCEPTS GRID ── */
+.concepts {
+  position: relative;
+  z-index: 10;
+  padding: 72px 64px 100px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  max-width: 1400px;
+}
+
+/* ── CONCEPT CARD ── */
+.concept-card {
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  overflow: hidden;
+  background: var(--bg-2);
+  transition: all 0.3s cubic-bezier(0.16,1,0.3,1);
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  position: relative;
+}
+
+.concept-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--border2);
+}
+
+/* Card top color band */
+.card-band {
+  height: 4px;
+  width: 100%;
+}
+
+.band-blackops { background: linear-gradient(90deg, #4A5C3E, #B5A882, #8B3A3A); }
+.band-slate    { background: linear-gradient(90deg, #92A6B8, #6a8399, #b5c8d8); }
+
+/* Preview area */
+.card-preview {
+  padding: 28px 28px 0;
+  position: relative;
+  overflow: hidden;
+  height: 200px;
+}
+
+/* Mini page preview */
+.mini-page {
+  width: 100%;
+  height: 100%;
+  border-radius: 8px 8px 0 0;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-bottom: none;
+  overflow: hidden;
+  position: relative;
+}
+
+.mini-nav {
+  height: 22px;
+  background: rgba(255,255,255,0.04);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  gap: 5px;
+}
+
+.mini-dot { width: 5px; height: 5px; border-radius: 50%; }
+.mini-dot-r { background: rgba(139,58,58,0.6); }
+.mini-dot-y { background: rgba(139,122,58,0.5); }
+.mini-dot-g { background: rgba(92,122,74,0.6); }
+
+.mini-nav-pills {
+  display: flex;
+  gap: 6px;
+  margin-left: 10px;
+}
+
+.mini-pill {
+  height: 6px;
+  border-radius: 3px;
+  background: rgba(255,255,255,0.08);
+}
+
+.mini-body {
+  padding: 14px 12px;
+  background: #08090c;
+}
+
+.mini-eyebrow {
+  height: 6px;
+  width: 80px;
+  border-radius: 3px;
+  margin-bottom: 10px;
+}
+
+.mini-h1-1 {
+  height: 10px;
+  border-radius: 3px;
+  background: rgba(255,255,255,0.25);
+  margin-bottom: 5px;
+}
+
+.mini-h1-2 {
+  height: 14px;
+  border-radius: 3px;
+  margin-bottom: 10px;
+  width: 75%;
+}
+
+.mini-sub-1 {
+  height: 5px; border-radius: 3px;
+  background: rgba(255,255,255,0.12);
+  margin-bottom: 4px;
+}
+
+.mini-sub-2 {
+  height: 5px; border-radius: 3px;
+  background: rgba(255,255,255,0.08);
+  margin-bottom: 4px; width: 80%;
+}
+
+.mini-sub-3 {
+  height: 5px; border-radius: 3px;
+  background: rgba(255,255,255,0.06);
+  margin-bottom: 14px; width: 60%;
+}
+
+.mini-btns {
+  display: flex; gap: 6px;
+}
+
+.mini-btn {
+  height: 18px; border-radius: 4px;
+}
+
+.mini-btn-primary { width: 70px; }
+.mini-btn-ghost   { width: 55px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); }
+
+/* Palette-specific mini colors */
+.blackops .mini-eyebrow { background: rgba(181,168,130,0.3); border: 1px solid rgba(181,168,130,0.2); border-radius: 100px; width: 120px; height: 14px; }
+.blackops .mini-h1-2    { background: #B5A882; }
+.blackops .mini-btn-primary { background: #B5A882; }
+.blackops .mini-body    { background: #08090c; }
+
+.slate .mini-eyebrow { background: rgba(146,166,184,0.3); border: 1px solid rgba(146,166,184,0.2); border-radius: 100px; width: 120px; height: 14px; }
+.slate .mini-h1-2    { background: #92A6B8; }
+.slate .mini-btn-primary { background: #92A6B8; }
+.slate .mini-body    { background: #08090c; }
+
+.cyan .mini-eyebrow { background: rgba(0,212,255,0.25); border: 1px solid rgba(0,212,255,0.3); border-radius: 100px; width: 120px; height: 14px; }
+.cyan .mini-h1-2    { background: #00d4ff; }
+.cyan .mini-btn-primary { background: #00d4ff; }
+.cyan .mini-body    { background: #08090c; }
+
+.band-cyan { background: linear-gradient(90deg, #00d4ff, #0088bb, #005577); }
+
+/* Card content */
+.card-content {
+  padding: 28px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-version {
+  font-size: 10px;
+  font-weight: 400;
+  color: var(--grey3);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.card-headline {
+  font-family: var(--font-d);
+  font-size: 22px;
+  font-weight: 400;
+  font-style: italic;
+  color: var(--white);
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  margin-bottom: 12px;
+}
+
+.card-desc {
+  font-size: 13px;
+  font-weight: 300;
+  color: var(--grey);
+  line-height: 1.7;
+  flex: 1;
+  margin-bottom: 24px;
+}
+
+/* Palette chips */
+.card-palette {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.palette-chip {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 100px;
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border: 1px solid rgba(255,255,255,0.1);
+  background: rgba(255,255,255,0.04);
+  color: var(--grey2);
+}
+
+.chip-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* View button */
+.card-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 20px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--grey);
+  text-decoration: none;
+  transition: all 0.2s;
+  margin-top: auto;
+}
+
+.concept-card:hover .card-link {
+  border-color: rgba(255,255,255,0.2);
+  color: var(--white);
+  background: rgba(255,255,255,0.07);
+}
+
+.card-link svg {
+  width: 14px; height: 14px;
+  stroke: currentColor; fill: none; stroke-width: 1.5;
+  transition: transform 0.2s;
+}
+
+.concept-card:hover .card-link svg { transform: translateX(3px); }
+
+/* ── FEATURED BADGE ── */
+.featured-badge {
+  position: absolute;
+  top: 16px; right: 16px;
+  padding: 4px 10px;
+  background: rgba(181,168,130,0.12);
+  border: 1px solid rgba(181,168,130,0.3);
+  border-radius: 100px;
+  font-size: 9px;
+  font-weight: 500;
+  color: #B5A882;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* ── FOOTER ── */
+footer {
+  position: relative;
+  z-index: 10;
+  padding: 32px 64px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.foot-note {
+  font-size: 12px;
+  font-weight: 300;
+  color: var(--grey3);
+  letter-spacing: 0.02em;
+}
+
+.foot-note strong {
+  color: var(--grey2);
+  font-weight: 400;
+}
+
+/* ── REVEAL ANIMATIONS ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.7s cubic-bezier(0.16,1,0.3,1), transform 0.7s cubic-bezier(0.16,1,0.3,1);
+}
+
+.reveal.in { opacity: 1; transform: translateY(0); }
+.reveal.d1 { transition-delay: 0.08s; }
+.reveal.d2 { transition-delay: 0.16s; }
+.reveal.d3 { transition-delay: 0.24s; }
+.reveal.d4 { transition-delay: 0.32s; }
+</style>
+</head>
+<body>
+
+<div class="bg-glow"></div>
+
+<!-- HEADER -->
+<header>
+  <div class="logo">
+    <div class="logo-mark">
+      <svg viewBox="0 0 16 16"><path d="M3 13L8 3L13 13M5.5 9L10.5 9" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+    <span class="logo-name">Neverfail</span>
+  </div>
+  <div class="header-meta">
+    <strong>Website Redesign — Concept Review</strong>
+    Confidential · For internal review only
+  </div>
+</header>
+
+<!-- HERO -->
+<div class="hero reveal">
+  <div class="hero-eyebrow">
+    <div class="pulse"></div>
+    Design Concepts · May 2026
+  </div>
+  <h1>
+    <em>Three directions. One mission.</em>
+    Choose your direction.
+  </h1>
+  <p class="hero-sub">
+    Each concept below represents a distinct palette and headline strategy for the Neverfail Engine homepage rebrand. Click any concept to view the full interactive prototype.
+  </p>
+</div>
+
+<div class="divider"></div>
+
+<!-- CONCEPTS GRID -->
+<div class="concepts">
+
+  <!-- V12 — FEATURED -->
+  <a href="./v12/index.html" class="concept-card reveal d1">
+    <div class="card-band band-blackops"></div>
+    <div class="card-preview">
+      <div class="featured-badge">Recommended</div>
+      <div class="mini-page blackops">
+        <div class="mini-nav">
+          <div class="mini-dot mini-dot-r"></div>
+          <div class="mini-dot mini-dot-y"></div>
+          <div class="mini-dot mini-dot-g"></div>
+          <div class="mini-nav-pills">
+            <div class="mini-pill" style="width:28px;"></div>
+            <div class="mini-pill" style="width:20px;"></div>
+            <div class="mini-pill" style="width:24px;"></div>
+            <div class="mini-pill" style="width:18px;"></div>
+          </div>
+        </div>
+        <div class="mini-body">
+          <div class="mini-eyebrow"></div>
+          <div class="mini-h1-1"></div>
+          <div class="mini-h1-2"></div>
+          <div class="mini-sub-1"></div>
+          <div class="mini-sub-2"></div>
+          <div class="mini-sub-3"></div>
+          <div class="mini-btns">
+            <div class="mini-btn mini-btn-primary"></div>
+            <div class="mini-btn mini-btn-ghost"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-content">
+      <div class="card-version">Concept 01 · V12</div>
+      <div class="card-headline">"The 2am call that never happens."</div>
+      <p class="card-desc">Black-ops palette — matte army green, khaki, deep burgundy. Full page including KPI Dashboard section with layered 3D donut chart panels. Most complete concept.</p>
+      <div class="card-palette">
+        <div class="palette-chip"><div class="chip-dot" style="background:#08090c;border:1px solid rgba(255,255,255,0.2)"></div>Near-black</div>
+        <div class="palette-chip"><div class="chip-dot" style="background:#B5A882"></div>Khaki</div>
+        <div class="palette-chip"><div class="chip-dot" style="background:#4A5C3E"></div>Army green</div>
+      </div>
+      <div class="card-link">
+        View full concept
+        <svg viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+    </div>
+  </a>
+
+  <!-- V5 -->
+  <a href="./v5/index.html" class="concept-card reveal d2">
+    <div class="card-band band-slate"></div>
+    <div class="card-preview">
+      <div class="mini-page slate">
+        <div class="mini-nav">
+          <div class="mini-dot mini-dot-r"></div>
+          <div class="mini-dot mini-dot-y"></div>
+          <div class="mini-dot mini-dot-g"></div>
+          <div class="mini-nav-pills">
+            <div class="mini-pill" style="width:28px;"></div>
+            <div class="mini-pill" style="width:20px;"></div>
+            <div class="mini-pill" style="width:24px;"></div>
+            <div class="mini-pill" style="width:18px;"></div>
+          </div>
+        </div>
+        <div class="mini-body">
+          <div class="mini-eyebrow"></div>
+          <div class="mini-h1-1"></div>
+          <div class="mini-h1-2"></div>
+          <div class="mini-sub-1"></div>
+          <div class="mini-sub-2"></div>
+          <div class="mini-sub-3"></div>
+          <div class="mini-btns">
+            <div class="mini-btn mini-btn-primary"></div>
+            <div class="mini-btn mini-btn-ghost"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-content">
+      <div class="card-version">Concept 02 · V5</div>
+      <div class="card-headline">"Engine never stops."</div>
+      <p class="card-desc">Slate-blue palette with army green plugin tiles. Modern enterprise feel — restrained, refined, and professional. Plugin ecosystem tiles provide a strong visual anchor.</p>
+      <div class="card-palette">
+        <div class="palette-chip"><div class="chip-dot" style="background:#08090c;border:1px solid rgba(255,255,255,0.2)"></div>Near-black</div>
+        <div class="palette-chip"><div class="chip-dot" style="background:#92A6B8"></div>Slate-blue</div>
+        <div class="palette-chip"><div class="chip-dot" style="background:#4A5C3E"></div>Army green</div>
+      </div>
+      <div class="card-link">
+        View full concept
+        <svg viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+    </div>
+  </a>
+
+  <!-- V2 -->
+  <a href="./v2/index.html" class="concept-card reveal d3">
+    <div class="card-band band-cyan"></div>
+    <div class="card-preview">
+      <div class="mini-page cyan">
+        <div class="mini-nav">
+          <div class="mini-dot mini-dot-r"></div>
+          <div class="mini-dot mini-dot-y"></div>
+          <div class="mini-dot mini-dot-g"></div>
+          <div class="mini-nav-pills">
+            <div class="mini-pill" style="width:28px;"></div>
+            <div class="mini-pill" style="width:20px;"></div>
+            <div class="mini-pill" style="width:24px;"></div>
+            <div class="mini-pill" style="width:18px;"></div>
+          </div>
+        </div>
+        <div class="mini-body">
+          <div class="mini-eyebrow"></div>
+          <div class="mini-h1-1"></div>
+          <div class="mini-h1-2"></div>
+          <div class="mini-sub-1"></div>
+          <div class="mini-sub-2"></div>
+          <div class="mini-sub-3"></div>
+          <div class="mini-btns">
+            <div class="mini-btn mini-btn-primary"></div>
+            <div class="mini-btn mini-btn-ghost"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-content">
+      <div class="card-version">Concept 03 · V2</div>
+      <div class="card-headline">"Backup recovers. VMware restarts. Engine never stops."</div>
+      <p class="card-desc">Electric cyan palette — the original bright accent version. Bold, high-contrast, and energetic. Positions Engine directly against backup and VMware in the opening line.</p>
+      <div class="card-palette">
+        <div class="palette-chip"><div class="chip-dot" style="background:#08090c;border:1px solid rgba(255,255,255,0.2)"></div>Near-black</div>
+        <div class="palette-chip"><div class="chip-dot" style="background:#00d4ff"></div>Electric cyan</div>
+        <div class="palette-chip"><div class="chip-dot" style="background:#8B3A3A"></div>Deep red</div>
+      </div>
+      <div class="card-link">
+        View full concept
+        <svg viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+    </div>
+  </a>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-note">
+    <strong>Neverfail Group</strong> · Website Redesign Project · Confidential
+  </div>
+  <div class="foot-note">
+    Questions? Contact your project lead.
+  </div>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
