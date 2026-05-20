@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Neverfail ‚Äî Creative Review</title>
+  <title>Neverfail &mdash; Creative Review</title>
   <style>
-    /* ‚îÄ‚îÄ‚îÄ Design Tokens ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ */
+    /* --- Design Tokens ------------------------------------------- */
     :root {
       --bg:           #0c0e0a;
       --bg-alt:       #111409;
@@ -28,7 +28,7 @@
       --reject-border: #8B3A3A;
     }
 
-    /* ‚îÄ‚îÄ‚îÄ Reset & Base ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ */
+    /* --- Reset & Base --------------------------------------------- */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     html { scroll-behavior: smooth; }
@@ -42,7 +42,7 @@
       min-height: 100vh;
     }
 
-    /* ‚îÄ‚îÄ‚îÄ Typography ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ */
+    /* --- Typography ----------------------------------------------- */
     h1, h2, h3, h4 {
       font-weight: 600;
       letter-spacing: -0.02em;
@@ -68,14 +68,14 @@
       font-weight: 500;
     }
 
-    /* ‚îÄ‚îÄ‚îÄ Layout ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ */
+    /* --- Layout --------------------------------------------------- */
     .container {
       max-width: 800px;
       margin: 0 auto;
       padding: 0 24px;
     }
 
-    /* ‚îÄ‚îÄ‚îÄ Header ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ */
+    /* --- Header --------------------------------------------------- */
     header {
       border-bottom: 1px solid var(--border);
       background: var(--bg);
@@ -124,7 +124,7 @@
       color: var(--text-muted);
     }
 
-    /* ‚îÄ‚îÄ‚îÄ Hero Banner ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ */
+    /* --- Hero Banner ---------------------------------------------- */
     .hero-banner {
       padding: 64px 24px 48px;
       border-bottom: 1px solid var(--border);
@@ -192,7 +192,7 @@
       line-height: 1.5;
     }
 
-    /* ‚îÄ‚îÄ‚îÄ Progress Bar ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ */
+    /* --- Progress Bar --------------------------------------------- */
     .progress-bar-wrap {
       padding: 16px 24px;
       max-width: 800px;
@@ -226,7 +226,7 @@
       text-align: right;
     }
 
-    /* ‚îÄ‚îÄ‚îÄ Review Sections ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ */
+    /* --- Review Sections ------------------------------------------ */
     .sections-wrap {
       padding: 32px 24px 80px;
       max-width: 800px;
@@ -489,7 +489,7 @@
       line-height: 1.3;
     }
 
-    /* ‚îÄ‚îÄ‚îÄ Feedback Controls ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ */
+    /* --- Feedback Controls ---------------------------------------- */
     .feedback-controls {
       display: flex;
       gap: 8px;
@@ -584,7 +584,7 @@
     /* Hidden inputs */
     input[type="hidden"] { display: none; }
 
-    /* ‚îÄ‚îÄ‚îÄ Section divider ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ */
+    /* --- Section divider ------------------------------------------ */
     .section-group-label {
       font-size: 10px;
       font-weight: 700;
@@ -596,7 +596,7 @@
       margin-bottom: 4px;
     }
 
-    /* ‚îÄ‚îÄ‚îÄ Submit Zone ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ */
+    /* --- Submit Zone ---------------------------------------------- */
     .submit-zone {
       background: var(--surface-mid);
       border: 1px solid var(--border);
@@ -659,7 +659,7 @@
     .btn-submit:hover { background: var(--accent-light); }
     .btn-submit:disabled { opacity: 0.5; cursor: not-allowed; }
 
-    /* ‚îÄ‚îÄ‚îÄ Success State ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ */
+    /* --- Success State -------------------------------------------- */
     .success-screen {
       display: none;
       padding: 80px 24px;
@@ -687,7 +687,7 @@
       line-height: 1.7;
     }
 
-    /* ‚îÄ‚îÄ‚îÄ Footer ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ */
+    /* --- Footer --------------------------------------------------- */
     footer {
       border-top: 1px solid var(--border);
       padding: 24px;
@@ -700,7 +700,7 @@
       letter-spacing: 0.04em;
     }
 
-    /* ‚îÄ‚îÄ‚îÄ Responsive ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ */
+    /* --- Responsive ----------------------------------------------- */
     @media (max-width: 600px) {
       .header-inner { padding: 14px 16px; }
       .hero-banner { padding: 40px 16px 32px; }
@@ -712,7 +712,7 @@
 </head>
 <body>
 
-<!-- ‚îÄ‚îÄ‚îÄ Header ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ -->
+<!-- --- Header ------------------------------------------------------ -->
 <header>
   <div class="header-inner">
     <span class="wordmark">Neverfail</span>
@@ -723,7 +723,7 @@
   </div>
 </header>
 
-<!-- ‚îÄ‚îÄ‚îÄ Hero Banner ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ -->
+<!-- --- Hero Banner ------------------------------------------------- -->
 <div class="hero-banner">
   <div class="container">
     <span class="label">Creative Review &mdash; Website Rebrand</span>
@@ -731,7 +731,7 @@
     <p>
       Below you'll find the proposed copy and positioning for each section of the new Neverfail homepage.
       Review each section, mark your reaction, and leave notes where you'd like changes.
-      Submit once at the end ‚Äî there's no rush.
+      Submit once at the end &mdash; there's no rush.
     </p>
 
     <div class="instructions">
@@ -755,7 +755,7 @@
   </div>
 </div>
 
-<!-- ‚îÄ‚îÄ‚îÄ Progress ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ -->
+<!-- --- Progress ---------------------------------------------------- -->
 <div class="progress-bar-wrap">
   <div class="progress-track">
     <div class="progress-fill" id="progress-fill"></div>
@@ -763,19 +763,19 @@
   <div class="progress-label" id="progress-label">0 of 10 reviewed</div>
 </div>
 
-<!-- ‚îÄ‚îÄ‚îÄ Form ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ -->
+<!-- --- Form -------------------------------------------------------- -->
 <form
   id="review-form"
   action="https://formsubmit.co/joeyterrazas1@gmail.com"
   method="POST"
 >
   <!-- Metadata -->
-  <input type="hidden" name="_subject" value="Neverfail Creative Review ‚Äî Round 1 Feedback" />
+  <input type="hidden" name="_subject" value="Neverfail Creative Review &mdash; Round 1 Feedback" />
   <input type="hidden" name="_replyto" value="" />
 
   <div class="sections-wrap">
 
-    <!-- ‚îÄ‚îÄ Concept Direction ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ -->
+    <!-- -- Concept Direction ---------------------------------------- -->
     <div class="section-group-label">Concept Direction</div>
 
     <div class="review-card" id="card-concept">
@@ -794,7 +794,7 @@
 
         <div class="concept-grid">
           <label class="concept-option">
-            <input type="radio" name="concept_preference" value="Concept 01 ‚Äî V12: The 2am call" />
+            <input type="radio" name="concept_preference" value="Concept 01 &mdash; V12: The 2am call" />
             <span class="concept-tile">
               <div class="recommended-tag">Recommended</div>
               <div class="concept-num">Concept 01 &middot; V12</div>
@@ -804,7 +804,7 @@
           </label>
 
           <label class="concept-option">
-            <input type="radio" name="concept_preference" value="Concept 02 ‚Äî V5: Engine never stops" />
+            <input type="radio" name="concept_preference" value="Concept 02 &mdash; V5: Engine never stops" />
             <span class="concept-tile">
               <div class="concept-num">Concept 02 &middot; V5</div>
               <div class="concept-tagline">"Engine never stops."</div>
@@ -813,7 +813,7 @@
           </label>
 
           <label class="concept-option">
-            <input type="radio" name="concept_preference" value="Concept 03 ‚Äî V2: Backup recovers" />
+            <input type="radio" name="concept_preference" value="Concept 03 &mdash; V2: Backup recovers" />
             <span class="concept-tile">
               <div class="concept-num">Concept 03 &middot; V2</div>
               <div class="concept-tagline">"Backup recovers. VMware restarts. Engine never stops."</div>
@@ -833,14 +833,14 @@
       </div>
     </div>
 
-    <!-- ‚îÄ‚îÄ Hero Copy ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ -->
+    <!-- -- Hero Copy ----------------------------------------------- -->
     <div class="section-group-label">Homepage Copy</div>
 
     <div class="review-card" id="card-hero">
       <div class="card-header">
         <div>
           <div class="card-section-label">Section 1</div>
-          <div class="card-title">Hero ‚Äî Above the Fold</div>
+          <div class="card-title">Hero &mdash; Above the Fold</div>
         </div>
         <div class="card-status-chip" id="chip-hero">Pending</div>
       </div>
@@ -855,7 +855,7 @@
           <div style="margin-top:12px;">
             <div class="copy-label">Body</div>
             <div class="copy-body">
-              Engine watches your application stack around the clock ‚Äî detecting failures before users notice,
+              Engine watches your application stack around the clock &mdash; detecting failures before users notice,
               failing over in seconds, and rolling back ransomware in 15 minutes.
             </div>
           </div>
@@ -884,7 +884,7 @@
       </div>
     </div>
 
-    <!-- ‚îÄ‚îÄ Key Metrics ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ -->
+    <!-- -- Key Metrics ----------------------------------------------- -->
     <div class="review-card" id="card-metrics">
       <div class="card-header">
         <div>
@@ -897,8 +897,8 @@
         <div class="copy-display">
           <div class="copy-label">Five proof-point stats displayed prominently</div>
           <div class="stat-row">
-            <div class="stat-chip"><strong>‚âà0s</strong> RTO</div>
-            <div class="stat-chip"><strong>‚âà0</strong> Data Loss</div>
+            <div class="stat-chip"><strong>&asymp;0s</strong> RTO</div>
+            <div class="stat-chip"><strong>&asymp;0</strong> Data Loss</div>
             <div class="stat-chip"><strong>80%</strong> WAN Savings</div>
             <div class="stat-chip"><strong>15m</strong> Ransomware Rollback</div>
             <div class="stat-chip"><strong>10K+</strong> Organizations</div>
@@ -924,12 +924,12 @@
       </div>
     </div>
 
-    <!-- ‚îÄ‚îÄ The Stakes ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ -->
+    <!-- -- The Stakes ----------------------------------------------- -->
     <div class="review-card" id="card-stakes">
       <div class="card-header">
         <div>
           <div class="card-section-label">Section 3</div>
-          <div class="card-title">The Stakes ‚Äî Cost of Downtime</div>
+          <div class="card-title">The Stakes &mdash; Cost of Downtime</div>
         </div>
         <div class="card-status-chip" id="chip-stakes">Pending</div>
       </div>
@@ -937,7 +937,7 @@
         <div class="copy-display">
           <div class="copy-headline">Every minute costs more than you think.</div>
           <div class="copy-body" style="margin-top:8px;">
-            For Tier-1 applications, downtime isn't an inconvenience ‚Äî it's a calculable, often contractual loss.
+            For Tier-1 applications, downtime isn't an inconvenience &mdash; it's a calculable, often contractual loss.
           </div>
           <div class="stat-row" style="margin-top:14px;">
             <div class="stat-card">
@@ -974,7 +974,7 @@
       </div>
     </div>
 
-    <!-- ‚îÄ‚îÄ Why Engine ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ -->
+    <!-- -- Why Engine ------------------------------------------------ -->
     <div class="review-card" id="card-positioning">
       <div class="card-header">
         <div>
@@ -1014,7 +1014,7 @@
       </div>
     </div>
 
-    <!-- ‚îÄ‚îÄ How Engine Works ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ -->
+    <!-- -- How Engine Works ------------------------------------------ -->
     <div class="review-card" id="card-howitworks">
       <div class="card-header">
         <div>
@@ -1027,14 +1027,14 @@
         <div class="copy-display">
           <div class="copy-headline">Continuous. Intelligent. Automatic.</div>
           <div class="copy-body" style="margin-top:8px;">
-            Engine watches your entire application stack and acts before your users notice a problem ‚Äî
+            Engine watches your entire application stack and acts before your users notice a problem &mdash;
             remediating locally first, failing over only when necessary.
           </div>
           <div class="copy-items" style="margin-top:14px;">
-            <div class="copy-item"><div class="copy-item-dot"></div><div><strong>01 Replicate</strong> ‚Äî Continuous byte-level replication via packet-filter driver. No SAN required. Up to 80% WAN bandwidth reduction.</div></div>
-            <div class="copy-item"><div class="copy-item-dot"></div><div><strong>02 Monitor</strong> ‚Äî Pre-tuned plugins watch services, performance counters, dependencies, OS and network ‚Äî detecting hangs the host can't see.</div></div>
-            <div class="copy-item"><div class="copy-item-dot"></div><div><strong>03 Remediate</strong> ‚Äî Rules engine auto-restarts services, recycles app pools, clears queues ‚Äî resolving locally before escalating to failover.</div></div>
-            <div class="copy-item"><div class="copy-item-dot"></div><div><strong>04 Failover</strong> ‚Äî Passive node assumes active identity in seconds. Clients reconnect automatically. No VM boot. No DNS wait. No user impact.</div></div>
+            <div class="copy-item"><div class="copy-item-dot"></div><div><strong>01 Replicate</strong> &mdash; Continuous byte-level replication via packet-filter driver. No SAN required. Up to 80% WAN bandwidth reduction.</div></div>
+            <div class="copy-item"><div class="copy-item-dot"></div><div><strong>02 Monitor</strong> &mdash; Pre-tuned plugins watch services, performance counters, dependencies, OS and network &mdash; detecting hangs the host can't see.</div></div>
+            <div class="copy-item"><div class="copy-item-dot"></div><div><strong>03 Remediate</strong> &mdash; Rules engine auto-restarts services, recycles app pools, clears queues &mdash; resolving locally before escalating to failover.</div></div>
+            <div class="copy-item"><div class="copy-item-dot"></div><div><strong>04 Failover</strong> &mdash; Passive node assumes active identity in seconds. Clients reconnect automatically. No VM boot. No DNS wait. No user impact.</div></div>
           </div>
         </div>
 
@@ -1057,7 +1057,7 @@
       </div>
     </div>
 
-    <!-- ‚îÄ‚îÄ Ransomware ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ -->
+    <!-- -- Ransomware ------------------------------------------------ -->
     <div class="review-card" id="card-ransomware">
       <div class="card-header">
         <div>
@@ -1072,7 +1072,7 @@
           <div class="copy-body" style="margin-top:8px;">
             Continuous snapshots every 15 minutes. An isolated passive node ransomware can't reach.
             Application-aware anomaly detection that catches encryption behavior before it spreads.
-            When ransomware hits, you roll back ‚Äî not rebuild.
+            When ransomware hits, you roll back &mdash; not rebuild.
           </div>
           <div class="stat-row" style="margin-top:14px;">
             <div class="stat-chip"><strong>15 min</strong> rollback</div>
@@ -1099,12 +1099,12 @@
       </div>
     </div>
 
-    <!-- ‚îÄ‚îÄ Proven at Scale ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ -->
+    <!-- -- Proven at Scale ------------------------------------------- -->
     <div class="review-card" id="card-scale">
       <div class="card-header">
         <div>
           <div class="card-section-label">Section 7</div>
-          <div class="card-title">Proven at Scale ‚Äî Social Proof</div>
+          <div class="card-title">Proven at Scale &mdash; Social Proof</div>
         </div>
         <div class="card-status-chip" id="chip-scale">Pending</div>
       </div>
@@ -1134,20 +1134,20 @@
             </div>
           </div>
           <div style="margin-top:16px;">
-            <div class="copy-label">Testimonial 1 ‚Äî Schneider Electric</div>
+            <div class="copy-label">Testimonial 1 &mdash; Schneider Electric</div>
             <div class="copy-body" style="font-style:italic; margin-top:4px;">
               "Engine's automated protection capabilities for SecurityExpert provide our customers with
               the reliability guarantees they demand for critical infrastructure protection."
             </div>
-            <div class="copy-body" style="margin-top:4px;">‚Äî Director of Security Solutions, Schneider Electric</div>
+            <div class="copy-body" style="margin-top:4px;">&mdash; Director of Security Solutions, Schneider Electric</div>
           </div>
           <div style="margin-top:14px;">
-            <div class="copy-label">Testimonial 2 ‚Äî J O Hambro Capital Management</div>
+            <div class="copy-label">Testimonial 2 &mdash; J O Hambro Capital Management</div>
             <div class="copy-body" style="font-style:italic; margin-top:4px;">
               "After assessing the business continuity and DR solutions on the market, we decided
               Neverfail was best placed to protect our critical systems at the application level."
             </div>
-            <div class="copy-body" style="margin-top:4px;">‚Äî IT Leadership, J O Hambro Capital Management</div>
+            <div class="copy-body" style="margin-top:4px;">&mdash; IT Leadership, J O Hambro Capital Management</div>
           </div>
         </div>
 
@@ -1170,7 +1170,7 @@
       </div>
     </div>
 
-    <!-- ‚îÄ‚îÄ Channel Partners ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ -->
+    <!-- -- Channel Partners ------------------------------------------ -->
     <div class="review-card" id="card-channel">
       <div class="card-header">
         <div>
@@ -1187,10 +1187,10 @@
             reference customers mean you put a bulletproof solution in front of your best accounts.
           </div>
           <div class="copy-items" style="margin-top:14px;">
-            <div class="copy-item"><div class="copy-item-dot"></div><div><strong>Pre-built enablement</strong> ‚Äî Battlecards, objection handling, competitive comparisons, and discovery frameworks ‚Äî ready on day one.</div></div>
-            <div class="copy-item"><div class="copy-item-dot"></div><div><strong>OEM-grade credibility</strong> ‚Äî Honeywell, Schneider Electric, Siemens, and VMware trust Engine in their own products. You inherit that proof.</div></div>
-            <div class="copy-item"><div class="copy-item-dot"></div><div><strong>One incident closes the deal</strong> ‚Äî Engine licenses by protected pair. For any Tier-1 application, one avoided outage pays for years of coverage.</div></div>
-            <div class="copy-item"><div class="copy-item-dot"></div><div><strong>Joint architecture support</strong> ‚Äî Neverfail engineers join discovery calls and SCOPE assessments. You never go into a complex opportunity alone.</div></div>
+            <div class="copy-item"><div class="copy-item-dot"></div><div><strong>Pre-built enablement</strong> &mdash; Battlecards, objection handling, competitive comparisons, and discovery frameworks &mdash; ready on day one.</div></div>
+            <div class="copy-item"><div class="copy-item-dot"></div><div><strong>OEM-grade credibility</strong> &mdash; Honeywell, Schneider Electric, Siemens, and VMware trust Engine in their own products. You inherit that proof.</div></div>
+            <div class="copy-item"><div class="copy-item-dot"></div><div><strong>One incident closes the deal</strong> &mdash; Engine licenses by protected pair. For any Tier-1 application, one avoided outage pays for years of coverage.</div></div>
+            <div class="copy-item"><div class="copy-item-dot"></div><div><strong>Joint architecture support</strong> &mdash; Neverfail engineers join discovery calls and SCOPE assessments. You never go into a complex opportunity alone.</div></div>
           </div>
         </div>
 
@@ -1213,7 +1213,7 @@
       </div>
     </div>
 
-    <!-- ‚îÄ‚îÄ Footer Tagline ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ -->
+    <!-- -- Footer Tagline -------------------------------------------- -->
     <div class="review-card" id="card-footer">
       <div class="card-header">
         <div>
@@ -1248,7 +1248,7 @@
       </div>
     </div>
 
-    <!-- ‚îÄ‚îÄ Open Feedback ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ -->
+    <!-- -- Open Feedback --------------------------------------------- -->
     <div class="section-group-label">Open Feedback</div>
 
     <div class="review-card" id="card-open">
@@ -1271,7 +1271,7 @@
       </div>
     </div>
 
-    <!-- ‚îÄ‚îÄ Submit ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ -->
+    <!-- -- Submit ---------------------------------------------------- -->
     <div class="submit-zone">
       <h3>Ready to submit?</h3>
       <p>Your feedback will be sent directly to Joey. You can add notes to any section before submitting.</p>
@@ -1307,7 +1307,7 @@
   </div><!-- /sections-wrap -->
 </form>
 
-<!-- ‚îÄ‚îÄ‚îÄ Success Screen ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ -->
+<!-- --- Success Screen ----------------------------------------------- -->
 <div class="success-screen" id="success-screen">
   <div class="success-icon">‚úì</div>
   <h2>Feedback received.</h2>
@@ -1317,7 +1317,7 @@
   </p>
 </div>
 
-<!-- ‚îÄ‚îÄ‚îÄ Footer ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ -->
+<!-- --- Footer ------------------------------------------------------ -->
 <footer>
   <p>Neverfail &mdash; Creative Review &mdash; Confidential &mdash; May 2026</p>
 </footer>
@@ -1394,7 +1394,7 @@
     document.getElementById('count-pending').textContent  = pending;
   }
 
-  // Form submission ‚Äî handle Formspree AJAX to show success screen
+  // Form submission &mdash; handle Formspree AJAX to show success screen
   document.getElementById('review-form').addEventListener('submit', async function(e) {
     e.preventDefault();
     const btn = document.getElementById('btn-submit');
@@ -1415,11 +1415,11 @@
         document.getElementById('success-screen').classList.add('visible');
         window.scrollTo({ top: 0, behavior: 'smooth' });
       } else {
-        btn.textContent = 'Submission failed ‚Äî try again';
+        btn.textContent = 'Submission failed &mdash; try again';
         btn.disabled = false;
       }
     } catch {
-      btn.textContent = 'Network error ‚Äî try again';
+      btn.textContent = 'Network error &mdash; try again';
       btn.disabled = false;
     }
   });
