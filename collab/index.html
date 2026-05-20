@@ -1,1 +1,1438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Neverfail ‚Äî Creative Review</title>
+  <style>
+    /* ‚îÄ‚îÄ‚îÄ Design Tokens ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ */
+    :root {
+      --bg:           #0c0e0a;
+      --bg-alt:       #111409;
+      --surface:      #2E3829;
+      --surface-mid:  #1a1f14;
+      --border:       #3a4433;
+      --accent:       #B5A882;
+      --accent-light: #C4B99A;
+      --accent-mid:   #8A7E62;
+      --green:        #4A5C3E;
+      --red:          #8B3A3A;
+      --text:         #C4B99A;
+      --text-muted:   #8A7E62;
+      --text-strong:  #e8dfc8;
+      --approve-bg:   rgba(74, 92, 62, 0.25);
+      --approve-border: #4A5C3E;
+      --suggest-bg:   rgba(181, 168, 130, 0.12);
+      --suggest-border: #8A7E62;
+      --reject-bg:    rgba(139, 58, 58, 0.2);
+      --reject-border: #8B3A3A;
+    }
 
+    /* ‚îÄ‚îÄ‚îÄ Reset & Base ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+      font-size: 15px;
+      line-height: 1.65;
+      min-height: 100vh;
+    }
+
+    /* ‚îÄ‚îÄ‚îÄ Typography ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ */
+    h1, h2, h3, h4 {
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: var(--text-strong);
+    }
+
+    .label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent-mid);
+    }
+
+    .copy-block {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    .copy-block strong {
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    /* ‚îÄ‚îÄ‚îÄ Layout ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ */
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ‚îÄ‚îÄ‚îÄ Header ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ */
+    header {
+      border-bottom: 1px solid var(--border);
+      background: var(--bg);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(12px);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 24px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .wordmark {
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      color: var(--accent);
+      text-transform: uppercase;
+    }
+
+    .header-meta {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .round-badge {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border: 1px solid var(--border);
+      border-radius: 2px;
+      color: var(--text-muted);
+    }
+
+    .date-label {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    /* ‚îÄ‚îÄ‚îÄ Hero Banner ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ */
+    .hero-banner {
+      padding: 64px 24px 48px;
+      border-bottom: 1px solid var(--border);
+      background: linear-gradient(to bottom, var(--surface-mid), var(--bg));
+    }
+
+    .hero-banner .container {
+      padding: 0;
+    }
+
+    .hero-banner .label {
+      margin-bottom: 16px;
+      display: block;
+    }
+
+    .hero-banner h1 {
+      font-size: clamp(28px, 4vw, 40px);
+      color: var(--accent);
+      margin-bottom: 16px;
+      line-height: 1.2;
+    }
+
+    .hero-banner p {
+      font-size: 15px;
+      color: var(--text-muted);
+      max-width: 560px;
+      line-height: 1.7;
+    }
+
+    .instructions {
+      margin-top: 32px;
+      padding: 20px 24px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+    }
+
+    .instruction-item {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+    }
+
+    .instruction-num {
+      width: 22px;
+      height: 22px;
+      min-width: 22px;
+      background: var(--accent);
+      color: var(--bg);
+      font-size: 11px;
+      font-weight: 700;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 2px;
+    }
+
+    .instruction-text {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* ‚îÄ‚îÄ‚îÄ Progress Bar ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ */
+    .progress-bar-wrap {
+      padding: 16px 24px;
+      max-width: 800px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .progress-track {
+      flex: 1;
+      height: 3px;
+      background: var(--surface);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: var(--accent);
+      width: 0%;
+      transition: width 0.4s ease;
+      border-radius: 2px;
+    }
+
+    .progress-label {
+      font-size: 11px;
+      color: var(--text-muted);
+      white-space: nowrap;
+      min-width: 80px;
+      text-align: right;
+    }
+
+    /* ‚îÄ‚îÄ‚îÄ Review Sections ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ */
+    .sections-wrap {
+      padding: 32px 24px 80px;
+      max-width: 800px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .review-card {
+      background: var(--surface-mid);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      overflow: hidden;
+      transition: border-color 0.2s;
+    }
+
+    .review-card.state-approved  { border-color: var(--approve-border); }
+    .review-card.state-suggest   { border-color: var(--suggest-border); }
+    .review-card.state-reject    { border-color: var(--reject-border); }
+
+    .card-header {
+      padding: 20px 24px 0;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .card-section-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent-mid);
+      margin-bottom: 6px;
+    }
+
+    .card-title {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--text-strong);
+    }
+
+    .card-status-chip {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 2px;
+      white-space: nowrap;
+      opacity: 0;
+      transition: opacity 0.2s;
+      border: 1px solid transparent;
+    }
+
+    .review-card.state-approved .card-status-chip {
+      opacity: 1;
+      background: var(--approve-bg);
+      border-color: var(--approve-border);
+      color: #7ab87a;
+    }
+
+    .review-card.state-suggest .card-status-chip {
+      opacity: 1;
+      background: var(--suggest-bg);
+      border-color: var(--suggest-border);
+      color: var(--accent);
+    }
+
+    .review-card.state-reject .card-status-chip {
+      opacity: 1;
+      background: var(--reject-bg);
+      border-color: var(--reject-border);
+      color: #c47a7a;
+    }
+
+    .card-body {
+      padding: 20px 24px;
+    }
+
+    /* Concept cards */
+    .concept-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 12px;
+      margin-top: 8px;
+    }
+
+    .concept-option {
+      position: relative;
+      cursor: pointer;
+    }
+
+    .concept-option input[type="radio"] {
+      position: absolute;
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .concept-tile {
+      display: block;
+      padding: 16px 18px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      cursor: pointer;
+      transition: border-color 0.2s, background 0.2s;
+    }
+
+    .concept-option input:checked + .concept-tile {
+      border-color: var(--accent);
+      background: rgba(181, 168, 130, 0.08);
+    }
+
+    .concept-tile:hover {
+      border-color: var(--accent-mid);
+    }
+
+    .concept-num {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent-mid);
+      margin-bottom: 6px;
+    }
+
+    .concept-tagline {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-strong);
+      line-height: 1.3;
+      margin-bottom: 8px;
+    }
+
+    .concept-desc {
+      font-size: 12px;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    .recommended-tag {
+      display: inline-block;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 2px 7px;
+      background: rgba(181, 168, 130, 0.15);
+      border: 1px solid rgba(181, 168, 130, 0.3);
+      border-radius: 2px;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+
+    /* Copy display block */
+    .copy-display {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 18px 20px;
+      margin-bottom: 18px;
+    }
+
+    .copy-display .copy-headline {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text-strong);
+      margin-bottom: 8px;
+      line-height: 1.4;
+    }
+
+    .copy-display .copy-body {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.65;
+    }
+
+    .copy-display .copy-body + .copy-body {
+      margin-top: 8px;
+    }
+
+    .copy-items {
+      margin-top: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .copy-item {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .copy-item-dot {
+      width: 4px;
+      height: 4px;
+      min-width: 4px;
+      background: var(--accent-mid);
+      border-radius: 50%;
+      margin-top: 8px;
+    }
+
+    .copy-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent-mid);
+      margin-bottom: 4px;
+    }
+
+    .stat-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 10px;
+    }
+
+    .stat-chip {
+      font-size: 12px;
+      padding: 6px 12px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 3px;
+      color: var(--text-muted);
+      white-space: nowrap;
+    }
+
+    .stat-chip strong {
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    .stat-card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 3px;
+      padding: 10px 14px;
+      min-width: 120px;
+    }
+
+    .stat-card .stat-value {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1.1;
+    }
+
+    .stat-card .stat-label {
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-top: 3px;
+      line-height: 1.3;
+    }
+
+    /* ‚îÄ‚îÄ‚îÄ Feedback Controls ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ */
+    .feedback-controls {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .vote-btn {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      padding: 8px 16px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 3px;
+      color: var(--text-muted);
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.15s;
+      font-family: inherit;
+      letter-spacing: 0.02em;
+    }
+
+    .vote-btn:hover { border-color: var(--accent-mid); color: var(--text); }
+
+    .vote-btn.active-approve {
+      background: rgba(74, 92, 62, 0.45);
+      border-color: #6a9c5e;
+      color: #8ecc8e;
+      box-shadow: 0 0 0 1px rgba(110, 180, 110, 0.2);
+    }
+
+    .vote-btn.active-suggest {
+      background: rgba(181, 168, 130, 0.22);
+      border-color: var(--accent);
+      color: var(--accent-light);
+      box-shadow: 0 0 0 1px rgba(181, 168, 130, 0.15);
+    }
+
+    .vote-btn.active-reject {
+      background: rgba(139, 58, 58, 0.38);
+      border-color: #b55a5a;
+      color: #d88888;
+      box-shadow: 0 0 0 1px rgba(180, 80, 80, 0.2);
+    }
+
+    .vote-icon { font-size: 13px; }
+
+    /* Comment fields */
+    .comment-field-wrap {
+      margin-top: 14px;
+      overflow: hidden;
+      max-height: 0;
+      opacity: 0;
+      transition: max-height 0.3s ease, opacity 0.25s ease;
+    }
+
+    .comment-field-wrap.visible {
+      max-height: 200px;
+      opacity: 1;
+    }
+
+    .comment-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    textarea {
+      width: 100%;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 3px;
+      color: var(--text);
+      font-family: inherit;
+      font-size: 13px;
+      line-height: 1.6;
+      padding: 12px 14px;
+      resize: vertical;
+      min-height: 80px;
+      transition: border-color 0.15s;
+      outline: none;
+    }
+
+    textarea:focus { border-color: var(--accent-mid); }
+    textarea::placeholder { color: var(--text-muted); opacity: 0.6; }
+
+    /* Hidden inputs */
+    input[type="hidden"] { display: none; }
+
+    /* ‚îÄ‚îÄ‚îÄ Section divider ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ */
+    .section-group-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent-mid);
+      padding: 8px 0 4px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 4px;
+    }
+
+    /* ‚îÄ‚îÄ‚îÄ Submit Zone ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ */
+    .submit-zone {
+      background: var(--surface-mid);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 28px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .submit-zone h3 {
+      font-size: 16px;
+      color: var(--text-strong);
+    }
+
+    .submit-zone p {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .submit-summary {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .summary-chip {
+      font-size: 12px;
+      padding: 6px 14px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 3px;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .summary-chip .count {
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    .btn-submit {
+      align-self: flex-start;
+      padding: 12px 32px;
+      background: var(--accent);
+      color: var(--bg);
+      border: none;
+      border-radius: 3px;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      cursor: pointer;
+      font-family: inherit;
+      transition: background 0.15s, opacity 0.15s;
+    }
+
+    .btn-submit:hover { background: var(--accent-light); }
+    .btn-submit:disabled { opacity: 0.5; cursor: not-allowed; }
+
+    /* ‚îÄ‚îÄ‚îÄ Success State ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ */
+    .success-screen {
+      display: none;
+      padding: 80px 24px;
+      text-align: center;
+      max-width: 560px;
+      margin: 0 auto;
+    }
+
+    .success-screen.visible { display: block; }
+
+    .success-icon {
+      font-size: 40px;
+      margin-bottom: 24px;
+    }
+
+    .success-screen h2 {
+      font-size: 24px;
+      color: var(--accent);
+      margin-bottom: 12px;
+    }
+
+    .success-screen p {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    /* ‚îÄ‚îÄ‚îÄ Footer ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 24px;
+      text-align: center;
+    }
+
+    footer p {
+      font-size: 11px;
+      color: var(--text-muted);
+      letter-spacing: 0.04em;
+    }
+
+    /* ‚îÄ‚îÄ‚îÄ Responsive ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ */
+    @media (max-width: 600px) {
+      .header-inner { padding: 14px 16px; }
+      .hero-banner { padding: 40px 16px 32px; }
+      .sections-wrap { padding: 24px 16px 60px; }
+      .concept-grid { grid-template-columns: 1fr; }
+      .stat-row { flex-direction: column; gap: 8px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ‚îÄ‚îÄ‚îÄ Header ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ -->
+<header>
+  <div class="header-inner">
+    <span class="wordmark">Neverfail</span>
+    <div class="header-meta">
+      <span class="round-badge">Round 1 Review</span>
+      <span class="date-label">May 2026</span>
+    </div>
+  </div>
+</header>
+
+<!-- ‚îÄ‚îÄ‚îÄ Hero Banner ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ -->
+<div class="hero-banner">
+  <div class="container">
+    <span class="label">Creative Review &mdash; Website Rebrand</span>
+    <h1>Your feedback shapes the final direction.</h1>
+    <p>
+      Below you'll find the proposed copy and positioning for each section of the new Neverfail homepage.
+      Review each section, mark your reaction, and leave notes where you'd like changes.
+      Submit once at the end ‚Äî there's no rush.
+    </p>
+
+    <div class="instructions">
+      <div class="instruction-item">
+        <div class="instruction-num">1</div>
+        <div class="instruction-text">Start by choosing your preferred concept direction at the top.</div>
+      </div>
+      <div class="instruction-item">
+        <div class="instruction-num">2</div>
+        <div class="instruction-text">For each section, mark <strong style="color:var(--text)">Approve</strong>, <strong style="color:var(--text)">Suggest Edit</strong>, or <strong style="color:var(--text)">Needs Work</strong>.</div>
+      </div>
+      <div class="instruction-item">
+        <div class="instruction-num">3</div>
+        <div class="instruction-text">Leave a note whenever you choose Suggest or Needs Work &mdash; specifics help.</div>
+      </div>
+      <div class="instruction-item">
+        <div class="instruction-num">4</div>
+        <div class="instruction-text">Hit <strong style="color:var(--text)">Submit Feedback</strong> at the bottom when you're done.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ‚îÄ‚îÄ‚îÄ Progress ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ -->
+<div class="progress-bar-wrap">
+  <div class="progress-track">
+    <div class="progress-fill" id="progress-fill"></div>
+  </div>
+  <div class="progress-label" id="progress-label">0 of 10 reviewed</div>
+</div>
+
+<!-- ‚îÄ‚îÄ‚îÄ Form ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ -->
+<form
+  id="review-form"
+  action="https://formsubmit.co/joeyterrazas1@gmail.com"
+  method="POST"
+>
+  <!-- Metadata -->
+  <input type="hidden" name="_subject" value="Neverfail Creative Review ‚Äî Round 1 Feedback" />
+  <input type="hidden" name="_replyto" value="" />
+
+  <div class="sections-wrap">
+
+    <!-- ‚îÄ‚îÄ Concept Direction ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ -->
+    <div class="section-group-label">Concept Direction</div>
+
+    <div class="review-card" id="card-concept">
+      <div class="card-header">
+        <div>
+          <div class="card-section-label">Section 0</div>
+          <div class="card-title">Which concept direction resonates most?</div>
+        </div>
+        <div class="card-status-chip" id="chip-concept">Selected</div>
+      </div>
+      <div class="card-body">
+        <p class="copy-block" style="margin-bottom:16px;">
+          Review the full prototypes first if you haven't yet &mdash; then pick the direction that feels closest to right.
+          Mixed feelings are valid; use the notes field below to explain.
+        </p>
+
+        <div class="concept-grid">
+          <label class="concept-option">
+            <input type="radio" name="concept_preference" value="Concept 01 ‚Äî V12: The 2am call" />
+            <span class="concept-tile">
+              <div class="recommended-tag">Recommended</div>
+              <div class="concept-num">Concept 01 &middot; V12</div>
+              <div class="concept-tagline">"The 2am call that never happens."</div>
+              <div class="concept-desc">Military-grade aesthetic. KPI dashboard, dark ops palette. Bold authority.</div>
+            </span>
+          </label>
+
+          <label class="concept-option">
+            <input type="radio" name="concept_preference" value="Concept 02 ‚Äî V5: Engine never stops" />
+            <span class="concept-tile">
+              <div class="concept-num">Concept 02 &middot; V5</div>
+              <div class="concept-tagline">"Engine never stops."</div>
+              <div class="concept-desc">Enterprise professional. Slate-blue and army green. Plugin ecosystem as centerpiece.</div>
+            </span>
+          </label>
+
+          <label class="concept-option">
+            <input type="radio" name="concept_preference" value="Concept 03 ‚Äî V2: Backup recovers" />
+            <span class="concept-tile">
+              <div class="concept-num">Concept 03 &middot; V2</div>
+              <div class="concept-tagline">"Backup recovers. VMware restarts. Engine never stops."</div>
+              <div class="concept-desc">Electric cyan accents. Direct competitive positioning against backup and VMware.</div>
+            </span>
+          </label>
+        </div>
+
+        <div style="margin-top:16px;">
+          <label class="comment-label" for="note-concept">Notes on concept preference (optional)</label>
+          <textarea
+            id="note-concept"
+            name="concept_notes"
+            placeholder="What draws you to that direction? What would you take from the others?"
+          ></textarea>
+        </div>
+      </div>
+    </div>
+
+    <!-- ‚îÄ‚îÄ Hero Copy ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ -->
+    <div class="section-group-label">Homepage Copy</div>
+
+    <div class="review-card" id="card-hero">
+      <div class="card-header">
+        <div>
+          <div class="card-section-label">Section 1</div>
+          <div class="card-title">Hero ‚Äî Above the Fold</div>
+        </div>
+        <div class="card-status-chip" id="chip-hero">Pending</div>
+      </div>
+      <div class="card-body">
+        <div class="copy-display">
+          <div class="copy-label">Headline</div>
+          <div class="copy-headline">Continuous Application Availability</div>
+          <div style="margin-top:12px;">
+            <div class="copy-label">Sub-headline (Concept 01)</div>
+            <div class="copy-headline" style="font-size:13px; font-weight:500;">"The 2am call that never happens."</div>
+          </div>
+          <div style="margin-top:12px;">
+            <div class="copy-label">Body</div>
+            <div class="copy-body">
+              Engine watches your application stack around the clock ‚Äî detecting failures before users notice,
+              failing over in seconds, and rolling back ransomware in 15 minutes.
+            </div>
+          </div>
+          <div style="margin-top:12px;">
+            <div class="copy-label">Primary CTA</div>
+            <div class="copy-body">Request a Demo &nbsp;|&nbsp; Partner Login</div>
+          </div>
+        </div>
+
+        <input type="hidden" name="hero_status" id="status-hero" value="" />
+        <div class="feedback-controls">
+          <button type="button" class="vote-btn" data-section="hero" data-value="Approved" onclick="vote(this)">
+            <span class="vote-icon">‚úì</span> Approve
+          </button>
+          <button type="button" class="vote-btn" data-section="hero" data-value="Suggest Edit" onclick="vote(this)">
+            <span class="vote-icon">‚úè</span> Suggest Edit
+          </button>
+          <button type="button" class="vote-btn" data-section="hero" data-value="Needs Work" onclick="vote(this)">
+            <span class="vote-icon">‚úó</span> Needs Work
+          </button>
+        </div>
+        <div class="comment-field-wrap" id="comment-wrap-hero">
+          <label class="comment-label" for="note-hero">Your notes</label>
+          <textarea id="note-hero" name="hero_notes" placeholder="What would you change or keep?"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <!-- ‚îÄ‚îÄ Key Metrics ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ -->
+    <div class="review-card" id="card-metrics">
+      <div class="card-header">
+        <div>
+          <div class="card-section-label">Section 2</div>
+          <div class="card-title">Key Metrics Bar</div>
+        </div>
+        <div class="card-status-chip" id="chip-metrics">Pending</div>
+      </div>
+      <div class="card-body">
+        <div class="copy-display">
+          <div class="copy-label">Five proof-point stats displayed prominently</div>
+          <div class="stat-row">
+            <div class="stat-chip"><strong>‚âà0s</strong> RTO</div>
+            <div class="stat-chip"><strong>‚âà0</strong> Data Loss</div>
+            <div class="stat-chip"><strong>80%</strong> WAN Savings</div>
+            <div class="stat-chip"><strong>15m</strong> Ransomware Rollback</div>
+            <div class="stat-chip"><strong>10K+</strong> Organizations</div>
+          </div>
+        </div>
+
+        <input type="hidden" name="metrics_status" id="status-metrics" value="" />
+        <div class="feedback-controls">
+          <button type="button" class="vote-btn" data-section="metrics" data-value="Approved" onclick="vote(this)">
+            <span class="vote-icon">‚úì</span> Approve
+          </button>
+          <button type="button" class="vote-btn" data-section="metrics" data-value="Suggest Edit" onclick="vote(this)">
+            <span class="vote-icon">‚úè</span> Suggest Edit
+          </button>
+          <button type="button" class="vote-btn" data-section="metrics" data-value="Needs Work" onclick="vote(this)">
+            <span class="vote-icon">‚úó</span> Needs Work
+          </button>
+        </div>
+        <div class="comment-field-wrap" id="comment-wrap-metrics">
+          <label class="comment-label" for="note-metrics">Your notes</label>
+          <textarea id="note-metrics" name="metrics_notes" placeholder="Any stats to add, change, or reorder?"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <!-- ‚îÄ‚îÄ The Stakes ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ -->
+    <div class="review-card" id="card-stakes">
+      <div class="card-header">
+        <div>
+          <div class="card-section-label">Section 3</div>
+          <div class="card-title">The Stakes ‚Äî Cost of Downtime</div>
+        </div>
+        <div class="card-status-chip" id="chip-stakes">Pending</div>
+      </div>
+      <div class="card-body">
+        <div class="copy-display">
+          <div class="copy-headline">Every minute costs more than you think.</div>
+          <div class="copy-body" style="margin-top:8px;">
+            For Tier-1 applications, downtime isn't an inconvenience ‚Äî it's a calculable, often contractual loss.
+          </div>
+          <div class="stat-row" style="margin-top:14px;">
+            <div class="stat-card">
+              <div class="stat-value">$300K+</div>
+              <div class="stat-label">avg cost per hour<br>enterprise downtime</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-value">87%</div>
+              <div class="stat-label">of outages are<br>application-layer</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-value">4+ hrs</div>
+              <div class="stat-label">avg backup<br>restore time</div>
+            </div>
+          </div>
+        </div>
+
+        <input type="hidden" name="stakes_status" id="status-stakes" value="" />
+        <div class="feedback-controls">
+          <button type="button" class="vote-btn" data-section="stakes" data-value="Approved" onclick="vote(this)">
+            <span class="vote-icon">‚úì</span> Approve
+          </button>
+          <button type="button" class="vote-btn" data-section="stakes" data-value="Suggest Edit" onclick="vote(this)">
+            <span class="vote-icon">‚úè</span> Suggest Edit
+          </button>
+          <button type="button" class="vote-btn" data-section="stakes" data-value="Needs Work" onclick="vote(this)">
+            <span class="vote-icon">‚úó</span> Needs Work
+          </button>
+        </div>
+        <div class="comment-field-wrap" id="comment-wrap-stakes">
+          <label class="comment-label" for="note-stakes">Your notes</label>
+          <textarea id="note-stakes" name="stakes_notes" placeholder="Are these stats accurate and compelling enough?"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <!-- ‚îÄ‚îÄ Why Engine ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ -->
+    <div class="review-card" id="card-positioning">
+      <div class="card-header">
+        <div>
+          <div class="card-section-label">Section 4</div>
+          <div class="card-title">Competitive Positioning</div>
+        </div>
+        <div class="card-status-chip" id="chip-positioning">Pending</div>
+      </div>
+      <div class="card-body">
+        <div class="copy-display">
+          <div class="copy-headline">You already have backup. You already have VMware.</div>
+          <div class="copy-body" style="margin-top:8px;">
+            They were built for different problems. Here's the gap they cannot close.
+          </div>
+          <div class="copy-items" style="margin-top:14px;">
+            <div class="copy-item"><div class="copy-item-dot"></div><div>Comparison table: RTO, RPO, Application Awareness, Failover Trigger, Ransomware Response, WAN Optimization</div></div>
+            <div class="copy-item"><div class="copy-item-dot"></div><div>Columns: Backup/Veeam &nbsp;|&nbsp; VMware HA/SRM &nbsp;|&nbsp; Neverfail Engine</div></div>
+          </div>
+        </div>
+
+        <input type="hidden" name="positioning_status" id="status-positioning" value="" />
+        <div class="feedback-controls">
+          <button type="button" class="vote-btn" data-section="positioning" data-value="Approved" onclick="vote(this)">
+            <span class="vote-icon">‚úì</span> Approve
+          </button>
+          <button type="button" class="vote-btn" data-section="positioning" data-value="Suggest Edit" onclick="vote(this)">
+            <span class="vote-icon">‚úè</span> Suggest Edit
+          </button>
+          <button type="button" class="vote-btn" data-section="positioning" data-value="Needs Work" onclick="vote(this)">
+            <span class="vote-icon">‚úó</span> Needs Work
+          </button>
+        </div>
+        <div class="comment-field-wrap" id="comment-wrap-positioning">
+          <label class="comment-label" for="note-positioning">Your notes</label>
+          <textarea id="note-positioning" name="positioning_notes" placeholder="Which comparison rows land best? Any competitors missing?"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <!-- ‚îÄ‚îÄ How Engine Works ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ -->
+    <div class="review-card" id="card-howitworks">
+      <div class="card-header">
+        <div>
+          <div class="card-section-label">Section 5</div>
+          <div class="card-title">How Engine Works</div>
+        </div>
+        <div class="card-status-chip" id="chip-howitworks">Pending</div>
+      </div>
+      <div class="card-body">
+        <div class="copy-display">
+          <div class="copy-headline">Continuous. Intelligent. Automatic.</div>
+          <div class="copy-body" style="margin-top:8px;">
+            Engine watches your entire application stack and acts before your users notice a problem ‚Äî
+            remediating locally first, failing over only when necessary.
+          </div>
+          <div class="copy-items" style="margin-top:14px;">
+            <div class="copy-item"><div class="copy-item-dot"></div><div><strong>01 Replicate</strong> ‚Äî Continuous byte-level replication via packet-filter driver. No SAN required. Up to 80% WAN bandwidth reduction.</div></div>
+            <div class="copy-item"><div class="copy-item-dot"></div><div><strong>02 Monitor</strong> ‚Äî Pre-tuned plugins watch services, performance counters, dependencies, OS and network ‚Äî detecting hangs the host can't see.</div></div>
+            <div class="copy-item"><div class="copy-item-dot"></div><div><strong>03 Remediate</strong> ‚Äî Rules engine auto-restarts services, recycles app pools, clears queues ‚Äî resolving locally before escalating to failover.</div></div>
+            <div class="copy-item"><div class="copy-item-dot"></div><div><strong>04 Failover</strong> ‚Äî Passive node assumes active identity in seconds. Clients reconnect automatically. No VM boot. No DNS wait. No user impact.</div></div>
+          </div>
+        </div>
+
+        <input type="hidden" name="howitworks_status" id="status-howitworks" value="" />
+        <div class="feedback-controls">
+          <button type="button" class="vote-btn" data-section="howitworks" data-value="Approved" onclick="vote(this)">
+            <span class="vote-icon">‚úì</span> Approve
+          </button>
+          <button type="button" class="vote-btn" data-section="howitworks" data-value="Suggest Edit" onclick="vote(this)">
+            <span class="vote-icon">‚úè</span> Suggest Edit
+          </button>
+          <button type="button" class="vote-btn" data-section="howitworks" data-value="Needs Work" onclick="vote(this)">
+            <span class="vote-icon">‚úó</span> Needs Work
+          </button>
+        </div>
+        <div class="comment-field-wrap" id="comment-wrap-howitworks">
+          <label class="comment-label" for="note-howitworks">Your notes</label>
+          <textarea id="note-howitworks" name="howitworks_notes" placeholder="Does the 4-step flow feel accurate and complete?"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <!-- ‚îÄ‚îÄ Ransomware ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ -->
+    <div class="review-card" id="card-ransomware">
+      <div class="card-header">
+        <div>
+          <div class="card-section-label">Section 6</div>
+          <div class="card-title">Ransomware Protection</div>
+        </div>
+        <div class="card-status-chip" id="chip-ransomware">Pending</div>
+      </div>
+      <div class="card-body">
+        <div class="copy-display">
+          <div class="copy-headline">Your backup vendor recovers your files. Engine recovers your application.</div>
+          <div class="copy-body" style="margin-top:8px;">
+            Continuous snapshots every 15 minutes. An isolated passive node ransomware can't reach.
+            Application-aware anomaly detection that catches encryption behavior before it spreads.
+            When ransomware hits, you roll back ‚Äî not rebuild.
+          </div>
+          <div class="stat-row" style="margin-top:14px;">
+            <div class="stat-chip"><strong>15 min</strong> rollback</div>
+            <div class="stat-chip"><strong>Zero</strong> ransom paid</div>
+          </div>
+        </div>
+
+        <input type="hidden" name="ransomware_status" id="status-ransomware" value="" />
+        <div class="feedback-controls">
+          <button type="button" class="vote-btn" data-section="ransomware" data-value="Approved" onclick="vote(this)">
+            <span class="vote-icon">‚úì</span> Approve
+          </button>
+          <button type="button" class="vote-btn" data-section="ransomware" data-value="Suggest Edit" onclick="vote(this)">
+            <span class="vote-icon">‚úè</span> Suggest Edit
+          </button>
+          <button type="button" class="vote-btn" data-section="ransomware" data-value="Needs Work" onclick="vote(this)">
+            <span class="vote-icon">‚úó</span> Needs Work
+          </button>
+        </div>
+        <div class="comment-field-wrap" id="comment-wrap-ransomware">
+          <label class="comment-label" for="note-ransomware">Your notes</label>
+          <textarea id="note-ransomware" name="ransomware_notes" placeholder="How does this land vs. how you currently describe ransomware protection?"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <!-- ‚îÄ‚îÄ Proven at Scale ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ -->
+    <div class="review-card" id="card-scale">
+      <div class="card-header">
+        <div>
+          <div class="card-section-label">Section 7</div>
+          <div class="card-title">Proven at Scale ‚Äî Social Proof</div>
+        </div>
+        <div class="card-status-chip" id="chip-scale">Pending</div>
+      </div>
+      <div class="card-body">
+        <div class="copy-display">
+          <div class="copy-headline">20 years. One mission. Zero compromises.</div>
+          <div class="stat-row" style="margin-top:12px;">
+            <div class="stat-card">
+              <div class="stat-value">10,000+</div>
+              <div class="stat-label">Organizations</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-value">60+</div>
+              <div class="stat-label">Countries</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-value">20+</div>
+              <div class="stat-label">Years</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-value">99.9%</div>
+              <div class="stat-label">Uptime guaranteed</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-value">&lt;30s</div>
+              <div class="stat-label">RTO achieved</div>
+            </div>
+          </div>
+          <div style="margin-top:16px;">
+            <div class="copy-label">Testimonial 1 ‚Äî Schneider Electric</div>
+            <div class="copy-body" style="font-style:italic; margin-top:4px;">
+              "Engine's automated protection capabilities for SecurityExpert provide our customers with
+              the reliability guarantees they demand for critical infrastructure protection."
+            </div>
+            <div class="copy-body" style="margin-top:4px;">‚Äî Director of Security Solutions, Schneider Electric</div>
+          </div>
+          <div style="margin-top:14px;">
+            <div class="copy-label">Testimonial 2 ‚Äî J O Hambro Capital Management</div>
+            <div class="copy-body" style="font-style:italic; margin-top:4px;">
+              "After assessing the business continuity and DR solutions on the market, we decided
+              Neverfail was best placed to protect our critical systems at the application level."
+            </div>
+            <div class="copy-body" style="margin-top:4px;">‚Äî IT Leadership, J O Hambro Capital Management</div>
+          </div>
+        </div>
+
+        <input type="hidden" name="scale_status" id="status-scale" value="" />
+        <div class="feedback-controls">
+          <button type="button" class="vote-btn" data-section="scale" data-value="Approved" onclick="vote(this)">
+            <span class="vote-icon">‚úì</span> Approve
+          </button>
+          <button type="button" class="vote-btn" data-section="scale" data-value="Suggest Edit" onclick="vote(this)">
+            <span class="vote-icon">‚úè</span> Suggest Edit
+          </button>
+          <button type="button" class="vote-btn" data-section="scale" data-value="Needs Work" onclick="vote(this)">
+            <span class="vote-icon">‚úó</span> Needs Work
+          </button>
+        </div>
+        <div class="comment-field-wrap" id="comment-wrap-scale">
+          <label class="comment-label" for="note-scale">Your notes</label>
+          <textarea id="note-scale" name="scale_notes" placeholder="Are these the right testimonials? Better customer stories to feature?"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <!-- ‚îÄ‚îÄ Channel Partners ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ -->
+    <div class="review-card" id="card-channel">
+      <div class="card-header">
+        <div>
+          <div class="card-section-label">Section 8</div>
+          <div class="card-title">Channel Partners Section</div>
+        </div>
+        <div class="card-status-chip" id="chip-channel">Pending</div>
+      </div>
+      <div class="card-body">
+        <div class="copy-display">
+          <div class="copy-headline">Sell Engine. Your customers stay up.</div>
+          <div class="copy-body" style="margin-top:8px;">
+            Engine is built for the channel. Pre-tuned plugins, proven OEM deployments, and 20+ years of
+            reference customers mean you put a bulletproof solution in front of your best accounts.
+          </div>
+          <div class="copy-items" style="margin-top:14px;">
+            <div class="copy-item"><div class="copy-item-dot"></div><div><strong>Pre-built enablement</strong> ‚Äî Battlecards, objection handling, competitive comparisons, and discovery frameworks ‚Äî ready on day one.</div></div>
+            <div class="copy-item"><div class="copy-item-dot"></div><div><strong>OEM-grade credibility</strong> ‚Äî Honeywell, Schneider Electric, Siemens, and VMware trust Engine in their own products. You inherit that proof.</div></div>
+            <div class="copy-item"><div class="copy-item-dot"></div><div><strong>One incident closes the deal</strong> ‚Äî Engine licenses by protected pair. For any Tier-1 application, one avoided outage pays for years of coverage.</div></div>
+            <div class="copy-item"><div class="copy-item-dot"></div><div><strong>Joint architecture support</strong> ‚Äî Neverfail engineers join discovery calls and SCOPE assessments. You never go into a complex opportunity alone.</div></div>
+          </div>
+        </div>
+
+        <input type="hidden" name="channel_status" id="status-channel" value="" />
+        <div class="feedback-controls">
+          <button type="button" class="vote-btn" data-section="channel" data-value="Approved" onclick="vote(this)">
+            <span class="vote-icon">‚úì</span> Approve
+          </button>
+          <button type="button" class="vote-btn" data-section="channel" data-value="Suggest Edit" onclick="vote(this)">
+            <span class="vote-icon">‚úè</span> Suggest Edit
+          </button>
+          <button type="button" class="vote-btn" data-section="channel" data-value="Needs Work" onclick="vote(this)">
+            <span class="vote-icon">‚úó</span> Needs Work
+          </button>
+        </div>
+        <div class="comment-field-wrap" id="comment-wrap-channel">
+          <label class="comment-label" for="note-channel">Your notes</label>
+          <textarea id="note-channel" name="channel_notes" placeholder="Does this speak to how your channel partners actually sell?"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <!-- ‚îÄ‚îÄ Footer Tagline ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ -->
+    <div class="review-card" id="card-footer">
+      <div class="card-header">
+        <div>
+          <div class="card-section-label">Section 9</div>
+          <div class="card-title">Footer Tagline</div>
+        </div>
+        <div class="card-status-chip" id="chip-footer">Pending</div>
+      </div>
+      <div class="card-body">
+        <div class="copy-display">
+          <div class="copy-headline" style="font-size:14px; font-style:italic;">
+            "Continuous availability for the applications your business cannot survive without."
+          </div>
+        </div>
+
+        <input type="hidden" name="footer_status" id="status-footer" value="" />
+        <div class="feedback-controls">
+          <button type="button" class="vote-btn" data-section="footer" data-value="Approved" onclick="vote(this)">
+            <span class="vote-icon">‚úì</span> Approve
+          </button>
+          <button type="button" class="vote-btn" data-section="footer" data-value="Suggest Edit" onclick="vote(this)">
+            <span class="vote-icon">‚úè</span> Suggest Edit
+          </button>
+          <button type="button" class="vote-btn" data-section="footer" data-value="Needs Work" onclick="vote(this)">
+            <span class="vote-icon">‚úó</span> Needs Work
+          </button>
+        </div>
+        <div class="comment-field-wrap" id="comment-wrap-footer">
+          <label class="comment-label" for="note-footer">Your notes</label>
+          <textarea id="note-footer" name="footer_notes" placeholder="Alternate tagline ideas welcome."></textarea>
+        </div>
+      </div>
+    </div>
+
+    <!-- ‚îÄ‚îÄ Open Feedback ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ -->
+    <div class="section-group-label">Open Feedback</div>
+
+    <div class="review-card" id="card-open">
+      <div class="card-header">
+        <div>
+          <div class="card-section-label">Section 10</div>
+          <div class="card-title">Anything else?</div>
+        </div>
+      </div>
+      <div class="card-body">
+        <p class="copy-block" style="margin-bottom:14px;">
+          Sections missing from the prototype, tone concerns, competitive angles we haven't covered,
+          or anything on your mind about where the brand is heading.
+        </p>
+        <textarea
+          name="open_feedback"
+          placeholder="Free-form notes..."
+          style="min-height:110px;"
+        ></textarea>
+      </div>
+    </div>
+
+    <!-- ‚îÄ‚îÄ Submit ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ -->
+    <div class="submit-zone">
+      <h3>Ready to submit?</h3>
+      <p>Your feedback will be sent directly to Joey. You can add notes to any section before submitting.</p>
+
+      <div class="submit-summary">
+        <div class="summary-chip">
+          <span style="color:#7ab87a;">‚úì</span>
+          <span class="count" id="count-approved">0</span>
+          approved
+        </div>
+        <div class="summary-chip">
+          <span style="color:var(--accent);">‚úè</span>
+          <span class="count" id="count-suggest">0</span>
+          suggestions
+        </div>
+        <div class="summary-chip">
+          <span style="color:#c47a7a;">‚úó</span>
+          <span class="count" id="count-reject">0</span>
+          needs work
+        </div>
+        <div class="summary-chip">
+          <span style="color:var(--text-muted);">‚óã</span>
+          <span class="count" id="count-pending">9</span>
+          pending
+        </div>
+      </div>
+
+      <button type="submit" class="btn-submit" id="btn-submit">
+        Submit Feedback
+      </button>
+    </div>
+
+  </div><!-- /sections-wrap -->
+</form>
+
+<!-- ‚îÄ‚îÄ‚îÄ Success Screen ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ -->
+<div class="success-screen" id="success-screen">
+  <div class="success-icon">‚úì</div>
+  <h2>Feedback received.</h2>
+  <p>
+    Joey will review your notes and follow up with next steps.
+    The feedback has been logged and a confirmation sent to your inbox.
+  </p>
+</div>
+
+<!-- ‚îÄ‚îÄ‚îÄ Footer ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ -->
+<footer>
+  <p>Neverfail &mdash; Creative Review &mdash; Confidential &mdash; May 2026</p>
+</footer>
+
+<script>
+  const SECTIONS = ['hero','metrics','stakes','positioning','howitworks','ransomware','scale','channel','footer'];
+  const TOTAL = SECTIONS.length; // concept selection is separate
+
+  const state = {};
+  SECTIONS.forEach(s => state[s] = null);
+
+  function vote(btn) {
+    const section = btn.dataset.section;
+    const value   = btn.dataset.value;
+
+    // Update hidden input
+    document.getElementById('status-' + section).value = value;
+
+    // Update state
+    state[section] = value;
+
+    // Update button styles
+    const controls = btn.closest('.feedback-controls');
+    controls.querySelectorAll('.vote-btn').forEach(b => {
+      b.classList.remove('active-approve','active-suggest','active-reject');
+    });
+
+    if (value === 'Approved')     btn.classList.add('active-approve');
+    if (value === 'Suggest Edit') btn.classList.add('active-suggest');
+    if (value === 'Needs Work')   btn.classList.add('active-reject');
+
+    // Show/hide comment field
+    const wrap = document.getElementById('comment-wrap-' + section);
+    if (wrap) {
+      if (value !== 'Approved') {
+        wrap.classList.add('visible');
+      } else {
+        wrap.classList.remove('visible');
+      }
+    }
+
+    // Update card border
+    const card = document.getElementById('card-' + section);
+    card.classList.remove('state-approved','state-suggest','state-reject');
+    if (value === 'Approved')     card.classList.add('state-approved');
+    if (value === 'Suggest Edit') card.classList.add('state-suggest');
+    if (value === 'Needs Work')   card.classList.add('state-reject');
+
+    // Update chip
+    const chip = document.getElementById('chip-' + section);
+    if (chip) chip.textContent = value;
+
+    updateProgress();
+  }
+
+  function updateProgress() {
+    let approved = 0, suggest = 0, reject = 0, pending = 0;
+    SECTIONS.forEach(s => {
+      if      (state[s] === 'Approved')     approved++;
+      else if (state[s] === 'Suggest Edit') suggest++;
+      else if (state[s] === 'Needs Work')   reject++;
+      else                                   pending++;
+    });
+
+    const reviewed = approved + suggest + reject;
+    const pct = Math.round((reviewed / TOTAL) * 100);
+
+    document.getElementById('progress-fill').style.width = pct + '%';
+    document.getElementById('progress-label').textContent = reviewed + ' of ' + TOTAL + ' reviewed';
+
+    document.getElementById('count-approved').textContent = approved;
+    document.getElementById('count-suggest').textContent  = suggest;
+    document.getElementById('count-reject').textContent   = reject;
+    document.getElementById('count-pending').textContent  = pending;
+  }
+
+  // Form submission ‚Äî handle Formspree AJAX to show success screen
+  document.getElementById('review-form').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const btn = document.getElementById('btn-submit');
+    btn.textContent = 'Sending‚Ä¶';
+    btn.disabled = true;
+
+    const data = new FormData(this);
+
+    try {
+      const res = await fetch(this.action, {
+        method: 'POST',
+        body: data,
+        headers: { 'Accept': 'application/json' }
+      });
+
+      if (res.ok) {
+        this.style.display = 'none';
+        document.getElementById('success-screen').classList.add('visible');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else {
+        btn.textContent = 'Submission failed ‚Äî try again';
+        btn.disabled = false;
+      }
+    } catch {
+      btn.textContent = 'Network error ‚Äî try again';
+      btn.disabled = false;
+    }
+  });
+
+  // Watch concept selection
+  document.querySelectorAll('input[name="concept_preference"]').forEach(radio => {
+    radio.addEventListener('change', () => {
+      const card = document.getElementById('card-concept');
+      card.classList.add('state-approved');
+      document.getElementById('chip-concept').textContent = 'Selected';
+    });
+  });
+</script>
+
+</body>
+</html>
