@@ -1,1 +1,1429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Neverfail — Homepage Messaging Framework</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg:        #f8f9fa;
+  --white:     #ffffff;
+  --navy:      #003049;
+  --navy-2:    #004060;
+  --red:       #C1121F;
+  --red-dim:   rgba(193,18,31,0.08);
+  --red-mid:   rgba(193,18,31,0.15);
+  --crimson:   #780000;
+  --gold:      #B5882A;
+  --gold-dim:  rgba(181,136,42,0.1);
+  --border:    rgba(0,48,73,0.1);
+  --border-2:  rgba(0,48,73,0.18);
+  --grey:      rgba(0,48,73,0.55);
+  --grey-2:    rgba(0,48,73,0.35);
+  --green:     #1a6b3a;
+  --green-dim: rgba(26,107,58,0.08);
+  --amber:     #b45309;
+  --amber-dim: rgba(180,83,9,0.08);
+  --font-b:    'Instrument Sans', sans-serif;
+  --font-d:    'Instrument Serif', serif;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--navy);
+  font-family: var(--font-b);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── HEADER ── */
+.site-header {
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+  padding: 20px 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-mark {
+  width: 28px; height: 28px;
+  border: 1.5px solid var(--red);
+  border-radius: 6px;
+  display: flex; align-items: center; justify-content: center;
+}
+
+.logo-mark svg { width: 14px; height: 14px; stroke: var(--red); fill: none; stroke-width: 1.8; }
+
+.logo-text {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--navy);
+}
+
+.header-meta {
+  text-align: right;
+  font-size: 12px;
+  color: var(--grey);
+  line-height: 1.6;
+}
+
+.header-meta strong { color: var(--navy); font-weight: 500; display: block; }
+
+/* ── PROGRESS BAR ── */
+.progress-bar {
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+  padding: 14px 48px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.progress-label { font-size: 12px; color: var(--grey); font-weight: 400; white-space: nowrap; }
+
+.progress-track {
+  flex: 1;
+  height: 4px;
+  background: rgba(0,48,73,0.1);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: var(--red);
+  border-radius: 2px;
+  transition: width 0.4s ease;
+  width: 0%;
+}
+
+.progress-count {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--navy);
+  white-space: nowrap;
+}
+
+/* ── MAIN LAYOUT ── */
+.main {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 52px 40px 120px;
+}
+
+/* ── DOC INTRO ── */
+.doc-intro {
+  margin-bottom: 52px;
+  padding-bottom: 48px;
+  border-bottom: 2px solid var(--border);
+}
+
+.doc-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--red);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  padding: 6px 14px;
+  border: 1px solid rgba(193,18,31,0.2);
+  border-radius: 100px;
+  background: var(--red-dim);
+}
+
+.doc-pulse {
+  width: 5px; height: 5px;
+  background: var(--red);
+  border-radius: 50%;
+  animation: pulse 2.5s ease-in-out infinite;
+}
+
+@keyframes pulse { 0%,100% { opacity:0.4; } 50% { opacity:1; } }
+
+.doc-intro h1 {
+  font-family: var(--font-d);
+  font-size: clamp(32px, 4vw, 48px);
+  font-weight: 400;
+  font-style: italic;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  color: var(--navy);
+  margin-bottom: 16px;
+}
+
+.doc-intro p {
+  font-size: 16px;
+  font-weight: 300;
+  color: var(--grey);
+  max-width: 600px;
+  line-height: 1.75;
+  margin-bottom: 28px;
+}
+
+.how-to-use {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-top: 28px;
+}
+
+.how-step {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 16px 18px;
+}
+
+.how-step-num {
+  font-family: var(--font-d);
+  font-size: 22px;
+  font-style: italic;
+  color: var(--red);
+  line-height: 1;
+  margin-bottom: 6px;
+}
+
+.how-step-text {
+  font-size: 13px;
+  font-weight: 300;
+  color: var(--grey);
+  line-height: 1.6;
+}
+
+/* ── STRATEGIC FRAME ── */
+.strategy-frame {
+  background: var(--navy);
+  border-radius: 14px;
+  padding: 40px 44px;
+  margin-bottom: 52px;
+  position: relative;
+  overflow: hidden;
+}
+
+.strategy-frame::before {
+  content: '';
+  position: absolute;
+  top: -100px; right: -100px;
+  width: 400px; height: 400px;
+  background: radial-gradient(circle, rgba(193,18,31,0.15) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+.strategy-label {
+  font-size: 10px;
+  font-weight: 500;
+  color: rgba(255,255,255,0.4);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.strategy-label::before {
+  content: '';
+  display: block;
+  width: 20px; height: 1px;
+  background: rgba(255,255,255,0.3);
+}
+
+.strategy-frame h2 {
+  font-family: var(--font-d);
+  font-size: 26px;
+  font-weight: 400;
+  font-style: italic;
+  color: #ffffff;
+  line-height: 1.3;
+  margin-bottom: 20px;
+  letter-spacing: -0.01em;
+}
+
+.strategy-frame p {
+  font-size: 15px;
+  font-weight: 300;
+  color: rgba(255,255,255,0.7);
+  line-height: 1.8;
+  max-width: 680px;
+}
+
+.cascade {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-top: 32px;
+}
+
+.cascade-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 16px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  position: relative;
+  z-index: 1;
+}
+
+.cascade-item:last-child { border-bottom: none; }
+
+.cascade-num {
+  font-family: var(--font-d);
+  font-size: 13px;
+  font-style: italic;
+  color: var(--red);
+  flex-shrink: 0;
+  margin-top: 2px;
+  min-width: 24px;
+}
+
+.cascade-title {
+  font-size: 14px;
+  font-weight: 500;
+  color: #ffffff;
+  margin-bottom: 3px;
+}
+
+.cascade-desc {
+  font-size: 13px;
+  font-weight: 300;
+  color: rgba(255,255,255,0.55);
+  line-height: 1.6;
+}
+
+/* ── SECTION WRAPPER ── */
+.msg-section {
+  margin-bottom: 48px;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.section-header {
+  padding: 24px 32px 22px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.section-tag {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--red);
+  margin-bottom: 6px;
+}
+
+.section-title {
+  font-family: var(--font-d);
+  font-size: 22px;
+  font-weight: 400;
+  font-style: italic;
+  color: var(--navy);
+  line-height: 1.2;
+}
+
+.section-status {
+  flex-shrink: 0;
+  font-size: 11px;
+  font-weight: 500;
+  padding: 4px 12px;
+  border-radius: 100px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.status-pending {
+  background: rgba(0,48,73,0.06);
+  color: var(--grey-2);
+  border: 1px solid var(--border);
+}
+
+.status-approved {
+  background: var(--green-dim);
+  color: var(--green);
+  border: 1px solid rgba(26,107,58,0.2);
+}
+
+.status-suggest {
+  background: var(--amber-dim);
+  color: var(--amber);
+  border: 1px solid rgba(180,83,9,0.2);
+}
+
+.status-needs {
+  background: var(--red-dim);
+  color: var(--red);
+  border: 1px solid rgba(193,18,31,0.2);
+}
+
+.section-body { padding: 28px 32px; }
+
+/* ── PILLAR LABEL ── */
+.pillar-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 4px 12px;
+  border-radius: 100px;
+  margin-bottom: 20px;
+}
+
+.pillar-1 { background: var(--red-dim); color: var(--red); border: 1px solid rgba(193,18,31,0.2); }
+.pillar-2 { background: var(--gold-dim); color: var(--gold); border: 1px solid rgba(181,136,42,0.25); }
+.pillar-3 { background: rgba(0,48,73,0.07); color: var(--navy-2); border: 1px solid rgba(0,48,73,0.2); }
+
+/* ── COPY BLOCK ── */
+.copy-block {
+  margin-bottom: 20px;
+}
+
+.copy-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--grey-2);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.copy-text {
+  font-size: 15px;
+  font-weight: 300;
+  color: var(--navy);
+  line-height: 1.8;
+}
+
+.copy-headline {
+  font-family: var(--font-d);
+  font-size: 28px;
+  font-weight: 400;
+  font-style: italic;
+  color: var(--navy);
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  margin-bottom: 4px;
+}
+
+.copy-headline .accent { color: var(--red); }
+
+/* ── HEADLINE OPTION CARD ── */
+.headline-options {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 24px;
+}
+
+.headline-card {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 20px 22px;
+  transition: border-color 0.2s;
+  cursor: pointer;
+  position: relative;
+}
+
+.headline-card:hover { border-color: rgba(193,18,31,0.3); }
+.headline-card.selected { border-color: var(--red); background: var(--red-dim); }
+
+.headline-card-label {
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--grey-2);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.headline-card-label .tag {
+  padding: 2px 8px;
+  border-radius: 100px;
+  background: var(--red-dim);
+  color: var(--red);
+  border: 1px solid rgba(193,18,31,0.2);
+}
+
+.headline-card h3 {
+  font-family: var(--font-d);
+  font-size: 24px;
+  font-weight: 400;
+  font-style: italic;
+  color: var(--navy);
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  margin-bottom: 8px;
+}
+
+.headline-card .subhead {
+  font-size: 14px;
+  font-weight: 300;
+  color: var(--grey);
+  line-height: 1.7;
+  margin-bottom: 10px;
+}
+
+.headline-card .rationale {
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--grey-2);
+  font-style: italic;
+  border-top: 1px solid var(--border);
+  padding-top: 10px;
+  margin-top: 10px;
+  line-height: 1.6;
+}
+
+/* Select indicator */
+.select-indicator {
+  position: absolute;
+  top: 14px; right: 14px;
+  width: 18px; height: 18px;
+  border-radius: 50%;
+  border: 1.5px solid var(--border-2);
+  background: transparent;
+  transition: all 0.2s;
+}
+
+.headline-card.selected .select-indicator {
+  background: var(--red);
+  border-color: var(--red);
+}
+
+.headline-card.selected .select-indicator::after {
+  content: '';
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 6px; height: 6px;
+  background: white;
+  border-radius: 50%;
+}
+
+/* ── LOGO GRID ── */
+.logo-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 12px 0 20px;
+}
+
+.logo-chip {
+  padding: 6px 14px;
+  background: rgba(0,48,73,0.05);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--navy);
+  letter-spacing: 0.02em;
+}
+
+.logo-chip.oem {
+  background: rgba(193,18,31,0.05);
+  border-color: rgba(193,18,31,0.15);
+  color: var(--crimson);
+}
+
+.logo-chip.placeholder {
+  border-style: dashed;
+  color: var(--grey-2);
+  background: transparent;
+  font-style: italic;
+}
+
+/* ── STAT CARDS ── */
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin: 16px 0 20px;
+}
+
+.stat-card {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 20px 18px;
+  text-align: center;
+}
+
+.stat-value {
+  font-family: var(--font-d);
+  font-size: 32px;
+  font-style: italic;
+  color: var(--red);
+  line-height: 1;
+  margin-bottom: 6px;
+}
+
+.stat-desc {
+  font-size: 12px;
+  font-weight: 300;
+  color: var(--grey);
+  line-height: 1.5;
+}
+
+/* ── DIVIDER ── */
+.copy-divider {
+  height: 1px;
+  background: var(--border);
+  margin: 20px 0;
+}
+
+/* ── CALLOUT BOX ── */
+.callout {
+  border-radius: 10px;
+  padding: 18px 20px;
+  margin: 16px 0;
+  border-left: 3px solid transparent;
+}
+
+.callout-insight {
+  background: rgba(0,48,73,0.04);
+  border-left-color: var(--navy);
+}
+
+.callout-warning {
+  background: var(--amber-dim);
+  border-left-color: var(--amber);
+}
+
+.callout-strong {
+  background: var(--red-dim);
+  border-left-color: var(--red);
+}
+
+.callout-label {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+  color: var(--grey-2);
+}
+
+.callout-text {
+  font-size: 14px;
+  font-weight: 300;
+  color: var(--navy);
+  line-height: 1.7;
+}
+
+/* ── REACTIONS ── */
+.reaction-area {
+  border-top: 1px solid var(--border);
+  padding: 22px 32px;
+  background: var(--bg);
+}
+
+.reaction-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--grey-2);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.reaction-buttons {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
+.react-btn {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 9px 18px;
+  border-radius: 8px;
+  font-family: var(--font-b);
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  border: 1.5px solid transparent;
+  transition: all 0.15s;
+  background: var(--white);
+}
+
+.react-approve {
+  border-color: rgba(26,107,58,0.25);
+  color: var(--green);
+  background: var(--green-dim);
+}
+
+.react-approve:hover, .react-approve.active {
+  background: var(--green);
+  color: white;
+  border-color: var(--green);
+}
+
+.react-suggest {
+  border-color: rgba(180,83,9,0.25);
+  color: var(--amber);
+  background: var(--amber-dim);
+}
+
+.react-suggest:hover, .react-suggest.active {
+  background: var(--amber);
+  color: white;
+  border-color: var(--amber);
+}
+
+.react-needs {
+  border-color: rgba(193,18,31,0.25);
+  color: var(--red);
+  background: var(--red-dim);
+}
+
+.react-needs:hover, .react-needs.active {
+  background: var(--red);
+  color: white;
+  border-color: var(--red);
+}
+
+.notes-field {
+  width: 100%;
+  border: 1px solid var(--border-2);
+  border-radius: 8px;
+  padding: 12px 14px;
+  font-family: var(--font-b);
+  font-size: 14px;
+  font-weight: 300;
+  color: var(--navy);
+  line-height: 1.6;
+  background: var(--white);
+  resize: vertical;
+  min-height: 80px;
+  transition: border-color 0.2s;
+  display: none;
+}
+
+.notes-field.visible { display: block; }
+.notes-field:focus { outline: none; border-color: var(--navy); }
+.notes-field::placeholder { color: var(--grey-2); }
+
+/* ── SUBMIT ── */
+.submit-section {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 36px 40px;
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.submit-summary {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin-bottom: 28px;
+  flex-wrap: wrap;
+}
+
+.summary-item {
+  text-align: center;
+}
+
+.summary-count {
+  font-family: var(--font-d);
+  font-size: 32px;
+  font-style: italic;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.summary-label {
+  font-size: 11px;
+  color: var(--grey-2);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.submit-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 36px;
+  background: var(--navy);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-family: var(--font-b);
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  letter-spacing: 0.02em;
+}
+
+.submit-btn:hover { background: var(--navy-2); transform: translateY(-1px); }
+.submit-btn:disabled { opacity: 0.5; cursor: default; transform: none; }
+
+.submit-confirmation {
+  display: none;
+  padding: 20px;
+  background: var(--green-dim);
+  border: 1px solid rgba(26,107,58,0.2);
+  border-radius: 10px;
+  color: var(--green);
+  font-size: 15px;
+  font-weight: 400;
+  margin-top: 16px;
+}
+
+/* ── FOOTER ── */
+footer {
+  text-align: center;
+  padding: 32px 40px;
+  border-top: 1px solid var(--border);
+  font-size: 12px;
+  color: var(--grey-2);
+}
+
+/* ── REVEAL ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal.in { opacity: 1; transform: translateY(0); }
+.reveal.d1 { transition-delay: 0.08s; }
+.reveal.d2 { transition-delay: 0.16s; }
+.reveal.d3 { transition-delay: 0.24s; }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="header-logo">
+    <div class="logo-mark">
+      <svg viewBox="0 0 16 16"><path d="M3 13L8 3L13 13M5.5 9L10.5 9" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+    <span class="logo-text">Neverfail</span>
+  </div>
+  <div class="header-meta">
+    <strong>Homepage Messaging Framework</strong>
+    Confidential · Round 1 Review · May 2026
+  </div>
+</header>
+
+<!-- PROGRESS -->
+<div class="progress-bar">
+  <span class="progress-label">Review progress</span>
+  <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+  <span class="progress-count" id="progressCount">0 of 6 reviewed</span>
+</div>
+
+<!-- MAIN -->
+<div class="main">
+
+  <!-- DOC INTRO -->
+  <div class="doc-intro reveal">
+    <div class="doc-eyebrow"><div class="doc-pulse"></div>Messaging Review — Homepage</div>
+    <h1>Three pillars.<br>One reputation.</h1>
+    <p>This document presents the proposed messaging framework for the Neverfail homepage — focused exclusively on company reputation, brand authority, and trust signals before any product discussion. Review each section and leave your reactions below.</p>
+    <div class="how-to-use">
+      <div class="how-step">
+        <div class="how-step-num">01</div>
+        <div class="how-step-text">Read through each section and the copy options within it.</div>
+      </div>
+      <div class="how-step">
+        <div class="how-step-num">02</div>
+        <div class="how-step-text">Mark <strong>Approve</strong>, <strong>Suggest Edit</strong>, or <strong>Needs Work</strong> — add a note whenever possible.</div>
+      </div>
+      <div class="how-step">
+        <div class="how-step-num">03</div>
+        <div class="how-step-text">Hit <strong>Submit Feedback</strong> at the bottom when done. Joey will follow up.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STRATEGIC FRAME -->
+  <div class="strategy-frame reveal d1">
+    <div class="strategy-label">The Strategic Sequence</div>
+    <h2>Reputation first. Product second. Distribution last.</h2>
+    <p>Brian's core direction: the homepage should establish who Neverfail is and who trusts them — before a single product feature is mentioned. This mirrors how the most credible enterprise brands build authority. The three pillars below represent that opening statement.</p>
+    <div class="cascade">
+      <div class="cascade-item">
+        <div class="cascade-num">01</div>
+        <div>
+          <div class="cascade-title">Company Reputation & Legacy</div>
+          <div class="cascade-desc">20 years. Mission-critical DNA. The name behind application resiliency when failure isn't an option.</div>
+        </div>
+      </div>
+      <div class="cascade-item">
+        <div class="cascade-num">02</div>
+        <div>
+          <div class="cascade-title">End Customer Trust</div>
+          <div class="cascade-desc">The world's most recognized global brands — FBI, Lloyds of London, Aramco, Nike — trust Neverfail with their most critical applications.</div>
+        </div>
+      </div>
+      <div class="cascade-item">
+        <div class="cascade-num">03</div>
+        <div>
+          <div class="cascade-title">OEM Partner Trust</div>
+          <div class="cascade-desc">The makers of mission-critical applications — Honeywell, Schneider Electric, Siemens — have embedded Neverfail into their own products and reputations.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 1: HERO HEADLINE -->
+  <div class="msg-section reveal" data-section="1">
+    <div class="section-header">
+      <div>
+        <div class="section-tag">Section 1 of 6</div>
+        <div class="section-title">Hero Headline — Above the Fold</div>
+      </div>
+      <div class="section-status status-pending" id="status-1">Pending</div>
+    </div>
+    <div class="section-body">
+      <div class="pillar-label pillar-1">Pillar 1 — Brand Reputation</div>
+
+      <div class="callout callout-insight">
+        <div class="callout-label">Strategic Intent</div>
+        <div class="callout-text">The headline must communicate 20 years of earned trust in mission-critical environments — before the visitor reads a single word about Engine. Four directions are presented below. Select the one that best captures the brand voice you want to lead with.</div>
+      </div>
+
+      <div class="copy-label" style="margin-top:20px;">Headline Options — Select Your Preferred Direction</div>
+
+      <div class="headline-options">
+
+        <div class="headline-card" onclick="selectHeadline(this, '1A')">
+          <div class="select-indicator"></div>
+          <div class="headline-card-label">
+            Direction A — Category Ownership
+            <span class="tag">Recommended</span>
+          </div>
+          <h3>"20 years in the most critical corners of industry."</h3>
+          <div class="subhead">The global brands that can't afford failure — and the manufacturers who build for them — have made Neverfail the standard for mission-critical application resiliency.</div>
+          <div class="rationale">Plants the time anchor immediately. "The standard" is a category-ownership claim no competitor can easily contest. Tone: earned authority.</div>
+        </div>
+
+        <div class="headline-card" onclick="selectHeadline(this, '1B')">
+          <div class="select-indicator"></div>
+          <div class="headline-card-label">Direction B — Reputation Transfer</div>
+          <h3>"The world's most critical brands chose us. So did their builders."</h3>
+          <div class="subhead">From the FBI to Lloyds of London. From Honeywell to Schneider Electric. When reputation is on the line, Neverfail is the answer.</div>
+          <div class="rationale">Leads with social proof. Lets the names do the persuading. Tone: prestigious association.</div>
+        </div>
+
+        <div class="headline-card" onclick="selectHeadline(this, '1C')">
+          <div class="select-indicator"></div>
+          <div class="headline-card-label">Direction C — Consequence Framing</div>
+          <h3>"When the application cannot go down, they call Neverfail."</h3>
+          <div class="subhead">20 years. Every continent. The most critical organizations and the manufacturers who serve them — all trusting one name with their reputation.</div>
+          <div class="rationale">Dramatic, consequence-driven. "They call" makes Neverfail the definitive answer. Tone: authoritative urgency.</div>
+        </div>
+
+        <div class="headline-card" onclick="selectHeadline(this, '1D')">
+          <div class="select-indicator"></div>
+          <div class="headline-card-label">Direction D — Mission Statement</div>
+          <h3>"Where mission-critical means never fail."</h3>
+          <div class="subhead">For 20 years, the world's most critical organizations have trusted Neverfail to protect the applications their operations — and reputations — depend on.</div>
+          <div class="rationale">Brand name as brand promise. Clean, declarative. Leverages the company name as a statement of fact. Tone: confident simplicity.</div>
+        </div>
+
+      </div>
+
+      <input type="hidden" id="selected-headline" value="">
+
+    </div>
+    <div class="reaction-area">
+      <div class="reaction-label">Your reaction to this section</div>
+      <div class="reaction-buttons">
+        <button class="react-btn react-approve" onclick="react(1, 'approved', this)">✓ Approve</button>
+        <button class="react-btn react-suggest" onclick="react(1, 'suggest', this)">⟳ Suggest Edit</button>
+        <button class="react-btn react-needs" onclick="react(1, 'needs', this)">✕ Needs Work</button>
+      </div>
+      <textarea class="notes-field" id="notes-1" placeholder="Which headline direction feels right? What's missing or off? Any suggested wording?" rows="3"></textarea>
+    </div>
+  </div>
+
+  <!-- SECTION 2: PILLAR 1 BODY COPY -->
+  <div class="msg-section reveal" data-section="2">
+    <div class="section-header">
+      <div>
+        <div class="section-tag">Section 2 of 6</div>
+        <div class="section-title">Pillar 1 — 20-Year Reputation & Legacy</div>
+      </div>
+      <div class="section-status status-pending" id="status-2">Pending</div>
+    </div>
+    <div class="section-body">
+      <div class="pillar-label pillar-1">Pillar 1 — Brand Reputation</div>
+
+      <div class="copy-block">
+        <div class="copy-label">Section Headline</div>
+        <div class="copy-headline">Built for the corners where <span class="accent">failure isn't an option.</span></div>
+      </div>
+
+      <div class="copy-block">
+        <div class="copy-label">Body Copy — Option A (Authoritative)</div>
+        <div class="copy-text">For two decades, Neverfail has operated in the environments where downtime carries consequences measured in lives, regulations, and billions. We don't sell software. We are the infrastructure of trust that mission-critical organizations rely on when they cannot afford to find out what failure costs.</div>
+      </div>
+
+      <div class="copy-divider"></div>
+
+      <div class="copy-block">
+        <div class="copy-label">Body Copy — Option B (Heritage-Led)</div>
+        <div class="copy-text">Twenty years ago, Neverfail made a singular commitment: protect the applications that power the world's most critical operations. Today, that commitment is embedded in the infrastructure of global banks, government agencies, industrial systems, and the manufacturers who build for them — on every continent, around the clock.</div>
+      </div>
+
+      <div class="copy-divider"></div>
+
+      <div class="copy-block">
+        <div class="copy-label">Supporting Stats</div>
+      </div>
+
+      <div class="stat-grid">
+        <div class="stat-card">
+          <div class="stat-value">20+</div>
+          <div class="stat-desc">Years protecting mission-critical applications globally</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value">10K+</div>
+          <div class="stat-desc">Organizations trusting Neverfail with their critical infrastructure</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value">60+</div>
+          <div class="stat-desc">Countries where Neverfail is deployed and protecting</div>
+        </div>
+      </div>
+
+      <div class="callout callout-warning">
+        <div class="callout-label">Note for Brian</div>
+        <div class="callout-text">Are there additional heritage stats — number of critical incidents prevented, total uptime delivered, or specific verticals — that should anchor this section? The stronger the proof point here, the harder this pillar lands.</div>
+      </div>
+
+    </div>
+    <div class="reaction-area">
+      <div class="reaction-label">Your reaction to this section</div>
+      <div class="reaction-buttons">
+        <button class="react-btn react-approve" onclick="react(2, 'approved', this)">✓ Approve</button>
+        <button class="react-btn react-suggest" onclick="react(2, 'suggest', this)">⟳ Suggest Edit</button>
+        <button class="react-btn react-needs" onclick="react(2, 'needs', this)">✕ Needs Work</button>
+      </div>
+      <textarea class="notes-field" id="notes-2" placeholder="Which body copy direction works? Any stats or proof points to add?" rows="3"></textarea>
+    </div>
+  </div>
+
+  <!-- SECTION 3: PILLAR 2 END CUSTOMERS -->
+  <div class="msg-section reveal" data-section="3">
+    <div class="section-header">
+      <div>
+        <div class="section-tag">Section 3 of 6</div>
+        <div class="section-title">Pillar 2 — Trusted by Global Mission-Critical Brands</div>
+      </div>
+      <div class="section-status status-pending" id="status-3">Pending</div>
+    </div>
+    <div class="section-body">
+      <div class="pillar-label pillar-2">Pillar 2 — End Customer Trust</div>
+
+      <div class="copy-block">
+        <div class="copy-label">Section Headline</div>
+        <div class="copy-headline">The names that <span class="accent">trust us most</span> are the ones that can least afford to be wrong.</div>
+      </div>
+
+      <div class="copy-block">
+        <div class="copy-label">Body Copy</div>
+        <div class="copy-text">From federal intelligence agencies to global financial institutions to the world's largest energy producers — the organizations that operate at the highest stakes have independently arrived at the same conclusion: when their applications must stay up, they trust Neverfail.</div>
+      </div>
+
+      <div class="copy-divider"></div>
+
+      <div class="copy-label">End Customer Logo Tier — Confirmed References</div>
+      <div class="callout callout-warning" style="margin-bottom:12px;">
+        <div class="callout-label">Action Required — Brian</div>
+        <div class="callout-text">Please confirm which of these customers can be named publicly on the site. Logos are currently on the existing website — need confirmation of permissions for the rebrand.</div>
+      </div>
+
+      <div class="logo-grid">
+        <div class="logo-chip">FBI</div>
+        <div class="logo-chip">Lloyds of London</div>
+        <div class="logo-chip">Saudi Aramco</div>
+        <div class="logo-chip">Nike</div>
+        <div class="logo-chip placeholder">+ Confirm others?</div>
+      </div>
+
+      <div class="copy-divider"></div>
+
+      <div class="copy-block">
+        <div class="copy-label">Anchor Line — Below Logo Grid</div>
+        <div class="copy-text" style="font-style:italic; font-family: var(--font-d); font-size:18px; color:var(--navy);">"They didn't choose us because we were the cheapest option. They chose us because they couldn't afford the alternative."</div>
+      </div>
+
+      <div class="callout callout-insight">
+        <div class="callout-label">Positioning Note</div>
+        <div class="callout-text">The customer logos should appear without explanation — their presence is the statement. Resist the urge to add descriptive copy next to each logo. The names speak for themselves. A simple count beneath ("10,000+ organizations globally") adds scale without diluting the premium signal.</div>
+      </div>
+
+    </div>
+    <div class="reaction-area">
+      <div class="reaction-label">Your reaction to this section</div>
+      <div class="reaction-buttons">
+        <button class="react-btn react-approve" onclick="react(3, 'approved', this)">✓ Approve</button>
+        <button class="react-btn react-suggest" onclick="react(3, 'suggest', this)">⟳ Suggest Edit</button>
+        <button class="react-btn react-needs" onclick="react(3, 'needs', this)">✕ Needs Work</button>
+      </div>
+      <textarea class="notes-field" id="notes-3" placeholder="Which customers can be named publicly? Any copy changes? Different anchor line?" rows="3"></textarea>
+    </div>
+  </div>
+
+  <!-- SECTION 4: PILLAR 3 OEM PARTNERS -->
+  <div class="msg-section reveal" data-section="4">
+    <div class="section-header">
+      <div>
+        <div class="section-tag">Section 4 of 6</div>
+        <div class="section-title">Pillar 3 — Trusted by Mission-Critical Application Makers</div>
+      </div>
+      <div class="section-status status-pending" id="status-4">Pending</div>
+    </div>
+    <div class="section-body">
+      <div class="pillar-label pillar-3">Pillar 3 — OEM Partner Trust</div>
+
+      <div class="copy-block">
+        <div class="copy-label">Section Headline</div>
+        <div class="copy-headline">The makers of mission-critical applications <span class="accent">chose us to protect their reputation.</span></div>
+      </div>
+
+      <div class="copy-block">
+        <div class="copy-label">Body Copy — Option A</div>
+        <div class="copy-text">Honeywell, Schneider Electric, Siemens, and the world's leading mission-critical application manufacturers have embedded Neverfail directly into their solutions. This isn't a partnership of convenience — it's a validation of trust. When their customers' reputations are at stake, these manufacturers chose Neverfail to stand behind theirs.</div>
+      </div>
+
+      <div class="copy-divider"></div>
+
+      <div class="copy-block">
+        <div class="copy-label">Body Copy — Option B (Sharper)</div>
+        <div class="copy-text">The world's leading industrial application manufacturers don't add technology to their stack lightly. When Honeywell, Schneider Electric, and Siemens embedded Neverfail into their mission-critical solutions, they weren't just buying software — they were staking their global reputation on it.</div>
+      </div>
+
+      <div class="copy-divider"></div>
+
+      <div class="copy-label">OEM Partner Logos</div>
+      <div class="logo-grid">
+        <div class="logo-chip oem">Honeywell</div>
+        <div class="logo-chip oem">Schneider Electric</div>
+        <div class="logo-chip oem">Siemens</div>
+        <div class="logo-chip oem">VMware</div>
+        <div class="logo-chip oem">Mitel</div>
+        <div class="logo-chip oem">Milestone</div>
+        <div class="logo-chip oem">CentralSquare</div>
+        <div class="logo-chip oem">OPSWAT</div>
+        <div class="logo-chip placeholder">+ Others?</div>
+      </div>
+
+      <div class="callout callout-strong">
+        <div class="callout-label">Key Messaging Insight</div>
+        <div class="callout-text">Brian's exact language: <em>"The makers of mission-critical applications whose reputations are paramount to them — why have they chosen to stake their reputation on us?"</em> This is the most powerful framing for this pillar. The OEM logos aren't partners — they're validators. They chose to put their brand reputation in Neverfail's hands.</div>
+      </div>
+
+      <div class="copy-block" style="margin-top:16px;">
+        <div class="copy-label">Section Closer — Transition to Engine</div>
+        <div class="copy-text">This is how Neverfail is used in the world's most critical environments. Now meet the product that makes it possible.</div>
+      </div>
+
+    </div>
+    <div class="reaction-area">
+      <div class="reaction-label">Your reaction to this section</div>
+      <div class="reaction-buttons">
+        <button class="react-btn react-approve" onclick="react(4, 'approved', this)">✓ Approve</button>
+        <button class="react-btn react-suggest" onclick="react(4, 'suggest', this)">⟳ Suggest Edit</button>
+        <button class="react-btn react-needs" onclick="react(4, 'needs', this)">✕ Needs Work</button>
+      </div>
+      <textarea class="notes-field" id="notes-4" placeholder="Option A or B for body copy? Any OEM partners to add or remove? Tone feedback?" rows="3"></textarea>
+    </div>
+  </div>
+
+  <!-- SECTION 5: PAGE FLOW -->
+  <div class="msg-section reveal" data-section="5">
+    <div class="section-header">
+      <div>
+        <div class="section-tag">Section 5 of 6</div>
+        <div class="section-title">Recommended Page Section Flow</div>
+      </div>
+      <div class="section-status status-pending" id="status-5">Pending</div>
+    </div>
+    <div class="section-body">
+
+      <div class="callout callout-insight">
+        <div class="callout-label">How the Three Pillars Sequence on the Page</div>
+        <div class="callout-text">This is the proposed scroll order for the homepage — reputation-first, product second, distribution last. Each section feeds credibility into the next.</div>
+      </div>
+
+      <div style="margin-top:20px; display:flex; flex-direction:column; gap:10px;">
+
+        <div style="display:flex; align-items:flex-start; gap:16px; padding:16px 18px; background:var(--bg); border:1px solid var(--border); border-radius:10px;">
+          <div style="font-family:var(--font-d); font-size:22px; font-style:italic; color:var(--red); min-width:36px; flex-shrink:0;">01</div>
+          <div>
+            <div style="font-size:14px; font-weight:600; color:var(--navy); margin-bottom:3px;">Hero — Reputation Statement</div>
+            <div style="font-size:13px; font-weight:300; color:var(--grey);">Selected headline + 20-year legacy subhead. No product mention. Pure brand authority.</div>
+          </div>
+        </div>
+
+        <div style="display:flex; align-items:flex-start; gap:16px; padding:16px 18px; background:var(--bg); border:1px solid var(--border); border-radius:10px;">
+          <div style="font-family:var(--font-d); font-size:22px; font-style:italic; color:var(--red); min-width:36px; flex-shrink:0;">02</div>
+          <div>
+            <div style="font-size:14px; font-weight:600; color:var(--navy); margin-bottom:3px;">End Customer Trust — Logo Grid + Proof Stats</div>
+            <div style="font-size:13px; font-weight:300; color:var(--grey);">Global brand logos. 10K+ organizations, 60+ countries. Anchor quote.</div>
+          </div>
+        </div>
+
+        <div style="display:flex; align-items:flex-start; gap:16px; padding:16px 18px; background:var(--bg); border:1px solid var(--border); border-radius:10px;">
+          <div style="font-family:var(--font-d); font-size:22px; font-style:italic; color:var(--red); min-width:36px; flex-shrink:0;">03</div>
+          <div>
+            <div style="font-size:14px; font-weight:600; color:var(--navy); margin-bottom:3px;">OEM Partner Trust — Manufacturer Validation</div>
+            <div style="font-size:13px; font-weight:300; color:var(--grey);">OEM partner logos + "they staked their reputation on us" framing.</div>
+          </div>
+        </div>
+
+        <div style="display:flex; align-items:flex-start; gap:16px; padding:16px 18px; background:rgba(193,18,31,0.04); border:1px solid rgba(193,18,31,0.15); border-radius:10px;">
+          <div style="font-family:var(--font-d); font-size:22px; font-style:italic; color:var(--red); min-width:36px; flex-shrink:0;">04</div>
+          <div>
+            <div style="font-size:14px; font-weight:600; color:var(--navy); margin-bottom:3px;">Transition → Engine (Product Introduction)</div>
+            <div style="font-size:13px; font-weight:300; color:var(--grey);">Bridge copy: "This is how Neverfail is used in the world's most critical environments. Meet Engine." — Engine messaging built separately in next review cycle.</div>
+          </div>
+        </div>
+
+        <div style="display:flex; align-items:flex-start; gap:16px; padding:16px 18px; background:var(--bg); border:1px dashed var(--border-2); border-radius:10px; opacity:0.6;">
+          <div style="font-family:var(--font-d); font-size:22px; font-style:italic; color:var(--grey-2); min-width:36px; flex-shrink:0;">05</div>
+          <div>
+            <div style="font-size:14px; font-weight:600; color:var(--grey); margin-bottom:3px;">Engine — Product Deep Dive (Phase 2)</div>
+            <div style="font-size:13px; font-weight:300; color:var(--grey-2);">How it works, plugin ecosystem, comparison table, KPI dashboard. Separate review cycle.</div>
+          </div>
+        </div>
+
+        <div style="display:flex; align-items:flex-start; gap:16px; padding:16px 18px; background:var(--bg); border:1px dashed var(--border-2); border-radius:10px; opacity:0.6;">
+          <div style="font-family:var(--font-d); font-size:22px; font-style:italic; color:var(--grey-2); min-width:36px; flex-shrink:0;">06</div>
+          <div>
+            <div style="font-size:14px; font-weight:600; color:var(--grey); margin-bottom:3px;">Partner / VAR Distribution (Phase 3)</div>
+            <div style="font-size:13px; font-weight:300; color:var(--grey-2);">Channel program, enablement, partner login. Separate page or section — separate review cycle.</div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+    <div class="reaction-area">
+      <div class="reaction-label">Your reaction to this section</div>
+      <div class="reaction-buttons">
+        <button class="react-btn react-approve" onclick="react(5, 'approved', this)">✓ Approve</button>
+        <button class="react-btn react-suggest" onclick="react(5, 'suggest', this)">⟳ Suggest Edit</button>
+        <button class="react-btn react-needs" onclick="react(5, 'needs', this)">✕ Needs Work</button>
+      </div>
+      <textarea class="notes-field" id="notes-5" placeholder="Does this page flow feel right? Should OEM come before end customers? Any sections missing?" rows="3"></textarea>
+    </div>
+  </div>
+
+  <!-- SECTION 6: OPEN FEEDBACK -->
+  <div class="msg-section reveal" data-section="6">
+    <div class="section-header">
+      <div>
+        <div class="section-tag">Section 6 of 6</div>
+        <div class="section-title">Open Feedback & Direction Notes</div>
+      </div>
+      <div class="section-status status-pending" id="status-6">Pending</div>
+    </div>
+    <div class="section-body">
+      <div class="copy-text" style="margin-bottom:16px;">Anything else on your mind — tone, missing angles, competitive considerations, or overall direction for where the brand is heading. This is your space.</div>
+    </div>
+    <div class="reaction-area">
+      <div class="reaction-label">Overall direction feedback</div>
+      <div class="reaction-buttons">
+        <button class="react-btn react-approve" onclick="react(6, 'approved', this)">✓ On the right track</button>
+        <button class="react-btn react-suggest" onclick="react(6, 'suggest', this)">⟳ Some adjustments needed</button>
+        <button class="react-btn react-needs" onclick="react(6, 'needs', this)">✕ Need to rethink</button>
+      </div>
+      <textarea class="notes-field visible" id="notes-6" placeholder="Your open thoughts on the messaging direction, tone, what's missing, or what feels exactly right..." rows="5"></textarea>
+    </div>
+  </div>
+
+  <!-- SUBMIT -->
+  <div class="submit-section reveal">
+    <div class="submit-summary">
+      <div class="summary-item">
+        <div class="summary-count" id="count-approved" style="color:var(--green);">0</div>
+        <div class="summary-label">Approved</div>
+      </div>
+      <div class="summary-item">
+        <div class="summary-count" id="count-suggest" style="color:var(--amber);">0</div>
+        <div class="summary-label">Suggestions</div>
+      </div>
+      <div class="summary-item">
+        <div class="summary-count" id="count-needs" style="color:var(--red);">0</div>
+        <div class="summary-label">Needs Work</div>
+      </div>
+      <div class="summary-item">
+        <div class="summary-count" id="count-pending" style="color:var(--grey-2);">6</div>
+        <div class="summary-label">Pending</div>
+      </div>
+    </div>
+    <button class="submit-btn" id="submitBtn" onclick="submitFeedback()">
+      Submit Feedback →
+    </button>
+    <div class="submit-confirmation" id="submitConfirmation">
+      ✓ Feedback received. Joey will review your notes and follow up before Friday's session.
+    </div>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+  Neverfail — Homepage Messaging Framework — Confidential — May 2026
+</footer>
+
+<script>
+  // ── STATE ──
+  const state = {
+    reactions: {},    // { sectionNum: 'approved' | 'suggest' | 'needs' }
+    selectedHeadline: '',
+    submitted: false
+  };
+
+  const TOTAL = 6;
+
+  // ── HEADLINE SELECT ──
+  function selectHeadline(card, id) {
+    document.querySelectorAll('.headline-card').forEach(c => c.classList.remove('selected'));
+    card.classList.add('selected');
+    state.selectedHeadline = id;
+    document.getElementById('selected-headline').value = id;
+  }
+
+  // ── REACT ──
+  function react(sectionNum, type, btn) {
+    // Toggle off if same
+    if (state.reactions[sectionNum] === type) {
+      delete state.reactions[sectionNum];
+      btn.classList.remove('active');
+      updateStatus(sectionNum, 'pending');
+      showNotes(sectionNum, false);
+    } else {
+      // Clear previous buttons in this section
+      const area = btn.closest('.reaction-area');
+      area.querySelectorAll('.react-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      state.reactions[sectionNum] = type;
+      updateStatus(sectionNum, type);
+      showNotes(sectionNum, type !== 'approved');
+    }
+    updateProgress();
+    updateSummary();
+  }
+
+  function updateStatus(sectionNum, type) {
+    const el = document.getElementById(`status-${sectionNum}`);
+    el.className = 'section-status';
+    if (type === 'approved') { el.classList.add('status-approved'); el.textContent = '✓ Approved'; }
+    else if (type === 'suggest') { el.classList.add('status-suggest'); el.textContent = '⟳ Suggest Edit'; }
+    else if (type === 'needs') { el.classList.add('status-needs'); el.textContent = '✕ Needs Work'; }
+    else { el.classList.add('status-pending'); el.textContent = 'Pending'; }
+  }
+
+  function showNotes(sectionNum, show) {
+    const notes = document.getElementById(`notes-${sectionNum}`);
+    if (!notes) return;
+    if (show) notes.classList.add('visible');
+    else if (sectionNum !== 6) notes.classList.remove('visible');
+  }
+
+  function updateProgress() {
+    const reviewed = Object.keys(state.reactions).length;
+    const pct = (reviewed / TOTAL) * 100;
+    document.getElementById('progressFill').style.width = pct + '%';
+    document.getElementById('progressCount').textContent = `${reviewed} of ${TOTAL} reviewed`;
+  }
+
+  function updateSummary() {
+    let approved = 0, suggest = 0, needs = 0;
+    Object.values(state.reactions).forEach(r => {
+      if (r === 'approved') approved++;
+      else if (r === 'suggest') suggest++;
+      else if (r === 'needs') needs++;
+    });
+    const pending = TOTAL - approved - suggest - needs;
+    document.getElementById('count-approved').textContent = approved;
+    document.getElementById('count-suggest').textContent = suggest;
+    document.getElementById('count-needs').textContent = needs;
+    document.getElementById('count-pending').textContent = pending;
+  }
+
+  // ── SUBMIT ──
+  function submitFeedback() {
+    if (state.submitted) return;
+
+    // Gather all notes
+    const notes = {};
+    for (let i = 1; i <= TOTAL; i++) {
+      const n = document.getElementById(`notes-${i}`);
+      if (n && n.value.trim()) notes[i] = n.value.trim();
+    }
+
+    const payload = {
+      timestamp: new Date().toISOString(),
+      headline_selected: state.selectedHeadline,
+      reactions: state.reactions,
+      notes: notes
+    };
+
+    console.log('Feedback payload:', JSON.stringify(payload, null, 2));
+
+    // Show confirmation
+    state.submitted = true;
+    document.getElementById('submitBtn').disabled = true;
+    document.getElementById('submitBtn').textContent = '✓ Submitted';
+    document.getElementById('submitConfirmation').style.display = 'block';
+
+    // Scroll to confirmation
+    document.getElementById('submitConfirmation').scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+
+  // ── REVEAL ANIMATIONS ──
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
+  }, { threshold: 0.06 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
 
