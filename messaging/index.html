@@ -1218,7 +1218,7 @@ footer {
         <div style="display:flex; align-items:flex-start; gap:16px; padding:16px 18px; background:rgba(193,18,31,0.04); border:1px solid rgba(193,18,31,0.15); border-radius:10px;">
           <div style="font-family:var(--font-d); font-size:22px; font-style:italic; color:var(--red); min-width:36px; flex-shrink:0;">04</div>
           <div>
-            <div style="font-size:14px; font-weight:600; color:var(--navy); margin-bottom:3px;">Transition ‚Üí Engine (Product Introduction)</div>
+            <div style="font-size:14px; font-weight:600; color:var(--navy); margin-bottom:3px;">Transition &rarr; Engine (Product Introduction)</div>
             <div style="font-size:13px; font-weight:300; color:var(--grey);">Bridge copy: "This is how Neverfail is used in the world's most critical environments. Meet Engine." &mdash; Engine messaging built separately in next review cycle.</div>
           </div>
         </div>
@@ -1297,7 +1297,7 @@ footer {
       </div>
     </div>
     <button class="submit-btn" id="submitBtn" onclick="submitFeedback()">
-      Submit Feedback ‚Üí
+      Submit Feedback &rarr;
     </button>
     <div class="submit-confirmation" id="submitConfirmation">
       &#10003; Feedback received. Joey will review your notes and follow up before Friday's session.
@@ -1353,10 +1353,10 @@ footer {
   function updateStatus(sectionNum, type) {
     const el = document.getElementById(`status-${sectionNum}`);
     el.className = 'section-status';
-    if (type === 'approved') { el.classList.add('status-approved'); el.textContent = '&#10003; Approved'; }
-    else if (type === 'suggest') { el.classList.add('status-suggest'); el.textContent = '&#8635; Suggest Edit'; }
-    else if (type === 'needs') { el.classList.add('status-needs'); el.textContent = '&#10005; Needs Work'; }
-    else { el.classList.add('status-pending'); el.textContent = 'Pending'; }
+    if (type === 'approved') { el.classList.add('status-approved'); el.innerHTML = '&#10003; Approved'; }
+    else if (type === 'suggest') { el.classList.add('status-suggest'); el.innerHTML = '&#8635; Suggest Edit'; }
+    else if (type === 'needs') { el.classList.add('status-needs'); el.innerHTML = '&#10005; Needs Work'; }
+    else { el.classList.add('status-pending'); el.innerHTML = 'Pending'; }
   }
 
   function showNotes(sectionNum, show) {
@@ -1392,10 +1392,10 @@ footer {
     if (state.submitted) return;
 
     const sectionNames = {
-      1: 'Hero Headline &mdash; Above the Fold',
+      1: 'Hero Headline - Above the Fold',
       2: 'Pillar 1 &mdash; 20-Year Reputation & Legacy',
-      3: 'Pillar 2 &mdash; Trusted by Global Mission-Critical Brands',
-      4: 'Pillar 3 &mdash; Trusted by Mission-Critical Application Makers',
+      3: 'Pillar 2 - Trusted by Global Mission-Critical Brands',
+      4: 'Pillar 3 - Trusted by Mission-Critical Application Makers',
       5: 'Recommended Page Section Flow',
       6: 'Open Feedback & Direction Notes'
     };
@@ -1415,21 +1415,21 @@ footer {
 
     // Build FormData for email
     const fd = new FormData();
-    fd.append('_subject', 'Neverfail Messaging Review &mdash; Feedback Submitted');
+    fd.append('_subject', 'Neverfail Messaging Review - Feedback Submitted');
     fd.append('Submitted At', new Date().toLocaleString());
     fd.append('Headline Selected', state.selectedHeadline || 'Not selected');
 
     for (let i = 1; i <= TOTAL; i++) {
       const reaction = state.reactions[i];
       const label = sectionNames[i] || `Section ${i}`;
-      fd.append(label + ' &mdash; Reaction', reactionLabels[reaction] || 'No response');
-      if (notes[i]) fd.append(label + ' &mdash; Notes', notes[i]);
+      fd.append(label + ' - Reaction', reactionLabels[reaction] || 'No response');
+      if (notes[i]) fd.append(label + ' - Notes', notes[i]);
     }
 
     // Disable button immediately
     const btn = document.getElementById('submitBtn');
     btn.disabled = true;
-    btn.textContent = 'Sending&hellip;';
+    btn.textContent = 'Sending...';
 
     try {
       await fetch('https://formsubmit.co/joeyterrazas1@gmail.com', {
@@ -1443,7 +1443,7 @@ footer {
 
     // Show confirmation
     state.submitted = true;
-    btn.textContent = '&#10003; Submitted';
+    btn.innerHTML = '&#10003; Submitted';
     document.getElementById('submitConfirmation').style.display = 'block';
     document.getElementById('submitConfirmation').scrollIntoView({ behavior: 'smooth', block: 'center' });
   }
