@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Neverfail &mdash; Engine</title>
+<title>Neverfail — Engine</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
@@ -42,7 +42,7 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* -- NAV -- */
+/* ── NAV ── */
 nav {
   position: fixed;
   top: 0; left: 0; right: 0;
@@ -158,7 +158,7 @@ nav {
 
 .btn-nav-primary:hover { background: #E03040; }
 
-/* -- HERO -- */
+/* ── HERO ── */
 .hero {
   position: relative;
   min-height: 100vh;
@@ -366,7 +366,7 @@ nav {
   margin-top: 5px;
 }
 
-/* -- TRUST BAR -- */
+/* ── TRUST BAR ── */
 .trust-bar {
   border-top: 1px solid rgba(0,48,73,0.12);
   border-bottom: 1px solid var(--border);
@@ -411,7 +411,7 @@ nav {
 
 .trust-logo:hover { color: rgba(255,255,255,0.85); }
 
-/* -- SHARED SECTION -- */
+/* ── SHARED SECTION ── */
 section { padding: 120px 52px; }
 
 .s-inner { max-width: 1160px; margin: 0 auto; }
@@ -454,7 +454,7 @@ section { padding: 120px 52px; }
   letter-spacing: 0.01em;
 }
 
-/* -- COST SECTION -- */
+/* ── COST SECTION ── */
 .cost-sec { background: var(--bg-2); position: relative; overflow: hidden; }
 
 .cost-sec::after {
@@ -511,7 +511,7 @@ section { padding: 120px 52px; }
   line-height: 1.75;
 }
 
-/* -- COMPARE -- */
+/* ── COMPARE ── */
 .compare-sec { background: #ffffff; }
 
 .compare-wrap {
@@ -579,7 +579,7 @@ section { padding: 120px 52px; }
 .dot-no  { width: 5px; height: 5px; background: rgba(255,255,255,0.15); border-radius: 50%; flex-shrink: 0; }
 .dot-partial { width: 5px; height: 5px; background: rgba(255,180,50,0.6); border-radius: 50%; flex-shrink: 0; }
 
-/* -- HOW IT WORKS -- */
+/* ── HOW IT WORKS ── */
 .how-sec { background: var(--bg-2); position: relative; overflow: hidden; }
 
 .how-sec::before {
@@ -664,7 +664,7 @@ section { padding: 120px 52px; }
   line-height: 1.75;
 }
 
-/* -- 3D VISUAL MOCKUP -- */
+/* ── 3D VISUAL MOCKUP ── */
 .visual-sec {
   background: var(--bg);
   overflow: hidden;
@@ -798,7 +798,7 @@ section { padding: 120px 52px; }
 .badge-dot { width: 4px; height: 4px; border-radius: 50%; background: currentColor; }
 
 
-/* -- KPI DASHBOARD 3D SECTION -- */
+/* ── KPI DASHBOARD 3D SECTION ── */
 .kpi-sec {
   background: #003049;
   overflow: hidden;
@@ -1016,7 +1016,7 @@ section { padding: 120px 52px; }
   margin-top: 8px;
 }
 
-/* -- PLUGINS -- */
+/* ── PLUGINS ── */
 .plugins-sec { background: #003049; }
 
 .plugins-header {
@@ -1080,7 +1080,7 @@ section { padding: 120px 52px; }
   text-transform: uppercase;
 }
 
-/* -- RANSOMWARE -- */
+/* ── RANSOMWARE ── */
 .ransom-sec {
   background: var(--bg);
   padding: 80px 52px;
@@ -1185,7 +1185,7 @@ section { padding: 120px 52px; }
   text-transform: uppercase;
 }
 
-/* -- PROOF -- */
+/* ── PROOF ── */
 .proof-sec { background: #003049; }
 
 .proof-top {
@@ -1305,7 +1305,7 @@ section { padding: 120px 52px; }
   margin-top: 3px;
 }
 
-/* -- PARTNER CTA -- */
+/* ── PARTNER CTA ── */
 .partner-sec {
   background: var(--bg);
   position: relative;
@@ -1382,7 +1382,7 @@ section { padding: 120px 52px; }
   line-height: 1.7;
 }
 
-/* -- FOOTER -- */
+/* ── FOOTER ── */
 footer {
   background: var(--bg);
   border-top: 1px solid rgba(0,48,73,0.12);
@@ -1468,7 +1468,28 @@ footer {
 .foot-legal a { font-size: 12px; font-weight: 300; color: rgba(255,255,255,0.4); text-decoration: none; transition: color 0.2s; }
 .foot-legal a:hover { color: var(--grey); }
 
-/* -- ANIMATIONS -- */
+
+/* ── MARQUEE ── */
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.marquee-logo {
+  font-family: var(--font-b);
+  font-size: 12px;
+  font-weight: 500;
+  color: rgba(0,48,73,0.55);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  transition: color 0.2s;
+  cursor: default;
+}
+
+.marquee-logo:hover { color: rgba(0,48,73,0.85); }
+
+/* ── ANIMATIONS ── */
 .reveal {
   opacity: 0;
   transform: translateY(24px);
@@ -1482,7 +1503,7 @@ footer {
 .reveal.d4 { transition-delay: 0.4s; }
 .reveal.d5 { transition-delay: 0.5s; }
 
-/* -- NAVY SECTION TEXT OVERRIDES -- */
+/* ── NAVY SECTION TEXT OVERRIDES ── */
 .cost-sec .s-label,
 .how-sec .s-label,
 .plugins-sec .s-label,
@@ -1539,8 +1560,7 @@ footer .s-label { color: rgba(255,255,255,0.45); }
 .compare-sec .s-label,
 .visual-sec .s-label,
 .ransom-sec .s-label,
-.partner-sec .s-label,
-.rep-sec .s-label {
+.partner-sec .s-label {
   color: rgba(193,18,31,0.8);
   border-color: rgba(193,18,31,0.22);
   background: rgba(193,18,31,0.05);
@@ -1554,146 +1574,6 @@ footer .s-label { color: rgba(255,255,255,0.45); }
 
 /* Proof section numbers */
 .proof-val span { color: #C1121F; font-style: normal; font-family: var(--font-b); font-weight: 300; }
-
-/* -- BRAND REPUTATION (PILLAR 1) -- */
-.rep-sec { background: #ffffff; }
-
-.rep-body-wrap {
-  max-width: 800px;
-  margin: 36px 0 0;
-}
-
-.rep-body {
-  font-size: 19px;
-  font-weight: 300;
-  color: rgba(0,48,73,0.72);
-  line-height: 1.85;
-  letter-spacing: 0.01em;
-}
-
-.rep-stats {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1px;
-  background: rgba(0,48,73,0.1);
-  border: 1px solid rgba(0,48,73,0.1);
-  border-radius: 12px;
-  overflow: hidden;
-  margin: 56px 0;
-}
-
-.rep-stat {
-  background: #ffffff;
-  padding: 44px 36px;
-  text-align: center;
-}
-
-.rep-stat-val {
-  font-family: var(--font-d);
-  font-size: 56px;
-  font-style: italic;
-  color: #C1121F;
-  line-height: 1;
-  letter-spacing: -0.02em;
-  margin-bottom: 16px;
-}
-
-.rep-stat-lbl {
-  font-size: 14px;
-  font-weight: 300;
-  color: rgba(0,48,73,0.55);
-  line-height: 1.65;
-  letter-spacing: 0.01em;
-}
-
-/* Pull quotes */
-.rep-quote-wrap {
-  display: grid;
-  grid-template-columns: 1.1fr 1fr;
-  gap: 20px;
-}
-
-.rep-quote-primary {
-  background: #003049;
-  border-radius: 12px;
-  padding: 44px 48px;
-  position: relative;
-  overflow: hidden;
-}
-
-.rep-quote-primary::before {
-  content: '';
-  position: absolute;
-  top: -80px; right: -80px;
-  width: 320px; height: 320px;
-  background: radial-gradient(circle, rgba(193,18,31,0.18) 0%, transparent 65%);
-  pointer-events: none;
-}
-
-.rep-quote-text {
-  font-family: var(--font-d);
-  font-size: 30px;
-  font-style: italic;
-  color: #ffffff;
-  line-height: 1.25;
-  letter-spacing: -0.01em;
-  margin-bottom: 24px;
-  position: relative;
-  z-index: 1;
-}
-
-.rep-quote-attr {
-  font-size: 12px;
-  font-weight: 400;
-  color: rgba(255,255,255,0.42);
-  letter-spacing: 0.13em;
-  text-transform: uppercase;
-  position: relative;
-  z-index: 1;
-}
-
-.rep-quote-alt {
-  border: 1px solid rgba(0,48,73,0.12);
-  border-radius: 12px;
-  padding: 44px 44px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.rep-quote-alt-label {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  font-size: 11px;
-  font-weight: 400;
-  color: rgba(193,18,31,0.75);
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  margin-bottom: 22px;
-  padding: 5px 13px;
-  border: 1px solid rgba(193,18,31,0.2);
-  border-radius: 100px;
-  background: rgba(193,18,31,0.04);
-  align-self: flex-start;
-}
-
-.rep-quote-alt-text {
-  font-family: var(--font-d);
-  font-size: 24px;
-  font-style: italic;
-  color: #003049;
-  line-height: 1.3;
-  letter-spacing: -0.01em;
-  margin-bottom: 18px;
-}
-
-.rep-quote-alt-desc {
-  font-size: 15px;
-  font-weight: 300;
-  color: rgba(0,48,73,0.5);
-  line-height: 1.75;
-}
 
 </style>
 </head>
@@ -1738,13 +1618,17 @@ footer .s-label { color: rgba(255,255,255,0.45); }
   </div>
 
   <h1 class="reveal d1">
-    <em>20 years</em>
-    in the most critical corners of <span class="accent">industry.</span>
+    <em>25+ years protecting the world's</em>
+    <span class="accent">most mission-critical industries.</span>
   </h1>
 
   <p class="hero-sub reveal d2">
-    The global brands that can&rsquo;t afford failure &mdash; and the manufacturers who build for them &mdash; have made Neverfail the standard for mission-critical application resiliency.
+    Global brands can't afford failure. Neither can the manufacturers who build for them. When the stakes are highest, they choose one name.
   </p>
+
+  <div class="reveal d2b" style="margin-top:-16px; margin-bottom:40px; font-family:var(--font-b); font-size:14px; font-weight:500; letter-spacing:0.12em; text-transform:uppercase; color:#C1121F; text-align:center; padding:14px 28px; display:inline-block; border:1px solid rgba(193,18,31,0.2); border-radius:6px;">
+    One brand.&nbsp;&nbsp;One resiliency standard.&nbsp;&nbsp;NEVERFAIL.
+  </div>
 
   <div class="hero-ctas reveal d3">
     <a href="#" class="btn-cta">Request a Demo</a>
@@ -1756,11 +1640,11 @@ footer .s-label { color: rgba(255,255,255,0.45); }
 
   <div class="hero-stats reveal d4">
     <div class="h-stat">
-      <div class="h-stat-val">&asymp;<span>0</span>s</div>
+      <div class="h-stat-val">≈<span>0</span>s</div>
       <div class="h-stat-label">RTO</div>
     </div>
     <div class="h-stat">
-      <div class="h-stat-val">&asymp;<span>0</span></div>
+      <div class="h-stat-val">≈<span>0</span></div>
       <div class="h-stat-label">Data Loss</div>
     </div>
     <div class="h-stat">
@@ -1778,124 +1662,23 @@ footer .s-label { color: rgba(255,255,255,0.45); }
   </div>
 </section>
 
-<!-- TRUST BAR -->
-<div class="trust-bar">
-  <div class="trust-bar-inner">
-    <span class="trust-label">OEM Partners</span>
-    <div class="trust-logos">
-      <span class="trust-logo">Honeywell</span>
-      <span class="trust-logo">Schneider Electric</span>
-      <span class="trust-logo">Siemens</span>
-      <span class="trust-logo">VMware</span>
-      <span class="trust-logo">Mitel</span>
-      <span class="trust-logo">Milestone</span>
-      <span class="trust-logo">CentralSquare</span>
-      <span class="trust-logo">Microsoft</span>
-      <span class="trust-logo">OPSWAT</span>
-    </div>
-  </div>
-</div>
-
-<!-- BRAND REPUTATION (PILLAR 1) -->
-<section class="rep-sec">
-  <div class="s-inner">
-
-    <div class="reveal">
-      <div class="s-label">20-Year Reputation &amp; Legacy</div>
-      <h2 class="s-h2">Built for the corners where <span style="color:#C1121F;font-style:italic;">failure isn&rsquo;t an option.</span></h2>
-    </div>
-
-    <div class="rep-body-wrap reveal d1">
-      <p class="rep-body">For two decades, Neverfail has been the infrastructure of resilience that the world&rsquo;s most critical organizations are built on. From global banks to federal agencies to industrial operations &mdash; and the manufacturers who build their most critical applications &mdash; every layer of the resiliency stack ultimately rests on one foundation: Neverfail.</p>
-      <p class="rep-body" style="margin-top:24px;opacity:0.7;font-style:italic;">We don&rsquo;t ask to be seen. We just make sure nothing goes down.</p>
-    </div>
-
-    <div class="rep-stats reveal d2">
-      <div class="rep-stat">
-        <div class="rep-stat-val">20+</div>
-        <div class="rep-stat-lbl">Years of resilience in<br>mission-critical environments</div>
+<!-- END CUSTOMER TRUST BAR -->
+<div style="background:#f4f6f8; border-top:1px solid rgba(0,48,73,0.1); border-bottom:1px solid rgba(0,48,73,0.1); padding:28px 52px; overflow:hidden;">
+  <div style="max-width:1160px; margin:0 auto; display:flex; align-items:center; gap:40px;">
+    <span style="font-size:10px; font-weight:500; color:rgba(0,48,73,0.4); letter-spacing:0.12em; text-transform:uppercase; white-space:nowrap; flex-shrink:0;">Trusted By</span>
+    <div style="overflow:hidden; flex:1; position:relative;">
+      <div class="marquee-track" style="display:flex; gap:56px; align-items:center; animation:marquee 22s linear infinite;">
+        <span class="marquee-logo">FBI</span>
+        <span class="marquee-logo">Lloyds of London</span>
+        <span class="marquee-logo">Saudi Aramco</span>
+        <span class="marquee-logo">Nike</span>
+        <span class="marquee-logo" style="color:rgba(0,48,73,0.2); font-style:italic;">+ More Coming Soon</span>
+        <span class="marquee-logo">FBI</span>
+        <span class="marquee-logo">Lloyds of London</span>
+        <span class="marquee-logo">Saudi Aramco</span>
+        <span class="marquee-logo">Nike</span>
+        <span class="marquee-logo" style="color:rgba(0,48,73,0.2); font-style:italic;">+ More Coming Soon</span>
       </div>
-      <div class="rep-stat">
-        <div class="rep-stat-val">10K+</div>
-        <div class="rep-stat-lbl">Brands trusting their reputation<br>to Neverfail infrastructure</div>
-      </div>
-      <div class="rep-stat">
-        <div class="rep-stat-val">16+</div>
-        <div class="rep-stat-lbl">OEM partners embedding Neverfail<br>in their critical solutions</div>
-      </div>
-    </div>
-
-    <div class="rep-quote-wrap reveal d3">
-      <div class="rep-quote-primary">
-        <div class="rep-quote-text">&ldquo;Brands and the brand behind the brands.&rdquo;</div>
-        <div class="rep-quote-attr">Brian Hierholzer &mdash; Neverfail &middot; Verbatim</div>
-      </div>
-      <div class="rep-quote-alt">
-        <div class="rep-quote-alt-label">Alt. anchor &mdash; OEM &amp; IT audiences</div>
-        <div class="rep-quote-alt-text">&ldquo;The infrastructure behind the infrastructure.&rdquo;</div>
-        <div class="rep-quote-alt-desc">Mirrors Brian&rsquo;s layered trust model in technical language &mdash; same concept, different register. Speaks directly to OEM and IT audiences. Confirm which leads on the final page, or let design context decide.</div>
-      </div>
-    </div>
-
-  </div>
-</section>
-<!-- PILLAR 2: END CUSTOMER TRUST -->
-<div style="padding:80px 52px; background:var(--bg); border-bottom:1px solid var(--border);">
-  <div style="max-width:1160px; margin:0 auto;">
-    <div style="display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:end; margin-bottom:48px;">
-      <div>
-        <div class="s-label" style="margin-bottom:20px;">Pillar 2 &mdash; End Customer Trust</div>
-        <div style="font-family:'Instrument Serif',serif; font-size:clamp(28px,3.5vw,46px); font-style:italic; color:var(--white); line-height:1.12; letter-spacing:-0.01em;">The names that trust us most are the ones that <span style="color:var(--cyan);">can least afford to be wrong.</span></div>
-      </div>
-      <div style="font-size:15px; font-weight:300; color:var(--grey); line-height:1.8;">From federal intelligence agencies to global financial institutions to the world&rsquo;s largest energy producers &mdash; the organizations that operate at the highest stakes have independently arrived at the same conclusion: when their applications must stay up, they trust Neverfail.</div>
-    </div>
-    <div style="display:flex; flex-wrap:wrap; gap:12px; margin-bottom:36px;">
-      <div style="padding:10px 20px; background:var(--surface); border:1px solid var(--border2); border-radius:8px; font-size:13px; font-weight:500; color:var(--white); letter-spacing:0.03em;">FBI</div>
-      <div style="padding:10px 20px; background:var(--surface); border:1px solid var(--border2); border-radius:8px; font-size:13px; font-weight:500; color:var(--white); letter-spacing:0.03em;">Lloyds of London</div>
-      <div style="padding:10px 20px; background:var(--surface); border:1px solid var(--border2); border-radius:8px; font-size:13px; font-weight:500; color:var(--white); letter-spacing:0.03em;">Saudi Aramco</div>
-      <div style="padding:10px 20px; background:var(--surface); border:1px solid var(--border2); border-radius:8px; font-size:13px; font-weight:500; color:var(--white); letter-spacing:0.03em;">Nike</div>
-      <div style="padding:10px 20px; background:transparent; border:1px dashed var(--border2); border-radius:8px; font-size:12px; font-weight:300; color:var(--grey2); letter-spacing:0.03em; font-style:italic;">+ Additional logos TBC</div>
-    </div>
-    <div style="padding:24px 32px; border-left:3px solid var(--cyan); background:var(--surface); border-radius:0 10px 10px 0;">
-      <div style="font-family:'Instrument Serif',serif; font-size:20px; font-style:italic; color:var(--grey); line-height:1.5;">&ldquo;They didn&rsquo;t choose us because we were the cheapest option. They chose us because they couldn&rsquo;t afford the alternative.&rdquo;</div>
-    </div>
-  </div>
-</div>
-
-<!-- PILLAR 3: OEM PARTNER TRUST -->
-<div style="padding:80px 52px; background:var(--bg-2); border-bottom:1px solid var(--border);">
-  <div style="max-width:1160px; margin:0 auto;">
-    <div style="display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:end; margin-bottom:48px;">
-      <div>
-        <div class="s-label" style="margin-bottom:20px;">Pillar 3 &mdash; OEM Partner Trust</div>
-        <div style="font-family:'Instrument Serif',serif; font-size:clamp(28px,3.5vw,46px); font-style:italic; color:#ffffff; line-height:1.12; letter-spacing:-0.01em;">The makers of mission-critical applications <span style="color:var(--cyan);">chose us to protect their reputation.</span></div>
-      </div>
-      <div style="font-size:15px; font-weight:300; color:rgba(255,255,255,0.72); line-height:1.8;">The world&rsquo;s leading industrial application manufacturers don&rsquo;t add technology to their stack lightly. When Honeywell, Schneider Electric, and Siemens embedded Neverfail into their mission-critical solutions, they weren&rsquo;t just buying software &mdash; they were staking their global reputation on it.</div>
-    </div>
-    <div style="display:flex; flex-wrap:wrap; gap:10px; margin-bottom:40px;">
-      <div style="padding:10px 18px; background:var(--cyan-dim); border:1px solid var(--border2); border-radius:8px; font-size:13px; font-weight:500; color:var(--cyan); letter-spacing:0.03em;">Honeywell</div>
-      <div style="padding:10px 18px; background:var(--cyan-dim); border:1px solid var(--border2); border-radius:8px; font-size:13px; font-weight:500; color:var(--cyan); letter-spacing:0.03em;">Schneider Electric</div>
-      <div style="padding:10px 18px; background:var(--cyan-dim); border:1px solid var(--border2); border-radius:8px; font-size:13px; font-weight:500; color:var(--cyan); letter-spacing:0.03em;">Siemens</div>
-      <div style="padding:10px 18px; background:var(--cyan-dim); border:1px solid var(--border2); border-radius:8px; font-size:13px; font-weight:500; color:var(--cyan); letter-spacing:0.03em;">VMware</div>
-      <div style="padding:10px 18px; background:var(--cyan-dim); border:1px solid var(--border2); border-radius:8px; font-size:13px; font-weight:500; color:var(--cyan); letter-spacing:0.03em;">Mitel</div>
-      <div style="padding:10px 18px; background:var(--cyan-dim); border:1px solid var(--border2); border-radius:8px; font-size:13px; font-weight:500; color:var(--cyan); letter-spacing:0.03em;">Milestone</div>
-      <div style="padding:10px 18px; background:var(--cyan-dim); border:1px solid var(--border2); border-radius:8px; font-size:13px; font-weight:500; color:var(--cyan); letter-spacing:0.03em;">CentralSquare</div>
-      <div style="padding:10px 18px; background:var(--cyan-dim); border:1px solid var(--border2); border-radius:8px; font-size:13px; font-weight:500; color:var(--cyan); letter-spacing:0.03em;">Automated Logic</div>
-      <div style="padding:10px 18px; background:var(--cyan-dim); border:1px solid var(--border2); border-radius:8px; font-size:13px; font-weight:500; color:var(--cyan); letter-spacing:0.03em;">Cisco</div>
-      <div style="padding:10px 18px; background:var(--cyan-dim); border:1px solid var(--border2); border-radius:8px; font-size:13px; font-weight:500; color:var(--cyan); letter-spacing:0.03em;">OpenText</div>
-      <div style="padding:10px 18px; background:var(--cyan-dim); border:1px solid var(--border2); border-radius:8px; font-size:13px; font-weight:500; color:var(--cyan); letter-spacing:0.03em;">OPSWAT</div>
-      <div style="padding:10px 18px; background:var(--cyan-dim); border:1px solid var(--border2); border-radius:8px; font-size:13px; font-weight:500; color:var(--cyan); letter-spacing:0.03em;">Progress</div>
-      <div style="padding:10px 18px; background:var(--cyan-dim); border:1px solid var(--border2); border-radius:8px; font-size:13px; font-weight:500; color:var(--cyan); letter-spacing:0.03em;">SolarWinds</div>
-      <div style="padding:10px 18px; background:var(--cyan-dim); border:1px solid var(--border2); border-radius:8px; font-size:13px; font-weight:500; color:var(--cyan); letter-spacing:0.03em;">AVST</div>
-      <div style="padding:10px 18px; background:var(--cyan-dim); border:1px solid var(--border2); border-radius:8px; font-size:13px; font-weight:500; color:var(--cyan); letter-spacing:0.03em;">Clever Devices</div>
-      <div style="padding:10px 18px; background:var(--cyan-dim); border:1px solid var(--border2); border-radius:8px; font-size:13px; font-weight:500; color:var(--cyan); letter-spacing:0.03em;">Southern</div>
-    </div>
-    <div style="display:flex; align-items:center; justify-content:space-between; padding:28px 32px; border:1px solid var(--border2); border-radius:12px; background:var(--bg-3);">
-      <div>
-        <div style="font-size:14px; font-weight:500; color:#ffffff; margin-bottom:6px;">This is how Neverfail is deployed in the world&rsquo;s most critical environments.</div>
-        <div style="font-size:14px; font-weight:300; color:var(--grey2);">Now meet the product that makes it possible.</div>
-      </div>
-      <div style="padding:10px 24px; background:var(--cyan); border-radius:6px; font-size:13px; font-weight:500; color:var(--bg); letter-spacing:0.03em; white-space:nowrap; cursor:pointer;">Discover Engine &rarr;</div>
     </div>
   </div>
 </div>
@@ -1906,18 +1689,18 @@ footer .s-label { color: rgba(255,255,255,0.45); }
     <div class="reveal">
       <div class="s-label">The Stakes</div>
       <h2 class="s-h2">Every minute costs<br>more than you think.</h2>
-      <p class="s-sub">For Tier-1 applications, downtime isn't an inconvenience &mdash; it's a calculable, often contractual loss.</p>
+      <p class="s-sub">For Tier-1 applications, downtime isn't an inconvenience — it's a calculable, often contractual loss.</p>
     </div>
     <div class="cost-grid reveal d2">
       <div class="cost-card">
         <div class="cost-num">$300K+</div>
         <div class="cost-title">Average cost per hour</div>
-        <div class="cost-desc">Enterprise downtime on a Tier-1 application &mdash; ERP, EHR, trading, dispatch. Every 60 minutes the clock runs.</div>
+        <div class="cost-desc">Enterprise downtime on a Tier-1 application — ERP, EHR, trading, dispatch. Every 60 minutes the clock runs.</div>
       </div>
       <div class="cost-card">
         <div class="cost-num">87%</div>
         <div class="cost-title">Of outages are application-layer</div>
-        <div class="cost-desc">The VM is alive. The host is fine. VMware HA sees nothing. The application is hung &mdash; and users are down.</div>
+        <div class="cost-desc">The VM is alive. The host is fine. VMware HA sees nothing. The application is hung — and users are down.</div>
       </div>
       <div class="cost-card">
         <div class="cost-num">4+ hrs</div>
@@ -1951,7 +1734,7 @@ footer .s-label { color: rgba(255,255,255,0.45); }
       </div>
       <div class="c-row">
         <div class="c-cell row-lbl">Data Loss (RPO)</div>
-        <div class="c-cell">15 min &ndash; 24 hrs</div>
+        <div class="c-cell">15 min – 24 hrs</div>
         <div class="c-cell">5 min minimum</div>
         <div class="c-cell eng"><span class="dot-yes"></span> Near-zero, continuous</div>
       </div>
@@ -1991,7 +1774,7 @@ footer .s-label { color: rgba(255,255,255,0.45); }
         <div class="s-label">How Engine Works</div>
         <h2 class="s-h2">Continuous.<br>Intelligent.<br>Automatic.</h2>
       </div>
-      <p class="s-sub reveal d2" style="margin-bottom:0; align-self:end;">Engine watches your entire application stack and acts before your users notice a problem &mdash; remediating locally first, failing over only when necessary.</p>
+      <p class="s-sub reveal d2" style="margin-bottom:0; align-self:end;">Engine watches your entire application stack and acts before your users notice a problem — remediating locally first, failing over only when necessary.</p>
     </div>
     <div class="how-grid reveal d2">
       <div class="how-card">
@@ -2008,7 +1791,7 @@ footer .s-label { color: rgba(255,255,255,0.45); }
           <svg viewBox="0 0 16 16"><path d="M8 2a6 6 0 1 0 0 12A6 6 0 0 0 8 2z M8 5v4l2.5 2.5" stroke-linecap="round"/></svg>
         </div>
         <div class="how-title">Monitor</div>
-        <div class="how-desc">Pre-tuned plugins watch services, performance counters, dependencies, OS and network &mdash; detecting hangs the host can't see.</div>
+        <div class="how-desc">Pre-tuned plugins watch services, performance counters, dependencies, OS and network — detecting hangs the host can't see.</div>
       </div>
       <div class="how-card">
         <div class="how-num">03</div>
@@ -2016,7 +1799,7 @@ footer .s-label { color: rgba(255,255,255,0.45); }
           <svg viewBox="0 0 16 16"><path d="M13 5.5 A5 5 0 1 1 8 3 M13 2v3.5h-3.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </div>
         <div class="how-title">Remediate</div>
-        <div class="how-desc">Rules engine auto-restarts services, recycles app pools, clears queues &mdash; resolving locally before escalating to failover.</div>
+        <div class="how-desc">Rules engine auto-restarts services, recycles app pools, clears queues — resolving locally before escalating to failover.</div>
       </div>
       <div class="how-card">
         <div class="how-num">04</div>
@@ -2036,7 +1819,7 @@ footer .s-label { color: rgba(255,255,255,0.45); }
     <div class="visual-copy reveal">
       <div class="s-label">Engine in Action</div>
       <h2 class="s-h2">A single pane of glass<br>across every protected<br>workload.</h2>
-      <p class="s-sub">Monitor cluster health, replication status, and application performance across all sites &mdash; from one dashboard.</p>
+      <p class="s-sub">Monitor cluster health, replication status, and application performance across all sites — from one dashboard.</p>
       <a href="#" class="btn-cta-ghost" style="margin-top: 28px; display: inline-flex;">
         See the full Engine dashboard
         <svg viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -2081,12 +1864,12 @@ footer .s-label { color: rgba(255,255,255,0.45); }
       <div class="vis-panel vp3">
         <div class="panel-header">
           <div class="dot-r"></div><div class="dot-y"></div><div class="dot-g"></div>
-          <span class="panel-title">SQL Server &mdash; Active Node</span>
+          <span class="panel-title">SQL Server — Active Node</span>
         </div>
         <div class="panel-body">
           <div class="status-badge badge-ok"><div class="badge-dot"></div>Protected</div>
           <div class="panel-metric">
-            <span class="metric-val">&asymp;0s</span>
+            <span class="metric-val">≈0s</span>
             <span class="metric-lbl">RTO</span>
           </div>
           <div class="spark-line">
@@ -2112,7 +1895,7 @@ footer .s-label { color: rgba(255,255,255,0.45); }
     <div class="kpi-copy reveal">
       <div class="s-label">KPI Dashboard</div>
       <h2 class="s-h2">A single pane of glass<br>across every protected<br>workload.</h2>
-      <p class="s-sub">Monitor cluster health, replication status, version coverage, and license posture &mdash; across all sites, from one console.</p>
+      <p class="s-sub">Monitor cluster health, replication status, version coverage, and license posture — across all sites, from one console.</p>
       <a href="#" class="btn-cta-ghost" style="display:inline-flex;margin-top:8px;">
         See the full Engine dashboard
         <svg viewBox="0 0 16 16" style="width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:1.5;margin-left:8px;"><path d="M3 8h10M9 4l4 4-4 4" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -2126,13 +1909,13 @@ footer .s-label { color: rgba(255,255,255,0.45); }
         <div class="kpi-panel-inner">
           <div class="dash-topbar">
             <div class="tl-row"><div class="tl tl-r"></div><div class="tl tl-y"></div><div class="tl tl-g"></div></div>
-            <div class="dash-title-bar">Engine &mdash; KPI Dashboard</div>
+            <div class="dash-title-bar">Engine — KPI Dashboard</div>
           </div>
           <div class="kpi-grid">
-            <div class="kpi-card"><div class="kc-title">Protected servers health</div><div class="kc-rule"></div><div class="kc-body"><div class="kc-donut"><svg viewBox="0 0 58 58"><circle cx="29" cy="29" r="22" fill="none" stroke="rgba(255,255,255,0.04)" stroke-width="7"/><circle cx="29" cy="29" r="22" fill="none" stroke="#5C7A4A" stroke-width="7" stroke-dasharray="44 94" stroke-dashoffset="0"/><circle cx="29" cy="29" r="22" fill="none" stroke="#8FA882" stroke-width="7" stroke-dasharray="63 75" stroke-dashoffset="-44"/><circle cx="29" cy="29" r="22" fill="none" stroke="#780000" stroke-width="7" stroke-dasharray="19 119" stroke-dashoffset="-107"/></svg><div class="kc-center">22<small>svrs</small></div></div><div class="kc-stats"><div class="kc-row"><span class="kc-lbl"><span class="kc-dot" style="background:#5C7A4A"></span>Healthy</span><span class="kc-val">7</span></div><div class="kc-row"><span class="kc-lbl"><span class="kc-dot" style="background:#8FA882"></span>Connecting</span><span class="kc-val">10</span></div><div class="kc-row"><span class="kc-lbl"><span class="kc-dot" style="background:#780000"></span>Error</span><span class="kc-val">3</span></div></div></div><div class="kc-footer">See all protected servers &rsaquo;</div></div>
-            <div class="kpi-card"><div class="kc-title">Global inventory</div><div class="kc-rule"></div><div class="kc-body"><div class="kc-donut"><svg viewBox="0 0 58 58"><circle cx="29" cy="29" r="22" fill="none" stroke="rgba(255,255,255,0.04)" stroke-width="7"/><circle cx="29" cy="29" r="22" fill="none" stroke="#C1121F" stroke-width="7" stroke-dasharray="52 86" stroke-dashoffset="0"/><circle cx="29" cy="29" r="22" fill="none" stroke="#2E2E2E" stroke-width="7" stroke-dasharray="86 52" stroke-dashoffset="-52"/></svg><div class="kc-center">37%<small>prot</small></div></div><div class="kc-stats"><div class="kc-row"><span class="kc-lbl"><span class="kc-dot" style="background:#C1121F"></span>Protected</span><span class="kc-val">25</span></div><div class="kc-row"><span class="kc-lbl"><span class="kc-dot" style="background:#2E2E2E;border:1px solid rgba(255,255,255,0.1)"></span>Unprotected</span><span class="kc-val">42</span></div></div></div><div class="kc-footer">See global inventory &rsaquo;</div></div>
-            <div class="kpi-card" style="border-top:1px solid rgba(193,18,31,0.1)"><div class="kc-title">Protected servers version upgrade</div><div class="kc-rule"></div><div class="kc-body"><div class="kc-donut"><svg viewBox="0 0 58 58"><circle cx="29" cy="29" r="22" fill="none" stroke="rgba(255,255,255,0.04)" stroke-width="7"/><circle cx="29" cy="29" r="22" fill="none" stroke="#5C7A4A" stroke-width="7" stroke-dasharray="50 88" stroke-dashoffset="0"/><circle cx="29" cy="29" r="22" fill="none" stroke="#4A4A4A" stroke-width="7" stroke-dasharray="63 75" stroke-dashoffset="-50"/><circle cx="29" cy="29" r="22" fill="none" stroke="#7A6A3A" stroke-width="7" stroke-dasharray="25 113" stroke-dashoffset="-113"/></svg><div class="kc-center">22<small>svrs</small></div></div><div class="kc-stats"><div class="kc-row"><span class="kc-lbl"><span class="kc-dot" style="background:#5C7A4A"></span>Upgraded</span><span class="kc-val">8</span></div><div class="kc-row"><span class="kc-lbl"><span class="kc-dot" style="background:#4A4A4A"></span>Unknown</span><span class="kc-val">10</span></div><div class="kc-row"><span class="kc-lbl"><span class="kc-dot" style="background:#7A6A3A"></span>Older</span><span class="kc-val">4</span></div></div></div><div class="kc-footer">See all protected servers &rsaquo;</div></div>
-            <div class="kpi-card" style="border-top:1px solid rgba(193,18,31,0.1)"><div class="kc-title">Protected servers license status</div><div class="kc-rule"></div><div class="kc-body"><div class="kc-donut"><svg viewBox="0 0 58 58"><circle cx="29" cy="29" r="22" fill="none" stroke="rgba(255,255,255,0.04)" stroke-width="7"/><circle cx="29" cy="29" r="22" fill="none" stroke="#5C7A4A" stroke-width="7" stroke-dasharray="57 81" stroke-dashoffset="0"/><circle cx="29" cy="29" r="22" fill="none" stroke="#4A4A4A" stroke-width="7" stroke-dasharray="63 75" stroke-dashoffset="-57"/><circle cx="29" cy="29" r="22" fill="none" stroke="#780000" stroke-width="7" stroke-dasharray="19 119" stroke-dashoffset="-120"/></svg><div class="kc-center">22<small>svrs</small></div></div><div class="kc-stats"><div class="kc-row"><span class="kc-lbl"><span class="kc-dot" style="background:#5C7A4A"></span>Valid</span><span class="kc-val">9</span></div><div class="kc-row"><span class="kc-lbl"><span class="kc-dot" style="background:#4A4A4A"></span>Unknown</span><span class="kc-val">10</span></div><div class="kc-row"><span class="kc-lbl"><span class="kc-dot" style="background:#780000"></span>Expired</span><span class="kc-val">3</span></div></div></div><div class="kc-footer">See all protected servers &rsaquo;</div></div>
+            <div class="kpi-card"><div class="kc-title">Protected servers health</div><div class="kc-rule"></div><div class="kc-body"><div class="kc-donut"><svg viewBox="0 0 58 58"><circle cx="29" cy="29" r="22" fill="none" stroke="rgba(255,255,255,0.04)" stroke-width="7"/><circle cx="29" cy="29" r="22" fill="none" stroke="#5C7A4A" stroke-width="7" stroke-dasharray="44 94" stroke-dashoffset="0"/><circle cx="29" cy="29" r="22" fill="none" stroke="#8FA882" stroke-width="7" stroke-dasharray="63 75" stroke-dashoffset="-44"/><circle cx="29" cy="29" r="22" fill="none" stroke="#780000" stroke-width="7" stroke-dasharray="19 119" stroke-dashoffset="-107"/></svg><div class="kc-center">22<small>svrs</small></div></div><div class="kc-stats"><div class="kc-row"><span class="kc-lbl"><span class="kc-dot" style="background:#5C7A4A"></span>Healthy</span><span class="kc-val">7</span></div><div class="kc-row"><span class="kc-lbl"><span class="kc-dot" style="background:#8FA882"></span>Connecting</span><span class="kc-val">10</span></div><div class="kc-row"><span class="kc-lbl"><span class="kc-dot" style="background:#780000"></span>Error</span><span class="kc-val">3</span></div></div></div><div class="kc-footer">See all protected servers ›</div></div>
+            <div class="kpi-card"><div class="kc-title">Global inventory</div><div class="kc-rule"></div><div class="kc-body"><div class="kc-donut"><svg viewBox="0 0 58 58"><circle cx="29" cy="29" r="22" fill="none" stroke="rgba(255,255,255,0.04)" stroke-width="7"/><circle cx="29" cy="29" r="22" fill="none" stroke="#C1121F" stroke-width="7" stroke-dasharray="52 86" stroke-dashoffset="0"/><circle cx="29" cy="29" r="22" fill="none" stroke="#2E2E2E" stroke-width="7" stroke-dasharray="86 52" stroke-dashoffset="-52"/></svg><div class="kc-center">37%<small>prot</small></div></div><div class="kc-stats"><div class="kc-row"><span class="kc-lbl"><span class="kc-dot" style="background:#C1121F"></span>Protected</span><span class="kc-val">25</span></div><div class="kc-row"><span class="kc-lbl"><span class="kc-dot" style="background:#2E2E2E;border:1px solid rgba(255,255,255,0.1)"></span>Unprotected</span><span class="kc-val">42</span></div></div></div><div class="kc-footer">See global inventory ›</div></div>
+            <div class="kpi-card" style="border-top:1px solid rgba(193,18,31,0.1)"><div class="kc-title">Protected servers version upgrade</div><div class="kc-rule"></div><div class="kc-body"><div class="kc-donut"><svg viewBox="0 0 58 58"><circle cx="29" cy="29" r="22" fill="none" stroke="rgba(255,255,255,0.04)" stroke-width="7"/><circle cx="29" cy="29" r="22" fill="none" stroke="#5C7A4A" stroke-width="7" stroke-dasharray="50 88" stroke-dashoffset="0"/><circle cx="29" cy="29" r="22" fill="none" stroke="#4A4A4A" stroke-width="7" stroke-dasharray="63 75" stroke-dashoffset="-50"/><circle cx="29" cy="29" r="22" fill="none" stroke="#7A6A3A" stroke-width="7" stroke-dasharray="25 113" stroke-dashoffset="-113"/></svg><div class="kc-center">22<small>svrs</small></div></div><div class="kc-stats"><div class="kc-row"><span class="kc-lbl"><span class="kc-dot" style="background:#5C7A4A"></span>Upgraded</span><span class="kc-val">8</span></div><div class="kc-row"><span class="kc-lbl"><span class="kc-dot" style="background:#4A4A4A"></span>Unknown</span><span class="kc-val">10</span></div><div class="kc-row"><span class="kc-lbl"><span class="kc-dot" style="background:#7A6A3A"></span>Older</span><span class="kc-val">4</span></div></div></div><div class="kc-footer">See all protected servers ›</div></div>
+            <div class="kpi-card" style="border-top:1px solid rgba(193,18,31,0.1)"><div class="kc-title">Protected servers license status</div><div class="kc-rule"></div><div class="kc-body"><div class="kc-donut"><svg viewBox="0 0 58 58"><circle cx="29" cy="29" r="22" fill="none" stroke="rgba(255,255,255,0.04)" stroke-width="7"/><circle cx="29" cy="29" r="22" fill="none" stroke="#5C7A4A" stroke-width="7" stroke-dasharray="57 81" stroke-dashoffset="0"/><circle cx="29" cy="29" r="22" fill="none" stroke="#4A4A4A" stroke-width="7" stroke-dasharray="63 75" stroke-dashoffset="-57"/><circle cx="29" cy="29" r="22" fill="none" stroke="#780000" stroke-width="7" stroke-dasharray="19 119" stroke-dashoffset="-120"/></svg><div class="kc-center">22<small>svrs</small></div></div><div class="kc-stats"><div class="kc-row"><span class="kc-lbl"><span class="kc-dot" style="background:#5C7A4A"></span>Valid</span><span class="kc-val">9</span></div><div class="kc-row"><span class="kc-lbl"><span class="kc-dot" style="background:#4A4A4A"></span>Unknown</span><span class="kc-val">10</span></div><div class="kc-row"><span class="kc-lbl"><span class="kc-dot" style="background:#780000"></span>Expired</span><span class="kc-val">3</span></div></div></div><div class="kc-footer">See all protected servers ›</div></div>
           </div>
         </div>
       </div>
@@ -2142,13 +1925,13 @@ footer .s-label { color: rgba(255,255,255,0.45); }
         <div class="kpi-panel-inner">
           <div class="dash-topbar">
             <div class="tl-row"><div class="tl tl-r"></div><div class="tl tl-y"></div><div class="tl tl-g"></div></div>
-            <div class="dash-title-bar">Engine &mdash; KPI Dashboard</div>
+            <div class="dash-title-bar">Engine — KPI Dashboard</div>
           </div>
           <div class="kpi-grid">
-            <div class="kpi-card"><div class="kc-title">Protected servers health</div><div class="kc-rule"></div><div class="kc-body"><div class="kc-donut"><svg viewBox="0 0 58 58"><circle cx="29" cy="29" r="22" fill="none" stroke="rgba(255,255,255,0.04)" stroke-width="7"/><circle cx="29" cy="29" r="22" fill="none" stroke="#5C7A4A" stroke-width="7" stroke-dasharray="44 94" stroke-dashoffset="0"/><circle cx="29" cy="29" r="22" fill="none" stroke="#8FA882" stroke-width="7" stroke-dasharray="63 75" stroke-dashoffset="-44"/><circle cx="29" cy="29" r="22" fill="none" stroke="#780000" stroke-width="7" stroke-dasharray="19 119" stroke-dashoffset="-107"/></svg><div class="kc-center">22<small>svrs</small></div></div><div class="kc-stats"><div class="kc-row"><span class="kc-lbl"><span class="kc-dot" style="background:#5C7A4A"></span>Healthy</span><span class="kc-val">7</span></div><div class="kc-row"><span class="kc-lbl"><span class="kc-dot" style="background:#8FA882"></span>Connecting</span><span class="kc-val">10</span></div><div class="kc-row"><span class="kc-lbl"><span class="kc-dot" style="background:#780000"></span>Error</span><span class="kc-val">3</span></div></div></div><div class="kc-footer">See all protected servers &rsaquo;</div></div>
-            <div class="kpi-card"><div class="kc-title">Global inventory</div><div class="kc-rule"></div><div class="kc-body"><div class="kc-donut"><svg viewBox="0 0 58 58"><circle cx="29" cy="29" r="22" fill="none" stroke="rgba(255,255,255,0.04)" stroke-width="7"/><circle cx="29" cy="29" r="22" fill="none" stroke="#C1121F" stroke-width="7" stroke-dasharray="52 86" stroke-dashoffset="0"/><circle cx="29" cy="29" r="22" fill="none" stroke="#2E2E2E" stroke-width="7" stroke-dasharray="86 52" stroke-dashoffset="-52"/></svg><div class="kc-center">37%<small>prot</small></div></div><div class="kc-stats"><div class="kc-row"><span class="kc-lbl"><span class="kc-dot" style="background:#C1121F"></span>Protected</span><span class="kc-val">25</span></div><div class="kc-row"><span class="kc-lbl"><span class="kc-dot" style="background:#2E2E2E;border:1px solid rgba(255,255,255,0.1)"></span>Unprotected</span><span class="kc-val">42</span></div></div></div><div class="kc-footer">See global inventory &rsaquo;</div></div>
-            <div class="kpi-card" style="border-top:1px solid rgba(193,18,31,0.1)"><div class="kc-title">Protected servers version upgrade</div><div class="kc-rule"></div><div class="kc-body"><div class="kc-donut"><svg viewBox="0 0 58 58"><circle cx="29" cy="29" r="22" fill="none" stroke="rgba(255,255,255,0.04)" stroke-width="7"/><circle cx="29" cy="29" r="22" fill="none" stroke="#5C7A4A" stroke-width="7" stroke-dasharray="50 88" stroke-dashoffset="0"/><circle cx="29" cy="29" r="22" fill="none" stroke="#4A4A4A" stroke-width="7" stroke-dasharray="63 75" stroke-dashoffset="-50"/><circle cx="29" cy="29" r="22" fill="none" stroke="#7A6A3A" stroke-width="7" stroke-dasharray="25 113" stroke-dashoffset="-113"/></svg><div class="kc-center">22<small>svrs</small></div></div><div class="kc-stats"><div class="kc-row"><span class="kc-lbl"><span class="kc-dot" style="background:#5C7A4A"></span>Upgraded</span><span class="kc-val">8</span></div><div class="kc-row"><span class="kc-lbl"><span class="kc-dot" style="background:#4A4A4A"></span>Unknown</span><span class="kc-val">10</span></div><div class="kc-row"><span class="kc-lbl"><span class="kc-dot" style="background:#7A6A3A"></span>Older</span><span class="kc-val">4</span></div></div></div><div class="kc-footer">See all protected servers &rsaquo;</div></div>
-            <div class="kpi-card" style="border-top:1px solid rgba(193,18,31,0.1)"><div class="kc-title">Protected servers license status</div><div class="kc-rule"></div><div class="kc-body"><div class="kc-donut"><svg viewBox="0 0 58 58"><circle cx="29" cy="29" r="22" fill="none" stroke="rgba(255,255,255,0.04)" stroke-width="7"/><circle cx="29" cy="29" r="22" fill="none" stroke="#5C7A4A" stroke-width="7" stroke-dasharray="57 81" stroke-dashoffset="0"/><circle cx="29" cy="29" r="22" fill="none" stroke="#4A4A4A" stroke-width="7" stroke-dasharray="63 75" stroke-dashoffset="-57"/><circle cx="29" cy="29" r="22" fill="none" stroke="#780000" stroke-width="7" stroke-dasharray="19 119" stroke-dashoffset="-120"/></svg><div class="kc-center">22<small>svrs</small></div></div><div class="kc-stats"><div class="kc-row"><span class="kc-lbl"><span class="kc-dot" style="background:#5C7A4A"></span>Valid</span><span class="kc-val">9</span></div><div class="kc-row"><span class="kc-lbl"><span class="kc-dot" style="background:#4A4A4A"></span>Unknown</span><span class="kc-val">10</span></div><div class="kc-row"><span class="kc-lbl"><span class="kc-dot" style="background:#780000"></span>Expired</span><span class="kc-val">3</span></div></div></div><div class="kc-footer">See all protected servers &rsaquo;</div></div>
+            <div class="kpi-card"><div class="kc-title">Protected servers health</div><div class="kc-rule"></div><div class="kc-body"><div class="kc-donut"><svg viewBox="0 0 58 58"><circle cx="29" cy="29" r="22" fill="none" stroke="rgba(255,255,255,0.04)" stroke-width="7"/><circle cx="29" cy="29" r="22" fill="none" stroke="#5C7A4A" stroke-width="7" stroke-dasharray="44 94" stroke-dashoffset="0"/><circle cx="29" cy="29" r="22" fill="none" stroke="#8FA882" stroke-width="7" stroke-dasharray="63 75" stroke-dashoffset="-44"/><circle cx="29" cy="29" r="22" fill="none" stroke="#780000" stroke-width="7" stroke-dasharray="19 119" stroke-dashoffset="-107"/></svg><div class="kc-center">22<small>svrs</small></div></div><div class="kc-stats"><div class="kc-row"><span class="kc-lbl"><span class="kc-dot" style="background:#5C7A4A"></span>Healthy</span><span class="kc-val">7</span></div><div class="kc-row"><span class="kc-lbl"><span class="kc-dot" style="background:#8FA882"></span>Connecting</span><span class="kc-val">10</span></div><div class="kc-row"><span class="kc-lbl"><span class="kc-dot" style="background:#780000"></span>Error</span><span class="kc-val">3</span></div></div></div><div class="kc-footer">See all protected servers ›</div></div>
+            <div class="kpi-card"><div class="kc-title">Global inventory</div><div class="kc-rule"></div><div class="kc-body"><div class="kc-donut"><svg viewBox="0 0 58 58"><circle cx="29" cy="29" r="22" fill="none" stroke="rgba(255,255,255,0.04)" stroke-width="7"/><circle cx="29" cy="29" r="22" fill="none" stroke="#C1121F" stroke-width="7" stroke-dasharray="52 86" stroke-dashoffset="0"/><circle cx="29" cy="29" r="22" fill="none" stroke="#2E2E2E" stroke-width="7" stroke-dasharray="86 52" stroke-dashoffset="-52"/></svg><div class="kc-center">37%<small>prot</small></div></div><div class="kc-stats"><div class="kc-row"><span class="kc-lbl"><span class="kc-dot" style="background:#C1121F"></span>Protected</span><span class="kc-val">25</span></div><div class="kc-row"><span class="kc-lbl"><span class="kc-dot" style="background:#2E2E2E;border:1px solid rgba(255,255,255,0.1)"></span>Unprotected</span><span class="kc-val">42</span></div></div></div><div class="kc-footer">See global inventory ›</div></div>
+            <div class="kpi-card" style="border-top:1px solid rgba(193,18,31,0.1)"><div class="kc-title">Protected servers version upgrade</div><div class="kc-rule"></div><div class="kc-body"><div class="kc-donut"><svg viewBox="0 0 58 58"><circle cx="29" cy="29" r="22" fill="none" stroke="rgba(255,255,255,0.04)" stroke-width="7"/><circle cx="29" cy="29" r="22" fill="none" stroke="#5C7A4A" stroke-width="7" stroke-dasharray="50 88" stroke-dashoffset="0"/><circle cx="29" cy="29" r="22" fill="none" stroke="#4A4A4A" stroke-width="7" stroke-dasharray="63 75" stroke-dashoffset="-50"/><circle cx="29" cy="29" r="22" fill="none" stroke="#7A6A3A" stroke-width="7" stroke-dasharray="25 113" stroke-dashoffset="-113"/></svg><div class="kc-center">22<small>svrs</small></div></div><div class="kc-stats"><div class="kc-row"><span class="kc-lbl"><span class="kc-dot" style="background:#5C7A4A"></span>Upgraded</span><span class="kc-val">8</span></div><div class="kc-row"><span class="kc-lbl"><span class="kc-dot" style="background:#4A4A4A"></span>Unknown</span><span class="kc-val">10</span></div><div class="kc-row"><span class="kc-lbl"><span class="kc-dot" style="background:#7A6A3A"></span>Older</span><span class="kc-val">4</span></div></div></div><div class="kc-footer">See all protected servers ›</div></div>
+            <div class="kpi-card" style="border-top:1px solid rgba(193,18,31,0.1)"><div class="kc-title">Protected servers license status</div><div class="kc-rule"></div><div class="kc-body"><div class="kc-donut"><svg viewBox="0 0 58 58"><circle cx="29" cy="29" r="22" fill="none" stroke="rgba(255,255,255,0.04)" stroke-width="7"/><circle cx="29" cy="29" r="22" fill="none" stroke="#5C7A4A" stroke-width="7" stroke-dasharray="57 81" stroke-dashoffset="0"/><circle cx="29" cy="29" r="22" fill="none" stroke="#4A4A4A" stroke-width="7" stroke-dasharray="63 75" stroke-dashoffset="-57"/><circle cx="29" cy="29" r="22" fill="none" stroke="#780000" stroke-width="7" stroke-dasharray="19 119" stroke-dashoffset="-120"/></svg><div class="kc-center">22<small>svrs</small></div></div><div class="kc-stats"><div class="kc-row"><span class="kc-lbl"><span class="kc-dot" style="background:#5C7A4A"></span>Valid</span><span class="kc-val">9</span></div><div class="kc-row"><span class="kc-lbl"><span class="kc-dot" style="background:#4A4A4A"></span>Unknown</span><span class="kc-val">10</span></div><div class="kc-row"><span class="kc-lbl"><span class="kc-dot" style="background:#780000"></span>Expired</span><span class="kc-val">3</span></div></div></div><div class="kc-footer">See all protected servers ›</div></div>
           </div>
         </div>
       </div>
@@ -2158,13 +1941,13 @@ footer .s-label { color: rgba(255,255,255,0.45); }
         <div class="kpi-panel-inner">
           <div class="dash-topbar">
             <div class="tl-row"><div class="tl tl-r"></div><div class="tl tl-y"></div><div class="tl tl-g"></div></div>
-            <div class="dash-title-bar">Engine &mdash; KPI Dashboard</div>
+            <div class="dash-title-bar">Engine — KPI Dashboard</div>
           </div>
           <div class="kpi-grid">
-            <div class="kpi-card"><div class="kc-title">Protected servers health</div><div class="kc-rule"></div><div class="kc-body"><div class="kc-donut"><svg viewBox="0 0 58 58"><circle cx="29" cy="29" r="22" fill="none" stroke="rgba(255,255,255,0.04)" stroke-width="7"/><circle cx="29" cy="29" r="22" fill="none" stroke="#5C7A4A" stroke-width="7" stroke-dasharray="44 94" stroke-dashoffset="0"/><circle cx="29" cy="29" r="22" fill="none" stroke="#8FA882" stroke-width="7" stroke-dasharray="63 75" stroke-dashoffset="-44"/><circle cx="29" cy="29" r="22" fill="none" stroke="#780000" stroke-width="7" stroke-dasharray="19 119" stroke-dashoffset="-107"/></svg><div class="kc-center">22<small>svrs</small></div></div><div class="kc-stats"><div class="kc-row"><span class="kc-lbl"><span class="kc-dot" style="background:#5C7A4A"></span>Healthy</span><span class="kc-val">7</span></div><div class="kc-row"><span class="kc-lbl"><span class="kc-dot" style="background:#8FA882"></span>Connecting</span><span class="kc-val">10</span></div><div class="kc-row"><span class="kc-lbl"><span class="kc-dot" style="background:#780000"></span>Error</span><span class="kc-val">3</span></div></div></div><div class="kc-footer">See all protected servers &rsaquo;</div></div>
-            <div class="kpi-card"><div class="kc-title">Global inventory</div><div class="kc-rule"></div><div class="kc-body"><div class="kc-donut"><svg viewBox="0 0 58 58"><circle cx="29" cy="29" r="22" fill="none" stroke="rgba(255,255,255,0.04)" stroke-width="7"/><circle cx="29" cy="29" r="22" fill="none" stroke="#C1121F" stroke-width="7" stroke-dasharray="52 86" stroke-dashoffset="0"/><circle cx="29" cy="29" r="22" fill="none" stroke="#2E2E2E" stroke-width="7" stroke-dasharray="86 52" stroke-dashoffset="-52"/></svg><div class="kc-center">37%<small>prot</small></div></div><div class="kc-stats"><div class="kc-row"><span class="kc-lbl"><span class="kc-dot" style="background:#C1121F"></span>Protected</span><span class="kc-val">25</span></div><div class="kc-row"><span class="kc-lbl"><span class="kc-dot" style="background:#2E2E2E;border:1px solid rgba(255,255,255,0.1)"></span>Unprotected</span><span class="kc-val">42</span></div></div></div><div class="kc-footer">See global inventory &rsaquo;</div></div>
-            <div class="kpi-card" style="border-top:1px solid rgba(193,18,31,0.1)"><div class="kc-title">Protected servers version upgrade</div><div class="kc-rule"></div><div class="kc-body"><div class="kc-donut"><svg viewBox="0 0 58 58"><circle cx="29" cy="29" r="22" fill="none" stroke="rgba(255,255,255,0.04)" stroke-width="7"/><circle cx="29" cy="29" r="22" fill="none" stroke="#5C7A4A" stroke-width="7" stroke-dasharray="50 88" stroke-dashoffset="0"/><circle cx="29" cy="29" r="22" fill="none" stroke="#4A4A4A" stroke-width="7" stroke-dasharray="63 75" stroke-dashoffset="-50"/><circle cx="29" cy="29" r="22" fill="none" stroke="#7A6A3A" stroke-width="7" stroke-dasharray="25 113" stroke-dashoffset="-113"/></svg><div class="kc-center">22<small>svrs</small></div></div><div class="kc-stats"><div class="kc-row"><span class="kc-lbl"><span class="kc-dot" style="background:#5C7A4A"></span>Upgraded</span><span class="kc-val">8</span></div><div class="kc-row"><span class="kc-lbl"><span class="kc-dot" style="background:#4A4A4A"></span>Unknown</span><span class="kc-val">10</span></div><div class="kc-row"><span class="kc-lbl"><span class="kc-dot" style="background:#7A6A3A"></span>Older</span><span class="kc-val">4</span></div></div></div><div class="kc-footer">See all protected servers &rsaquo;</div></div>
-            <div class="kpi-card" style="border-top:1px solid rgba(193,18,31,0.1)"><div class="kc-title">Protected servers license status</div><div class="kc-rule"></div><div class="kc-body"><div class="kc-donut"><svg viewBox="0 0 58 58"><circle cx="29" cy="29" r="22" fill="none" stroke="rgba(255,255,255,0.04)" stroke-width="7"/><circle cx="29" cy="29" r="22" fill="none" stroke="#5C7A4A" stroke-width="7" stroke-dasharray="57 81" stroke-dashoffset="0"/><circle cx="29" cy="29" r="22" fill="none" stroke="#4A4A4A" stroke-width="7" stroke-dasharray="63 75" stroke-dashoffset="-57"/><circle cx="29" cy="29" r="22" fill="none" stroke="#780000" stroke-width="7" stroke-dasharray="19 119" stroke-dashoffset="-120"/></svg><div class="kc-center">22<small>svrs</small></div></div><div class="kc-stats"><div class="kc-row"><span class="kc-lbl"><span class="kc-dot" style="background:#5C7A4A"></span>Valid</span><span class="kc-val">9</span></div><div class="kc-row"><span class="kc-lbl"><span class="kc-dot" style="background:#4A4A4A"></span>Unknown</span><span class="kc-val">10</span></div><div class="kc-row"><span class="kc-lbl"><span class="kc-dot" style="background:#780000"></span>Expired</span><span class="kc-val">3</span></div></div></div><div class="kc-footer">See all protected servers &rsaquo;</div></div>
+            <div class="kpi-card"><div class="kc-title">Protected servers health</div><div class="kc-rule"></div><div class="kc-body"><div class="kc-donut"><svg viewBox="0 0 58 58"><circle cx="29" cy="29" r="22" fill="none" stroke="rgba(255,255,255,0.04)" stroke-width="7"/><circle cx="29" cy="29" r="22" fill="none" stroke="#5C7A4A" stroke-width="7" stroke-dasharray="44 94" stroke-dashoffset="0"/><circle cx="29" cy="29" r="22" fill="none" stroke="#8FA882" stroke-width="7" stroke-dasharray="63 75" stroke-dashoffset="-44"/><circle cx="29" cy="29" r="22" fill="none" stroke="#780000" stroke-width="7" stroke-dasharray="19 119" stroke-dashoffset="-107"/></svg><div class="kc-center">22<small>svrs</small></div></div><div class="kc-stats"><div class="kc-row"><span class="kc-lbl"><span class="kc-dot" style="background:#5C7A4A"></span>Healthy</span><span class="kc-val">7</span></div><div class="kc-row"><span class="kc-lbl"><span class="kc-dot" style="background:#8FA882"></span>Connecting</span><span class="kc-val">10</span></div><div class="kc-row"><span class="kc-lbl"><span class="kc-dot" style="background:#780000"></span>Error</span><span class="kc-val">3</span></div></div></div><div class="kc-footer">See all protected servers ›</div></div>
+            <div class="kpi-card"><div class="kc-title">Global inventory</div><div class="kc-rule"></div><div class="kc-body"><div class="kc-donut"><svg viewBox="0 0 58 58"><circle cx="29" cy="29" r="22" fill="none" stroke="rgba(255,255,255,0.04)" stroke-width="7"/><circle cx="29" cy="29" r="22" fill="none" stroke="#C1121F" stroke-width="7" stroke-dasharray="52 86" stroke-dashoffset="0"/><circle cx="29" cy="29" r="22" fill="none" stroke="#2E2E2E" stroke-width="7" stroke-dasharray="86 52" stroke-dashoffset="-52"/></svg><div class="kc-center">37%<small>prot</small></div></div><div class="kc-stats"><div class="kc-row"><span class="kc-lbl"><span class="kc-dot" style="background:#C1121F"></span>Protected</span><span class="kc-val">25</span></div><div class="kc-row"><span class="kc-lbl"><span class="kc-dot" style="background:#2E2E2E;border:1px solid rgba(255,255,255,0.1)"></span>Unprotected</span><span class="kc-val">42</span></div></div></div><div class="kc-footer">See global inventory ›</div></div>
+            <div class="kpi-card" style="border-top:1px solid rgba(193,18,31,0.1)"><div class="kc-title">Protected servers version upgrade</div><div class="kc-rule"></div><div class="kc-body"><div class="kc-donut"><svg viewBox="0 0 58 58"><circle cx="29" cy="29" r="22" fill="none" stroke="rgba(255,255,255,0.04)" stroke-width="7"/><circle cx="29" cy="29" r="22" fill="none" stroke="#5C7A4A" stroke-width="7" stroke-dasharray="50 88" stroke-dashoffset="0"/><circle cx="29" cy="29" r="22" fill="none" stroke="#4A4A4A" stroke-width="7" stroke-dasharray="63 75" stroke-dashoffset="-50"/><circle cx="29" cy="29" r="22" fill="none" stroke="#7A6A3A" stroke-width="7" stroke-dasharray="25 113" stroke-dashoffset="-113"/></svg><div class="kc-center">22<small>svrs</small></div></div><div class="kc-stats"><div class="kc-row"><span class="kc-lbl"><span class="kc-dot" style="background:#5C7A4A"></span>Upgraded</span><span class="kc-val">8</span></div><div class="kc-row"><span class="kc-lbl"><span class="kc-dot" style="background:#4A4A4A"></span>Unknown</span><span class="kc-val">10</span></div><div class="kc-row"><span class="kc-lbl"><span class="kc-dot" style="background:#7A6A3A"></span>Older</span><span class="kc-val">4</span></div></div></div><div class="kc-footer">See all protected servers ›</div></div>
+            <div class="kpi-card" style="border-top:1px solid rgba(193,18,31,0.1)"><div class="kc-title">Protected servers license status</div><div class="kc-rule"></div><div class="kc-body"><div class="kc-donut"><svg viewBox="0 0 58 58"><circle cx="29" cy="29" r="22" fill="none" stroke="rgba(255,255,255,0.04)" stroke-width="7"/><circle cx="29" cy="29" r="22" fill="none" stroke="#5C7A4A" stroke-width="7" stroke-dasharray="57 81" stroke-dashoffset="0"/><circle cx="29" cy="29" r="22" fill="none" stroke="#4A4A4A" stroke-width="7" stroke-dasharray="63 75" stroke-dashoffset="-57"/><circle cx="29" cy="29" r="22" fill="none" stroke="#780000" stroke-width="7" stroke-dasharray="19 119" stroke-dashoffset="-120"/></svg><div class="kc-center">22<small>svrs</small></div></div><div class="kc-stats"><div class="kc-row"><span class="kc-lbl"><span class="kc-dot" style="background:#5C7A4A"></span>Valid</span><span class="kc-val">9</span></div><div class="kc-row"><span class="kc-lbl"><span class="kc-dot" style="background:#4A4A4A"></span>Unknown</span><span class="kc-val">10</span></div><div class="kc-row"><span class="kc-lbl"><span class="kc-dot" style="background:#780000"></span>Expired</span><span class="kc-val">3</span></div></div></div><div class="kc-footer">See all protected servers ›</div></div>
           </div>
         </div>
       </div>
@@ -2266,7 +2049,7 @@ footer .s-label { color: rgba(255,255,255,0.45); }
     <div>
       <div class="ransom-label">Ransomware Protection</div>
       <h2 class="ransom-h2">Your backup vendor recovers<br>your files. Engine recovers<br>your application.</h2>
-      <p class="ransom-sub">Continuous snapshots every 15 minutes. An isolated passive node ransomware can't reach. Application-aware anomaly detection that catches encryption behavior before it spreads. When ransomware hits, you roll back &mdash; not rebuild.</p>
+      <p class="ransom-sub">Continuous snapshots every 15 minutes. An isolated passive node ransomware can't reach. Application-aware anomaly detection that catches encryption behavior before it spreads. When ransomware hits, you roll back — not rebuild.</p>
     </div>
     <div class="ransom-stat-box">
       <div class="ransom-num">15</div>
@@ -2287,11 +2070,11 @@ footer .s-label { color: rgba(255,255,255,0.45); }
       <div class="proof-numbers">
         <div class="proof-num-item">
           <div class="proof-val"><span>10,000</span>+</div>
-          <div class="proof-lbl">Brands</div>
+          <div class="proof-lbl">Organizations</div>
         </div>
         <div class="proof-num-item">
-          <div class="proof-val"><span>16</span>+</div>
-          <div class="proof-lbl">OEM Partners</div>
+          <div class="proof-val"><span>60</span>+</div>
+          <div class="proof-lbl">Countries</div>
         </div>
         <div class="proof-num-item">
           <div class="proof-val"><span>20</span>+</div>
@@ -2359,7 +2142,7 @@ footer .s-label { color: rgba(255,255,255,0.45); }
           <div class="pf-line"></div>
           <div>
             <div class="pf-title">Pre-built enablement</div>
-            <div class="pf-desc">Battlecards, objection handling, competitive comparisons, and discovery frameworks &mdash; ready on day one.</div>
+            <div class="pf-desc">Battlecards, objection handling, competitive comparisons, and discovery frameworks — ready on day one.</div>
           </div>
         </div>
         <div class="pf-item">
@@ -2436,7 +2219,7 @@ footer .s-label { color: rgba(255,255,255,0.45); }
       </div>
     </div>
     <div class="foot-bottom">
-      <span class="foot-copy">&copy; 2025 Neverfail Group. All rights reserved.</span>
+      <span class="foot-copy">© 2025 Neverfail Group. All rights reserved.</span>
       <div class="foot-legal">
         <a href="#">Privacy Policy</a>
         <a href="#">Terms of Service</a>
