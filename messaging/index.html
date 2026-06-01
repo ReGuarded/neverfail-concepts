@@ -619,108 +619,50 @@ function updateSummary() {
 function submitFeedback() {
   if (state.submitted) return;
 
-  // Gather all notes
-  const notes = {};
+  const reactionLabel = r =>
+    r === 'approved' ? 'Approved' :
+    r === 'suggest'  ? 'Suggest Edit' :
+    r === 'needs'    ? 'Needs Work' : 'Pending';
+
+  document.getElementById('f_timestamp').value = new Date().toLocaleString();
+  document.getElementById('f_s1_reaction').value = reactionLabel(state.reactions[1]);
+  document.getElementById('f_s2_reaction').value = reactionLabel(state.reactions[2]);
+  document.getElementById('f_s3_reaction').value = reactionLabel(state.reactions[3]);
+  document.getElementById('f_s4_reaction').value = reactionLabel(state.reactions[4]);
+  document.getElementById('f_s5_reaction').value = reactionLabel(state.reactions[5]);
+
   for (let i = 1; i <= TOTAL; i++) {
     const el = document.getElementById('notes-' + i);
-    if (el && el.value.trim()) notes[i] = el.value.trim();
-  }
-
-  // Build readable email body
-  const sectionNames = {
-    1: 'Hero Headline & Signature',
-    2: 'Pillar 2 — End Customer Trust',
-    3: 'Pillar 3 — OEM Partner Trust',
-    4: 'The Stakes — Engine Transition',
-    5: 'Open Feedback'
-  };
-
-  let emailBody = 'NEVERFAIL MESSAGING FRAMEWORK v2 — FEEDBACK SUBMISSION\n';
-  emailBody += '================================================\n';
-  emailBody += 'Submitted: ' + new Date().toLocaleString() + '\n\n';
-
-  emailBody += 'REACTIONS:\n';
-  emailBody += '----------\n';
-  for (let i = 1; i <= TOTAL; i++) {
-    const reaction = state.reactions[i] || 'No reaction';
-    const label = reaction === 'approved' ? '✓ Approved' :
-                  reaction === 'suggest'  ? '⟳ Suggest Edit' :
-                  reaction === 'needs'    ? '✕ Needs Work' : '— Pending';
-    emailBody += (i + '. ' + sectionNames[i] + ': ' + label + '\n');
-  }
-
-  emailBody += '\nNOTES & COMMENTS:\n';
-  emailBody += '------------------\n';
-  let hasNotes = false;
-  for (let i = 1; i <= TOTAL; i++) {
-    if (notes[i]) {
-      emailBody += ('Section ' + i + ' — ' + sectionNames[i] + ':\n');
-      emailBody += (notes[i] + '\n\n');
-      hasNotes = true;
+    if (el && el.value.trim()) {
+      document.getElementById('f_s' + i + '_notes').value = el.value.trim();
     }
   }
-  if (!hasNotes) emailBody += 'No additional notes submitted.\n';
 
-  // Send via FormSubmit
-  const formData = new FormData();
-  formData.append('_subject', 'Neverfail Messaging Framework v2 — Feedback from Brian');
-  formData.append('_template', 'box');
-  formData.append('_captcha', 'false');
-  formData.append('feedback_summary', emailBody);
-  formData.append('section_1_reaction', state.reactions[1] || 'pending');
-  formData.append('section_2_reaction', state.reactions[2] || 'pending');
-  formData.append('section_3_reaction', state.reactions[3] || 'pending');
-  formData.append('section_4_reaction', state.reactions[4] || 'pending');
-  formData.append('section_5_reaction', state.reactions[5] || 'pending');
-  if (notes[1]) formData.append('section_1_notes', notes[1]);
-  if (notes[2]) formData.append('section_2_notes', notes[2]);
-  if (notes[3]) formData.append('section_3_notes', notes[3]);
-  if (notes[4]) formData.append('section_4_notes', notes[4]);
-  if (notes[5]) formData.append('section_5_notes', notes[5]);
-
-  // Disable button and show sending state
-  const btn = document.getElementById('submitBtn');
-  btn.disabled = true;
-  btn.textContent = 'Sending...';
-
-  fetch('https://formsubmit.co/joeyterrazas1@gmail.com', {
-    method: 'POST',
-    body: formData
-  })
-  .then(response => {
-    if (response.ok || response.status === 200 || response.type === 'opaque') {
-      state.submitted = true;
-      btn.textContent = '✓ Submitted';
-      const conf = document.getElementById('submitConfirmation');
-      conf.style.display = 'block';
-      conf.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    } else {
-      throw new Error('Submission failed');
-    }
-  })
-  .catch(error => {
-    // Fallback — still show confirmation so Brian knows it went through
-    // Also save to localStorage as backup
-    state.submitted = true;
-    btn.textContent = '✓ Submitted';
-    const conf = document.getElementById('submitConfirmation');
-    conf.style.display = 'block';
-    conf.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    // Save backup to localStorage
-    try {
-      localStorage.setItem('nf_feedback_v2', JSON.stringify({
-        timestamp: new Date().toISOString(),
-        reactions: state.reactions,
-        notes: notes
-      }));
-    } catch(e) {}
-  });
+  document.getElementById('feedbackForm').submit();
 }
 
 // Init
 updateProgress();
 updateSummary();
 </script>
+
+<!-- FORMSUBMIT HIDDEN FORM -->
+<form id="feedbackForm" action="https://formsubmit.co/joeyterrazas1@gmail.com" method="POST" style="display:none;">
+  <input type="hidden" name="_subject" value="Neverfail Messaging Framework v2 — Feedback from Brian">
+  <input type="hidden" name="_template" value="box">
+  <input type="hidden" name="_captcha" value="false">
+  <input type="hidden" id="f_timestamp" name="timestamp" value="">
+  <input type="hidden" id="f_s1_reaction" name="Section_1_Hero_Reaction" value="">
+  <input type="hidden" id="f_s2_reaction" name="Section_2_Pillar2_Reaction" value="">
+  <input type="hidden" id="f_s3_reaction" name="Section_3_Pillar3_Reaction" value="">
+  <input type="hidden" id="f_s4_reaction" name="Section_4_Stakes_Reaction" value="">
+  <input type="hidden" id="f_s5_reaction" name="Section_5_Open_Feedback_Reaction" value="">
+  <input type="hidden" id="f_s1_notes" name="Section_1_Notes" value="">
+  <input type="hidden" id="f_s2_notes" name="Section_2_Notes" value="">
+  <input type="hidden" id="f_s3_notes" name="Section_3_Notes" value="">
+  <input type="hidden" id="f_s4_notes" name="Section_4_Notes" value="">
+  <input type="hidden" id="f_s5_notes" name="Section_5_Notes" value="">
+</form>
 </body>
 </html>
 
