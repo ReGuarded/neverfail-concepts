@@ -1579,7 +1579,7 @@ footer .s-label { color: rgba(255,255,255,0.45); }
 /* ── STAKES SECTION ── */
 .stakes-sec {
   padding: 120px 52px;
-  background: var(--bg);
+  background: #ffffff;
   position: relative;
   overflow: hidden;
 }
@@ -1639,19 +1639,19 @@ footer .s-label { color: rgba(255,255,255,0.45); }
   font-style: italic;
   line-height: 1.1;
   letter-spacing: -0.01em;
-  color: var(--white);
+  color: #003049;
   margin-bottom: 24px;
   max-width: 700px;
   margin-left: auto;
   margin-right: auto;
 }
 
-.stakes-h2 span { color: var(--khaki); }
+.stakes-h2 span { color: #C1121F; }
 
 .stakes-sub {
   font-size: 16px;
   font-weight: 300;
-  color: var(--grey);
+  color: rgba(0,48,73,0.72);
   line-height: 1.8;
   max-width: 580px;
   margin: 0 auto;
@@ -1666,8 +1666,8 @@ footer .s-label { color: rgba(255,255,255,0.45); }
 }
 
 .scenario-card {
-  background: #2E3D28;
-  border: 1px solid rgba(74,92,62,0.6);
+  background: #003049;
+  border: 1px solid rgba(0,48,73,0.6);
   border-radius: 14px;
   padding: 36px 40px;
   position: relative;
@@ -1676,8 +1676,8 @@ footer .s-label { color: rgba(255,255,255,0.45); }
 }
 
 .scenario-card:hover {
-  border-color: rgba(74,92,62,0.9);
-  background: #354529;
+  border-color: rgba(0,48,73,0.9);
+  background: #004060;
 }
 
 .scenario-card::before {
@@ -1685,7 +1685,7 @@ footer .s-label { color: rgba(255,255,255,0.45); }
   position: absolute;
   left: 0; top: 0; bottom: 0;
   width: 3px;
-  background: linear-gradient(180deg, #B5A882, transparent);
+  background: linear-gradient(180deg, #C1121F, transparent);
   opacity: 0;
   transition: opacity 0.3s;
 }
@@ -1703,8 +1703,8 @@ footer .s-label { color: rgba(255,255,255,0.45); }
 .card-icon {
   width: 44px; height: 44px;
   border-radius: 10px;
-  background: rgba(8,9,12,0.35);
-  border: 1px solid rgba(181,168,130,0.2);
+  background: rgba(0,0,0,0.25);
+  border: 1px solid rgba(193,18,31,0.4);
   display: flex; align-items: center; justify-content: center;
   flex-shrink: 0;
   margin-top: 2px;
@@ -1712,7 +1712,7 @@ footer .s-label { color: rgba(255,255,255,0.45); }
 
 .card-icon svg {
   width: 20px; height: 20px;
-  stroke: var(--khaki); fill: none; stroke-width: 1.5;
+  stroke: #C1121F; fill: none; stroke-width: 2;
 }
 
 .card-title-wrap { flex: 1; }
@@ -1720,7 +1720,7 @@ footer .s-label { color: rgba(255,255,255,0.45); }
 .card-oem {
   font-size: 10px;
   font-weight: 500;
-  color: rgba(255,255,255,0.5);
+  color: rgba(255,255,255,0.55);
   letter-spacing: 0.1em;
   text-transform: uppercase;
   margin-bottom: 8px;
@@ -1749,17 +1749,17 @@ footer .s-label { color: rgba(255,255,255,0.45); }
 .card-response {
   margin: 20px 0;
   padding: 16px 20px;
-  background: rgba(8,9,12,0.3);
-  border: 1px solid rgba(181,168,130,0.18);
+  background: rgba(0,0,0,0.2);
+  border: 1px solid rgba(255,255,255,0.12);
   border-radius: 8px;
   font-size: 14px;
   font-weight: 300;
-  color: rgba(255,255,255,0.72);
+  color: rgba(255,255,255,0.75);
   line-height: 1.7;
 }
 
 .card-response strong {
-  color: var(--khaki);
+  color: #C1121F;
   font-weight: 500;
 }
 
@@ -1774,14 +1774,17 @@ footer .s-label { color: rgba(255,255,255,0.45); }
 .outcome-line {
   flex: 1;
   height: 1px;
-  background: linear-gradient(90deg, var(--border), transparent);
+  background: linear-gradient(90deg, rgba(255,255,255,0.15), transparent);
 }
 
 .nobody-notices {
   font-family: var(--font-d);
-  font-size: 15px;
+  font-size: 17px;
   font-style: italic;
-  color: rgba(181,168,130,0.85);
+  font-weight: 400;
+  color: #ffffff;
+  letter-spacing: 0.01em;
+
   white-space: nowrap;
   letter-spacing: 0.01em;
 }
@@ -1790,8 +1793,8 @@ footer .s-label { color: rgba(255,255,255,0.45); }
 .stakes-closer {
   text-align: center;
   padding: 56px 40px;
-  background: rgba(139,58,58,0.06);
-  border: 1px solid rgba(139,58,58,0.18);
+  background: rgba(193,18,31,0.04);
+  border: 1px solid rgba(193,18,31,0.15);
   border-radius: 16px;
   position: relative;
   overflow: hidden;
@@ -1807,7 +1810,7 @@ footer .s-label { color: rgba(255,255,255,0.45); }
   pointer-events: none;
 }
 
-.closer-text {
+.closer-text { color: #003049 !important;
   font-family: var(--font-d);
   font-size: clamp(22px, 3vw, 34px);
   font-weight: 400;
@@ -1825,7 +1828,7 @@ footer .s-label { color: rgba(255,255,255,0.45); }
   font-family: var(--font-b);
   font-size: 13px;
   font-weight: 600;
-  color: var(--grey2);
+  color: rgba(0,48,73,0.55);
   letter-spacing: 0.14em;
   text-transform: uppercase;
   margin-bottom: 32px;
@@ -1841,7 +1844,7 @@ footer .s-label { color: rgba(255,255,255,0.45); }
 .closer-engine-label {
   font-size: 11px;
   font-weight: 400;
-  color: var(--grey2);
+  color: rgba(0,48,73,0.5);
   letter-spacing: 0.1em;
   text-transform: uppercase;
   margin-bottom: 8px;
@@ -1851,25 +1854,25 @@ footer .s-label { color: rgba(255,255,255,0.45); }
   font-family: var(--font-d);
   font-size: clamp(28px, 4vw, 48px);
   font-style: italic;
-  color: var(--white);
+  color: #003049;
   margin-bottom: 24px;
   letter-spacing: -0.01em;
 }
 
-.closer-engine-name span { color: var(--khaki); }
+.closer-engine-name span { color: #C1121F; }
 
 .discover-btn {
   display: inline-flex;
   align-items: center;
   gap: 10px;
   padding: 14px 32px;
-  background: var(--khaki);
+  background: #C1121F;
   border: none;
   border-radius: 6px;
   font-family: var(--font-b);
   font-size: 14px;
   font-weight: 500;
-  color: #08090c;
+  color: #ffffff;
   letter-spacing: 0.03em;
   cursor: pointer;
   text-decoration: none;
@@ -1877,7 +1880,7 @@ footer .s-label { color: rgba(255,255,255,0.45); }
 }
 
 .discover-btn:hover {
-  background: #c4b99a;
+  background: #e03040;
   transform: translateY(-2px);
 }
 
