@@ -1852,6 +1852,269 @@ footer {
   transform: translateY(0);
 }
 
+
+/* ══════════════════════════════════════
+   MOBILE RESPONSIVE — max-width: 768px
+   ══════════════════════════════════════ */
+@media (max-width: 768px) {
+
+  /* ── NAV ── */
+  .site-nav {
+    padding: 14px 20px;
+  }
+
+  .nav-links { display: none; }
+
+  .nav-right {
+    gap: 8px;
+  }
+
+  .btn-nav-ghost { display: none; }
+
+  /* ── HERO ── */
+  .hero-sec {
+    padding: 100px 24px 60px;
+    text-align: center;
+  }
+
+  .hero-h1 {
+    font-size: clamp(36px, 9vw, 52px);
+  }
+
+  .hero-sub {
+    font-size: 18px;
+    max-width: 100%;
+  }
+
+  .hero-ctas {
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .hero-stats {
+    flex-direction: column;
+    border-radius: 10px;
+  }
+
+  .h-stat {
+    border-right: none;
+    border-bottom: 1px solid rgba(0,48,73,0.1);
+    padding: 16px 24px;
+  }
+
+  .h-stat:last-child { border-bottom: none; }
+
+  /* ── TRUST MARQUEE ── */
+  .trust-bar-inner {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  /* ── PILLARS ── */
+  [style*="padding:80px 52px"] {
+    padding: 56px 24px !important;
+  }
+
+  /* ── SECTION INNER ── */
+  .s-inner {
+    padding: 56px 24px;
+  }
+
+  /* ── SECTION HEADERS ── */
+  .s-h2 {
+    font-size: clamp(32px, 7vw, 48px);
+  }
+
+  .s-sub {
+    font-size: 17px;
+  }
+
+  /* ── HOW ENGINE WORKS — 4 col → 1 col ── */
+  .how-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .how-sec { padding: 64px 24px; }
+
+  /* ── COMPARE TABLE — scroll horizontally ── */
+  .compare-wrap {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .compare-head,
+  .c-row {
+    min-width: 600px;
+  }
+
+  .compare-sec { padding: 64px 24px; }
+
+  /* ── ENGINE IN ACTION — stack ── */
+  .action-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .action-sec { padding: 64px 24px; }
+
+  /* ── KPI DASHBOARD — stack ── */
+  .kpi-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .kpi-sec { padding: 64px 24px; }
+
+  /* ── PLUGIN GRID — 2 col on mobile ── */
+  .plugin-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .plugins-sec { padding: 64px 24px; }
+
+  /* ── COST CARDS — stack ── */
+  .cost-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cost-sec { padding: 64px 24px; }
+
+  /* ── STAKES ── */
+  .stakes-sec { padding: 64px 24px; }
+
+  .scenario-card { padding: 24px 20px; }
+
+  .card-header { gap: 14px; }
+
+  .card-icon {
+    width: 36px;
+    height: 36px;
+    flex-shrink: 0;
+  }
+
+  .card-scenario { font-size: 16px; }
+
+  .nobody-notices { font-size: 20px; }
+
+  .stakes-closer { padding: 36px 24px; }
+
+  /* ── RANSOMWARE — stack ── */
+  .ransom-card {
+    flex-direction: column !important;
+    padding: 40px 24px !important;
+    gap: 24px !important;
+    text-align: center !important;
+  }
+
+  .ransom-h2 { font-size: clamp(28px, 6vw, 40px); }
+
+  /* ── PROOF SECTION ── */
+  .proof-top {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .proof-numbers {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 24px;
+  }
+
+  .proof-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .proof-sec { padding: 64px 24px; }
+
+  /* ── PARTNER SECTION ── */
+  .partner-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .partner-features {
+    grid-template-columns: 1fr !important;
+    max-width: 100% !important;
+  }
+
+  .partner-sec { padding: 64px 24px; }
+
+  /* ── FOOTER ── */
+  .foot-inner {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    text-align: center;
+  }
+
+  .foot-links {
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+  }
+
+  footer { padding: 48px 24px 32px; }
+
+  /* ── PILLAR INLINE SECTIONS ── */
+  [style*="padding:80px 52px"] {
+    padding: 56px 20px !important;
+  }
+
+  [style*="display:flex; flex-direction:column; align-items:center"] {
+    padding: 0 4px;
+  }
+
+  [style*="display:flex; flex-wrap:wrap; gap:12px"] {
+    justify-content: center;
+  }
+
+  [style*="display:flex; flex-wrap:wrap; gap:10px"] {
+    justify-content: center;
+  }
+
+  /* ── TRANSITION CARD ── */
+  [style*="display:flex; align-items:center; justify-content:space-between"] {
+    flex-direction: column !important;
+    gap: 20px !important;
+    text-align: center !important;
+  }
+
+  /* ── GENERAL SECTION PADDING ── */
+  .cost-sec,
+  .compare-sec,
+  .how-sec,
+  .action-sec,
+  .kpi-sec,
+  .plugins-sec,
+  .ransom-sec,
+  .proof-sec,
+  .partner-sec {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}
+
+/* ── SMALL MOBILE — max-width: 480px ── */
+@media (max-width: 480px) {
+
+  .hero-h1 { font-size: clamp(30px, 8vw, 44px); }
+  .s-h2 { font-size: clamp(28px, 7vw, 38px); }
+  .stakes-h2 { font-size: clamp(28px, 7vw, 38px); }
+
+  .plugin-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .h-stat-val { font-size: 22px; }
+
+  .btn-cta {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -2660,3 +2923,4 @@ footer {
 </script>
 </body>
 </html>
+
