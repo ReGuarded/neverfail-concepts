@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Neverfail — Homepage Messaging Framework v2</title>
+<title>Neverfail — Messaging Framework v3</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
@@ -11,27 +11,24 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --bg:        #f8f9fa;
-  --white:     #ffffff;
-  --navy:      #003049;
-  --navy-2:    #004060;
-  --red:       #C1121F;
-  --red-dim:   rgba(193,18,31,0.08);
-  --red-mid:   rgba(193,18,31,0.15);
-  --crimson:   #780000;
-  --gold:      #B5882A;
-  --gold-dim:  rgba(181,136,42,0.1);
-  --border:    rgba(0,48,73,0.1);
-  --border-2:  rgba(0,48,73,0.18);
-  --grey:      rgba(0,48,73,0.55);
-  --grey-2:    rgba(0,48,73,0.35);
-  --green:     #1a6b3a;
-  --green-dim: rgba(26,107,58,0.08);
-  --amber:     #b45309;
+  --bg:       #f8f9fa;
+  --white:    #ffffff;
+  --navy:     #0f172a;
+  --green:    #5DB418;
+  --green-dim: rgba(93,180,24,0.08);
+  --green-mid: rgba(93,180,24,0.18);
+  --border:   rgba(15,23,42,0.1);
+  --border-2: rgba(15,23,42,0.18);
+  --grey:     rgba(15,23,42,0.55);
+  --grey-2:   rgba(15,23,42,0.35);
+  --approved: #1a6b3a;
+  --approved-dim: rgba(26,107,58,0.08);
+  --amber:    #b45309;
   --amber-dim: rgba(180,83,9,0.08);
-  --army:      #2E3D28;
-  --font-b:    'Instrument Sans', sans-serif;
-  --font-d:    'Instrument Serif', serif;
+  --red:      #C1121F;
+  --red-dim:  rgba(193,18,31,0.08);
+  --font-b:   'Instrument Sans', sans-serif;
+  --font-d:   'Instrument Serif', serif;
 }
 
 html { scroll-behavior: smooth; }
@@ -44,6 +41,7 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+/* ── HEADER ── */
 .site-header {
   background: var(--white);
   border-bottom: 1px solid var(--border);
@@ -57,296 +55,247 @@ body {
 }
 
 .header-logo { display: flex; align-items: center; gap: 10px; }
-.logo-mark { width: 28px; height: 28px; border: 1.5px solid var(--red); border-radius: 6px; display: flex; align-items: center; justify-content: center; }
-.logo-mark svg { width: 14px; height: 14px; stroke: var(--red); fill: none; stroke-width: 1.8; }
+.logo-mark { width: 28px; height: 28px; border: 1.5px solid var(--green); border-radius: 6px; display: flex; align-items: center; justify-content: center; }
+.logo-mark svg { width: 14px; height: 14px; stroke: var(--green); fill: none; stroke-width: 1.8; }
 .logo-text { font-size: 13px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--navy); }
 .header-meta { text-align: right; font-size: 12px; color: var(--grey); line-height: 1.6; }
 .header-meta strong { color: var(--navy); font-weight: 500; display: block; }
 
+/* ── PROGRESS ── */
 .progress-bar { background: var(--white); border-bottom: 1px solid var(--border); padding: 14px 48px; display: flex; align-items: center; gap: 20px; }
-.progress-label { font-size: 12px; color: var(--grey); font-weight: 400; white-space: nowrap; }
-.progress-track { flex: 1; height: 4px; background: rgba(0,48,73,0.1); border-radius: 2px; overflow: hidden; }
-.progress-fill { height: 100%; background: var(--red); border-radius: 2px; transition: width 0.4s ease; width: 0%; }
+.progress-label { font-size: 12px; color: var(--grey); white-space: nowrap; }
+.progress-track { flex: 1; height: 4px; background: rgba(15,23,42,0.1); border-radius: 2px; overflow: hidden; }
+.progress-fill { height: 100%; background: var(--green); border-radius: 2px; transition: width 0.4s ease; width: 0%; }
 .progress-count { font-size: 12px; font-weight: 500; color: var(--navy); white-space: nowrap; }
 
+/* ── MAIN ── */
 .main { max-width: 860px; margin: 0 auto; padding: 52px 40px 120px; }
 
+/* ── DOC INTRO ── */
 .doc-intro { margin-bottom: 52px; padding-bottom: 48px; border-bottom: 2px solid var(--border); }
-.doc-eyebrow { display: inline-flex; align-items: center; gap: 8px; font-size: 11px; font-weight: 500; color: var(--red); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 20px; padding: 6px 14px; border: 1px solid rgba(193,18,31,0.2); border-radius: 100px; background: var(--red-dim); }
-.doc-pulse { width: 5px; height: 5px; background: var(--red); border-radius: 50%; animation: pulse 2.5s ease-in-out infinite; }
-@keyframes pulse { 0%,100% { opacity:0.4; } 50% { opacity:1; } }
-.doc-intro h1 { font-family: var(--font-d); font-size: clamp(32px, 4vw, 48px); font-weight: 400; font-style: italic; line-height: 1.1; letter-spacing: -0.01em; color: var(--navy); margin-bottom: 16px; }
+.doc-eyebrow { display: inline-flex; align-items: center; gap: 8px; font-size: 11px; font-weight: 500; color: var(--green); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 20px; padding: 6px 14px; border: 1px solid var(--green-mid); border-radius: 100px; background: var(--green-dim); }
+.doc-pulse { width: 5px; height: 5px; background: var(--green); border-radius: 50%; animation: pulse 2.5s ease-in-out infinite; }
+@keyframes pulse { 0%,100%{opacity:0.4;} 50%{opacity:1;} }
+.doc-intro h1 { font-family: var(--font-d); font-size: clamp(32px,4vw,48px); font-weight: 400; font-style: italic; line-height: 1.1; letter-spacing: -0.01em; color: var(--navy); margin-bottom: 16px; }
 .doc-intro p { font-size: 16px; font-weight: 300; color: var(--grey); max-width: 600px; line-height: 1.75; margin-bottom: 28px; }
 
-.how-to-use { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 28px; }
+.how-to-use { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; margin-top: 28px; }
 .how-step { background: var(--white); border: 1px solid var(--border); border-radius: 10px; padding: 16px 18px; }
-.how-step-num { font-family: var(--font-d); font-size: 22px; font-style: italic; color: var(--red); line-height: 1; margin-bottom: 6px; }
+.how-step-num { font-family: var(--font-d); font-size: 22px; font-style: italic; color: var(--green); line-height: 1; margin-bottom: 6px; }
 .how-step-text { font-size: 13px; font-weight: 300; color: var(--grey); line-height: 1.6; }
 
-.strategy-frame { background: var(--navy); border-radius: 14px; padding: 40px 44px; margin-bottom: 52px; position: relative; overflow: hidden; }
-.strategy-frame::before { content: ''; position: absolute; top: -100px; right: -100px; width: 400px; height: 400px; background: radial-gradient(circle, rgba(193,18,31,0.15) 0%, transparent 65%); pointer-events: none; }
+/* ── STRATEGY FRAME ── */
+.strategy-frame { background: #111111; border-radius: 14px; padding: 40px 44px; margin-bottom: 52px; position: relative; overflow: hidden; }
+.strategy-frame::before { content:''; position:absolute; top:-100px; right:-100px; width:400px; height:400px; background:radial-gradient(circle, rgba(93,180,24,0.18) 0%, transparent 65%); pointer-events:none; }
 .strategy-label { font-size: 10px; font-weight: 500; color: rgba(255,255,255,0.4); letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
-.strategy-label::before { content: ''; display: block; width: 20px; height: 1px; background: rgba(255,255,255,0.3); }
+.strategy-label::before { content:''; display:block; width:20px; height:1px; background:rgba(255,255,255,0.3); }
 .strategy-frame h2 { font-family: var(--font-d); font-size: 26px; font-weight: 400; font-style: italic; color: #ffffff; line-height: 1.3; margin-bottom: 20px; letter-spacing: -0.01em; }
 .strategy-frame p { font-size: 15px; font-weight: 300; color: rgba(255,255,255,0.7); line-height: 1.8; max-width: 680px; }
 
 .cascade { display: flex; flex-direction: column; gap: 0; margin-top: 32px; }
-.cascade-item { display: flex; align-items: flex-start; gap: 16px; padding: 16px 0; border-bottom: 1px solid rgba(255,255,255,0.08); position: relative; z-index: 1; }
+.cascade-item { display: flex; align-items: flex-start; gap: 16px; padding: 16px 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
 .cascade-item:last-child { border-bottom: none; }
-.cascade-num { font-family: var(--font-d); font-size: 13px; font-style: italic; color: var(--red); flex-shrink: 0; margin-top: 2px; min-width: 24px; }
-.cascade-title { font-size: 14px; font-weight: 500; color: #ffffff; margin-bottom: 3px; }
+.cascade-num { font-family: var(--font-d); font-size: 13px; font-style: italic; color: var(--green); flex-shrink: 0; margin-top: 2px; min-width: 24px; }
+.cascade-title { font-size: 14px; font-weight: 500; color: #5DB418; margin-bottom: 3px; }
 .cascade-desc { font-size: 13px; font-weight: 300; color: rgba(255,255,255,0.55); line-height: 1.6; }
-.cascade-status { display: inline-flex; align-items: center; gap: 5px; font-size: 10px; font-weight: 500; padding: 3px 10px; border-radius: 100px; margin-top: 6px; }
-.status-locked { background: rgba(26,107,58,0.2); color: #4ade80; border: 1px solid rgba(26,107,58,0.3); }
-.status-review { background: rgba(193,18,31,0.15); color: #fca5a5; border: 1px solid rgba(193,18,31,0.25); }
 
+/* ── SECTION ── */
 .msg-section { margin-bottom: 48px; background: var(--white); border: 1px solid var(--border); border-radius: 14px; overflow: hidden; }
 .section-header { padding: 24px 32px 22px; border-bottom: 1px solid var(--border); display: flex; align-items: flex-start; justify-content: space-between; gap: 20px; }
-.section-tag { font-size: 10px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--red); margin-bottom: 6px; }
+.section-tag { font-size: 10px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--green); margin-bottom: 6px; }
 .section-title { font-family: var(--font-d); font-size: 22px; font-weight: 400; font-style: italic; color: var(--navy); line-height: 1.2; }
 .section-status { flex-shrink: 0; font-size: 11px; font-weight: 500; padding: 4px 12px; border-radius: 100px; letter-spacing: 0.06em; text-transform: uppercase; }
-.status-pending { background: rgba(0,48,73,0.06); color: var(--grey-2); border: 1px solid var(--border); }
-.status-approved { background: var(--green-dim); color: var(--green); border: 1px solid rgba(26,107,58,0.2); }
+.status-pending { background: rgba(15,23,42,0.06); color: var(--grey-2); border: 1px solid var(--border); }
+.status-approved { background: var(--approved-dim); color: var(--approved); border: 1px solid rgba(26,107,58,0.2); }
 .status-suggest { background: var(--amber-dim); color: var(--amber); border: 1px solid rgba(180,83,9,0.2); }
 .status-needs { background: var(--red-dim); color: var(--red); border: 1px solid rgba(193,18,31,0.2); }
 .section-body { padding: 28px 32px; }
 
-.pillar-label { display: inline-flex; align-items: center; gap: 6px; font-size: 10px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; padding: 4px 12px; border-radius: 100px; margin-bottom: 20px; }
-.pillar-2 { background: var(--gold-dim); color: var(--gold); border: 1px solid rgba(181,136,42,0.25); }
-.pillar-3 { background: rgba(0,48,73,0.07); color: var(--navy-2); border: 1px solid rgba(0,48,73,0.2); }
-.pillar-stakes { background: rgba(46,61,40,0.12); color: #2E3D28; border: 1px solid rgba(46,61,40,0.3); }
-
+/* ── COPY ── */
 .copy-block { margin-bottom: 20px; }
 .copy-label { font-size: 11px; font-weight: 600; color: var(--grey-2); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 8px; }
 .copy-text { font-size: 15px; font-weight: 300; color: var(--navy); line-height: 1.8; }
 .copy-headline { font-family: var(--font-d); font-size: 28px; font-weight: 400; font-style: italic; color: var(--navy); line-height: 1.2; letter-spacing: -0.01em; margin-bottom: 4px; }
-.copy-headline .accent { color: var(--red); }
+.copy-headline .accent { color: var(--green); }
 .copy-divider { height: 1px; background: var(--border); margin: 20px 0; }
 
-.logo-grid { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0 20px; }
-.logo-chip { padding: 6px 14px; background: rgba(0,48,73,0.05); border: 1px solid var(--border); border-radius: 6px; font-size: 12px; font-weight: 500; color: var(--navy); letter-spacing: 0.02em; }
-.logo-chip.oem { background: rgba(193,18,31,0.05); border-color: rgba(193,18,31,0.15); color: var(--crimson); }
-.logo-chip.placeholder { border-style: dashed; color: var(--grey-2); background: transparent; font-style: italic; }
-
-.stat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 16px 0 20px; }
-.stat-card { background: var(--bg); border: 1px solid var(--border); border-radius: 10px; padding: 20px 18px; text-align: center; }
-.stat-value { font-family: var(--font-d); font-size: 32px; font-style: italic; color: var(--red); line-height: 1; margin-bottom: 6px; }
-.stat-desc { font-size: 12px; font-weight: 300; color: var(--grey); line-height: 1.5; }
-
+/* ── CALLOUTS ── */
 .callout { border-radius: 10px; padding: 18px 20px; margin: 16px 0; border-left: 3px solid transparent; }
-.callout-insight { background: rgba(0,48,73,0.04); border-left-color: var(--navy); }
+.callout-insight { background: rgba(15,23,42,0.04); border-left-color: var(--navy); }
 .callout-warning { background: var(--amber-dim); border-left-color: var(--amber); }
-.callout-strong { background: var(--red-dim); border-left-color: var(--red); }
-.callout-locked { background: var(--green-dim); border-left-color: var(--green); }
+.callout-green { background: var(--green-dim); border-left-color: var(--green); }
 .callout-label { font-size: 10px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 6px; color: var(--grey-2); }
 .callout-text { font-size: 14px; font-weight: 300; color: var(--navy); line-height: 1.7; }
 
-/* Scenario cards in messaging doc */
-.scenario-preview { display: flex; flex-direction: column; gap: 12px; margin: 20px 0; }
-.scenario-item { background: #003049; border-radius: 10px; padding: 20px 22px; position: relative; }
-.scenario-oem { font-size: 10px; font-weight: 500; color: rgba(255,255,255,0.45); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
-.scenario-oem::before { content: ''; display: block; width: 12px; height: 1px; background: rgba(255,255,255,0.35); }
-.scenario-text { font-size: 14px; font-weight: 500; color: #ffffff; line-height: 1.5; margin-bottom: 10px; }
-.scenario-engine { font-size: 13px; font-weight: 300; color: rgba(255,255,255,0.7); line-height: 1.6; margin-bottom: 10px; font-style: italic; }
-.scenario-engine strong { color: #C1121F; font-weight: 500; font-style: normal; }
-.scenario-closer { font-family: var(--font-d); font-size: 14px; font-style: italic; color: #ffffff; border-top: 1px solid rgba(181,168,130,0.2); padding-top: 10px; margin-top: 4px; }
+/* ── LOGO CHIPS ── */
+.logo-grid { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0 20px; }
+.logo-chip { padding: 6px 14px; background: rgba(15,23,42,0.05); border: 1px solid var(--border); border-radius: 6px; font-size: 12px; font-weight: 500; color: var(--navy); }
+.logo-chip.oem { background: var(--green-dim); border-color: rgba(93,180,24,0.25); color: #3d7a0f; }
+.logo-chip.placeholder { border-style: dashed; color: var(--grey-2); background: transparent; font-style: italic; }
 
+/* ── STAT CARDS ── */
+.stat-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 12px; margin: 16px 0 20px; }
+.stat-card { background: var(--bg); border: 1px solid var(--border); border-radius: 10px; padding: 20px 18px; text-align: center; }
+.stat-value { font-family: var(--font-d); font-size: 32px; font-style: italic; color: var(--green); line-height: 1; margin-bottom: 6px; }
+.stat-desc { font-size: 12px; font-weight: 300; color: var(--grey); line-height: 1.5; }
+
+/* ── SCENARIO PREVIEW ── */
+.scenario-preview { display: flex; flex-direction: column; gap: 12px; margin: 20px 0; }
+.scenario-item { background: #f4f6f8; border: 1px solid rgba(15,23,42,0.1); border-radius: 10px; padding: 20px 22px; transition: border-color 0.2s; }
+.scenario-oem { font-size: 10px; font-weight: 500; color: rgba(15,23,42,0.45); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+.scenario-oem::before { content:''; display:block; width:12px; height:1px; background:rgba(15,23,42,0.3); }
+.scenario-text { font-size: 14px; font-weight: 500; color: #0f172a; line-height: 1.5; margin-bottom: 10px; }
+.scenario-engine { font-size: 13px; font-weight: 300; color: rgba(15,23,42,0.7); line-height: 1.6; margin-bottom: 10px; font-style: italic; }
+.scenario-engine strong { color: var(--green); font-weight: 500; font-style: normal; }
+.scenario-closer { font-family: var(--font-d); font-size: 14px; font-style: italic; color: #0f172a; border-top: 1px solid rgba(15,23,42,0.1); padding-top: 10px; margin-top: 4px; }
+.scenario-closer strong { font-weight: 700; color: var(--green); }
+
+/* ── HOW ENGINE CARD PREVIEW ── */
+.how-preview-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 12px; margin: 20px 0; }
+.how-preview-card { background: #f8fafc; border: 1px solid rgba(15,23,42,0.1); border-radius: 12px; padding: 20px; position: relative; min-height: 180px; display: flex; flex-direction: column; }
+.how-preview-step { font-family: var(--font-d); font-size: 11px; font-style: italic; color: rgba(15,23,42,0.3); margin-bottom: auto; }
+.how-preview-icon { position: absolute; top: 16px; right: 16px; width: 36px; height: 36px; border-radius: 8px; background: var(--green-dim); border: 1px solid rgba(93,180,24,0.3); display: flex; align-items: center; justify-content: center; }
+.how-preview-icon svg { width: 16px; height: 16px; stroke: var(--green); fill: none; stroke-width: 1.5; }
+.how-preview-title { font-family: var(--font-d); font-size: 28px; font-weight: 400; font-style: italic; color: var(--navy); line-height: 1.1; margin-bottom: 10px; }
+.how-preview-divider { height: 1px; background: rgba(15,23,42,0.1); margin-bottom: 10px; }
+.how-preview-body { font-size: 13px; font-weight: 300; color: rgba(15,23,42,0.65); line-height: 1.6; }
+.how-preview-tag { display: inline-flex; font-size: 10px; font-weight: 600; color: var(--green); letter-spacing: 0.1em; text-transform: uppercase; padding: 3px 10px; border: 1px solid rgba(93,180,24,0.3); border-radius: 100px; background: var(--green-dim); margin-top: 12px; width: fit-content; }
+
+/* ── REACTIONS ── */
 .reaction-area { border-top: 1px solid var(--border); padding: 22px 32px; background: var(--bg); }
 .reaction-label { font-size: 11px; font-weight: 600; color: var(--grey-2); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 12px; }
 .reaction-buttons { display: flex; gap: 10px; margin-bottom: 16px; flex-wrap: wrap; }
 .react-btn { display: flex; align-items: center; gap: 7px; padding: 9px 18px; border-radius: 8px; font-family: var(--font-b); font-size: 13px; font-weight: 500; cursor: pointer; border: 1.5px solid transparent; transition: all 0.15s; background: var(--white); }
-.react-approve { border-color: rgba(26,107,58,0.25); color: var(--green); background: var(--green-dim); }
-.react-approve:hover, .react-approve.active { background: var(--green); color: white; border-color: var(--green); }
+.react-approve { border-color: rgba(26,107,58,0.25); color: var(--approved); background: var(--approved-dim); }
+.react-approve:hover, .react-approve.active { background: var(--approved); color: white; border-color: var(--approved); }
 .react-suggest { border-color: rgba(180,83,9,0.25); color: var(--amber); background: var(--amber-dim); }
 .react-suggest:hover, .react-suggest.active { background: var(--amber); color: white; border-color: var(--amber); }
 .react-needs { border-color: rgba(193,18,31,0.25); color: var(--red); background: var(--red-dim); }
 .react-needs:hover, .react-needs.active { background: var(--red); color: white; border-color: var(--red); }
-.notes-field { width: 100%; border: 1px solid var(--border-2); border-radius: 8px; padding: 12px 14px; font-family: var(--font-b); font-size: 14px; font-weight: 300; color: var(--navy); line-height: 1.6; background: var(--white); resize: vertical; min-height: 80px; transition: border-color 0.2s; display: none; }
-.notes-field.visible { display: block; }
-.notes-field:focus { outline: none; border-color: var(--navy); }
+.notes-field { width: 100%; border: 1px solid var(--border-2); border-radius: 8px; padding: 12px 14px; font-family: var(--font-b); font-size: 14px; font-weight: 300; color: var(--navy); line-height: 1.6; background: var(--white); resize: vertical; min-height: 80px; transition: border-color 0.2s; display: block; }
+.notes-field:focus { outline: none; border-color: var(--green); }
 .notes-field::placeholder { color: var(--grey-2); }
 
+/* ── SUBMIT ── */
 .submit-section { background: var(--white); border: 1px solid var(--border); border-radius: 14px; padding: 36px 40px; text-align: center; margin-bottom: 48px; }
 .submit-summary { display: flex; justify-content: center; gap: 24px; margin-bottom: 28px; flex-wrap: wrap; }
 .summary-item { text-align: center; }
 .summary-count { font-family: var(--font-d); font-size: 32px; font-style: italic; line-height: 1; margin-bottom: 4px; }
 .summary-label { font-size: 11px; color: var(--grey-2); letter-spacing: 0.06em; text-transform: uppercase; }
-.submit-btn { display: inline-flex; align-items: center; gap: 8px; padding: 14px 36px; background: var(--navy); color: white; border: none; border-radius: 8px; font-family: var(--font-b); font-size: 15px; font-weight: 500; cursor: pointer; transition: all 0.2s; letter-spacing: 0.02em; }
-.submit-btn:hover { background: var(--navy-2); transform: translateY(-1px); }
+.submit-btn { display: inline-flex; align-items: center; gap: 8px; padding: 14px 36px; background: var(--green); color: white; border: none; border-radius: 8px; font-family: var(--font-b); font-size: 15px; font-weight: 500; cursor: pointer; transition: all 0.2s; letter-spacing: 0.02em; }
+.submit-btn:hover { background: #4a9412; transform: translateY(-1px); }
 .submit-btn:disabled { opacity: 0.5; cursor: default; transform: none; }
-.submit-confirmation { display: none; padding: 20px; background: var(--green-dim); border: 1px solid rgba(26,107,58,0.2); border-radius: 10px; color: var(--green); font-size: 15px; font-weight: 400; margin-top: 16px; }
+.submit-confirmation { display: none; padding: 20px; background: var(--approved-dim); border: 1px solid rgba(26,107,58,0.2); border-radius: 10px; color: var(--approved); font-size: 15px; margin-top: 16px; }
 
 footer { text-align: center; padding: 32px 40px; border-top: 1px solid var(--border); font-size: 12px; color: var(--grey-2); }
 </style>
 </head>
 <body>
 
+<!-- HEADER -->
 <header class="site-header">
   <div class="header-logo">
-    <div class="logo-mark">
-      <svg viewBox="0 0 16 16"><path d="M3 13L8 3L13 13M5.5 9L10.5 9" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    </div>
+    <div class="logo-mark"><svg viewBox="0 0 16 16"><path d="M3 13L8 3L13 13M5.5 9L10.5 9" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
     <span class="logo-text">Neverfail</span>
   </div>
   <div class="header-meta">
-    <strong>Homepage Messaging Framework — v2</strong>
-    Confidential · Round 3 Review · June 2026
+    <strong>Homepage Messaging Framework — v3</strong>
+    Confidential · Round 4 Review · June 2026
   </div>
 </header>
 
+<!-- PROGRESS -->
 <div class="progress-bar">
   <span class="progress-label">Review progress</span>
   <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
-  <span class="progress-count" id="progressCount">0 of 5 reviewed</span>
+  <span class="progress-count" id="progressCount">0 of 6 reviewed</span>
 </div>
 
 <div class="main">
 
   <!-- INTRO -->
   <div class="doc-intro">
-    <div class="doc-eyebrow"><div class="doc-pulse"></div>Messaging Review — Homepage · v2</div>
-    <h1>Updated. Refined. Ready for final review.</h1>
-    <p>This is the Round 3 version of the Neverfail homepage messaging framework. Pillar 1 has been removed. Pillars 2 and 3 reflect approved copy. The Stakes section (Engine transition) is new — added based on our last session. Please review and react to each section.</p>
+    <div class="doc-eyebrow"><div class="doc-pulse"></div>Messaging Review — v3</div>
+    <h1>Full review.<br>All sections open.</h1>
+    <p>This is the Round 4 review of the Neverfail homepage messaging — now including all sections through How Engine Works. All sections are open for fresh reactions and comments. Nothing is pre-locked.</p>
     <div class="how-to-use">
-      <div class="how-step">
-        <div class="how-step-num">01</div>
-        <div class="how-step-text">Read through each section and the copy within it.</div>
-      </div>
-      <div class="how-step">
-        <div class="how-step-num">02</div>
-        <div class="how-step-text">Mark <strong>Approve</strong>, <strong>Suggest Edit</strong>, or <strong>Needs Work</strong> — add a note where possible.</div>
-      </div>
-      <div class="how-step">
-        <div class="how-step-num">03</div>
-        <div class="how-step-text">Hit <strong>Submit Feedback</strong> at the bottom when done.</div>
-      </div>
+      <div class="how-step"><div class="how-step-num">01</div><div class="how-step-text">Read through each section and the copy within it.</div></div>
+      <div class="how-step"><div class="how-step-num">02</div><div class="how-step-text">Mark <strong>Approve</strong>, <strong>Suggest Edit</strong>, or <strong>Needs Work</strong> — add a note on any section.</div></div>
+      <div class="how-step"><div class="how-step-num">03</div><div class="how-step-text">Hit <strong>Submit Feedback</strong> at the bottom when done.</div></div>
     </div>
   </div>
 
-  <!-- STRATEGIC FRAME -->
+  <!-- STRATEGY FRAME -->
   <div class="strategy-frame">
     <div class="strategy-label">Current Page Structure</div>
-    <h2>Where we are. What's locked. What's next.</h2>
-    <p>The homepage flows through three reputation pillars, transitions to the Stakes section, then introduces Engine. Sections marked locked reflect approved copy already deployed on the live concepts.</p>
+    <h2>Where we are. Six sections. All open for review.</h2>
+    <p>The homepage flows through three reputation pillars, transitions to the Stakes section, then introduces Engine with the Why Engine comparison and How Engine Works cards.</p>
     <div class="cascade">
-      <div class="cascade-item">
-        <div class="cascade-num">01</div>
-        <div>
-          <div class="cascade-title">Hero — Reputation Statement</div>
-          <div class="cascade-desc">25+ years protecting the world's most mission-critical industries. Signature: One brand. One resiliency standard. NEVERFAIL.</div>
-          <span class="cascade-status status-locked">✓ Locked</span>
-        </div>
-      </div>
-      <div class="cascade-item">
-        <div class="cascade-num">02</div>
-        <div>
-          <div class="cascade-title">End Customer Trust — Pillar 2</div>
-          <div class="cascade-desc">Global brand logos + proof copy. Logo set TBC — placeholder brands in place.</div>
-          <span class="cascade-status status-locked">✓ Locked — Logos pending</span>
-        </div>
-      </div>
-      <div class="cascade-item">
-        <div class="cascade-num">03</div>
-        <div>
-          <div class="cascade-title">OEM Partner Trust — Pillar 3</div>
-          <div class="cascade-desc">16 OEM manufacturer logos + approved copy. "The world's most scrutinizing manufacturers chose Neverfail."</div>
-          <span class="cascade-status status-locked">✓ Locked</span>
-        </div>
-      </div>
-      <div class="cascade-item">
-        <div class="cascade-num">04</div>
-        <div>
-          <div class="cascade-title">The Stakes — Engine Transition</div>
-          <div class="cascade-desc">5 real-world deployment scenarios. "Nobody notices." signature. Transitions to Engine.</div>
-          <span class="cascade-status status-review">⟳ New — Review needed</span>
-        </div>
-      </div>
-      <div class="cascade-item">
-        <div class="cascade-num">05</div>
-        <div>
-          <div class="cascade-title">Engine — Product Deep Dive (Phase 2)</div>
-          <div class="cascade-desc">How it works, plugin ecosystem, comparison table. Separate review cycle.</div>
-          <span class="cascade-status status-review">Coming next</span>
-        </div>
-      </div>
+      <div class="cascade-item"><div class="cascade-num">01</div><div><div class="cascade-title">Hero — Reputation Statement</div><div class="cascade-desc">25+ years headline, subhead, signature line, stat bar.</div></div></div>
+      <div class="cascade-item"><div class="cascade-num">02</div><div><div class="cascade-title">Pillar 2 — End Customer Trust</div><div class="cascade-desc">Global brand logos, body copy, anchor quote.</div></div></div>
+      <div class="cascade-item"><div class="cascade-num">03</div><div><div class="cascade-title">Pillar 3 — OEM Partner Trust</div><div class="cascade-desc">16 manufacturer logos, scrutinizing manufacturers copy.</div></div></div>
+      <div class="cascade-item"><div class="cascade-num">04</div><div><div class="cascade-title">The Stakes — Engine Transition</div><div class="cascade-desc">5 real-world scenarios. Nobody notices. Discover Engine closer.</div></div></div>
+      <div class="cascade-item"><div class="cascade-num">05</div><div><div class="cascade-title">Why Engine — Comparison Table</div><div class="cascade-desc">Backup vs VMware vs Neverfail Engine.</div></div></div>
+      <div class="cascade-item"><div class="cascade-num">06</div><div><div class="cascade-title">How Engine Works</div><div class="cascade-desc">Replicate. Monitor. Remediate. Failover.</div></div></div>
     </div>
   </div>
 
   <!-- SECTION 1: HERO -->
   <div class="msg-section" data-section="1">
     <div class="section-header">
-      <div>
-        <div class="section-tag">Section 1 of 5</div>
-        <div class="section-title">Hero Headline & Signature</div>
-      </div>
-      <div class="section-status status-approved" id="status-1">✓ Approved</div>
+      <div><div class="section-tag">Section 1 of 6</div><div class="section-title">Hero — Reputation Statement</div></div>
+      <div class="section-status status-pending" id="status-1">Pending</div>
     </div>
     <div class="section-body">
-      <div class="callout callout-locked">
-        <div class="callout-label">Locked in previous session</div>
-        <div class="callout-text">Hero copy was approved and is live on both concept versions. Shown here for reference — react only if you want to revisit.</div>
-      </div>
-
-      <div class="copy-block" style="margin-top:20px;">
-        <div class="copy-label">Headline — Approved</div>
-        <div class="copy-headline">25+ years protecting the world's <span class="accent">most mission-critical industries.</span></div>
-      </div>
-
       <div class="copy-block">
-        <div class="copy-label">Subhead — Approved</div>
+        <div class="copy-label">Headline</div>
+        <div class="copy-headline"><em>25+ years protecting the world's</em> <span class="accent">most mission-critical industries.</span></div>
+      </div>
+      <div class="copy-block">
+        <div class="copy-label">Subhead</div>
         <div class="copy-text">Global brands can't afford failure. Neither can the manufacturers who build for them. When the stakes are highest, they choose one name.</div>
       </div>
-
       <div class="copy-block">
-        <div class="copy-label">Signature Line — Approved</div>
-        <div class="copy-text" style="font-family:var(--font-b); font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:var(--red);">One brand.&nbsp;&nbsp;One resiliency standard.&nbsp;&nbsp;NEVERFAIL.</div>
+        <div class="copy-label">Signature Line</div>
+        <div class="copy-text" style="font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--green);">One brand.&nbsp;&nbsp;One resiliency standard.&nbsp;&nbsp;NEVERFAIL.</div>
       </div>
-
       <div class="copy-divider"></div>
-
-      <div class="copy-label">Stat Bar — Approved</div>
+      <div class="copy-label">Stat Bar</div>
       <div class="stat-grid">
         <div class="stat-card"><div class="stat-value">25+</div><div class="stat-desc">Years of Resilience</div></div>
         <div class="stat-card"><div class="stat-value">10K+</div><div class="stat-desc">Brands Trust Us</div></div>
-        <div class="stat-card"><div class="stat-value">16</div><div class="stat-desc">OEM Strategic Partners</div></div>
+        <div class="stat-card"><div class="stat-value">60+</div><div class="stat-desc">Countries Deployed</div></div>
+        <div class="stat-card"><div class="stat-value">0</div><div class="stat-desc">Tolerance for Downtime</div></div>
       </div>
     </div>
     <div class="reaction-area">
-      <div class="reaction-label">Revisit this section?</div>
+      <div class="reaction-label">Your reaction</div>
       <div class="reaction-buttons">
-        <button class="react-btn react-approve active" onclick="react(1, 'approved', this)">✓ Still Approved</button>
-        <button class="react-btn react-suggest" onclick="react(1, 'suggest', this)">⟳ Suggest Edit</button>
-        <button class="react-btn react-needs" onclick="react(1, 'needs', this)">✕ Needs Work</button>
+        <button class="react-btn react-approve" onclick="react(1,'approved',this)">✓ Approve</button>
+        <button class="react-btn react-suggest" onclick="react(1,'suggest',this)">⟳ Suggest Edit</button>
+        <button class="react-btn react-needs" onclick="react(1,'needs',this)">✕ Needs Work</button>
       </div>
-      <textarea class="notes-field visible" id="notes-1" placeholder="Any changes to the hero copy, headline, subhead, or signature line?"></textarea>
+      <textarea class="notes-field" id="notes-1" placeholder="Headline, subhead, signature line, or stat bar feedback..."></textarea>
     </div>
   </div>
 
   <!-- SECTION 2: PILLAR 2 -->
   <div class="msg-section" data-section="2">
     <div class="section-header">
-      <div>
-        <div class="section-tag">Section 2 of 5</div>
-        <div class="section-title">Pillar 2 — End Customer Trust</div>
-      </div>
-      <div class="section-status status-approved" id="status-2">✓ Approved</div>
+      <div><div class="section-tag">Section 2 of 6</div><div class="section-title">Pillar 2 — End Customer Trust</div></div>
+      <div class="section-status status-pending" id="status-2">Pending</div>
     </div>
     <div class="section-body">
-      <div class="pillar-label pillar-2">Pillar 2 — End Customer Trust</div>
-
       <div class="copy-block">
-        <div class="copy-label">Section Headline — Approved</div>
-        <div class="copy-headline">The names that trust us most are the ones that <span class="accent">can least afford to be wrong.</span></div>
+        <div class="copy-label">Headline</div>
+        <div class="copy-headline">One trusted solution. <span class="accent">THE resiliency standard.</span></div>
       </div>
-
       <div class="copy-block">
-        <div class="copy-label">Body Copy — Approved</div>
-        <div class="copy-text">From federal intelligence agencies to global financial institutions to the world's largest energy producers — the organizations that operate at the highest stakes have independently arrived at the same conclusion: when their applications must stay up, they trust Neverfail.</div>
+        <div class="copy-label">Body Copy</div>
+        <div class="copy-text">From federal intelligence agencies and global financial institutions, to the world's largest energy producers — when their applications must stay up, they trust Neverfail.</div>
       </div>
-
       <div class="copy-divider"></div>
-
-      <div class="copy-label">End Customer Logos — Placeholders (Full set TBC)</div>
+      <div class="copy-label">End Customer Logos — Placeholders</div>
       <div class="logo-grid">
         <div class="logo-chip">FBI</div>
         <div class="logo-chip">Lloyds of London</div>
@@ -354,53 +303,43 @@ footer { text-align: center; padding: 32px 40px; border-top: 1px solid var(--bor
         <div class="logo-chip">Nike</div>
         <div class="logo-chip placeholder">+ Additional logos TBC</div>
       </div>
-
       <div class="copy-block">
-        <div class="copy-label">Anchor Quote — Approved</div>
-        <div class="copy-text" style="font-family:var(--font-d); font-size:18px; font-style:italic; color:var(--navy);">"They didn't choose us because we were the cheapest option. They chose us because they couldn't afford the alternative."</div>
+        <div class="copy-label">Anchor Quote</div>
+        <div class="copy-text" style="font-family:var(--font-d); font-size:22px; font-style:italic;">"They choose us because they can't afford the alternative."</div>
       </div>
-
       <div class="callout callout-warning">
-        <div class="callout-label">Action Required — Brian</div>
-        <div class="callout-text">Please confirm which end customer logos can be used publicly on the site. The current list (FBI, Lloyds, Aramco, Nike) are placeholders based on your verbal references. A larger logo set will strengthen this section significantly.</div>
+        <div class="callout-label">Action Required</div>
+        <div class="callout-text">Please confirm which end customer logos can be used publicly. Current list is based on verbal references — full confirmation needed before launch.</div>
       </div>
     </div>
     <div class="reaction-area">
-      <div class="reaction-label">Your reaction to this section</div>
+      <div class="reaction-label">Your reaction</div>
       <div class="reaction-buttons">
-        <button class="react-btn react-approve active" onclick="react(2, 'approved', this)">✓ Approved</button>
-        <button class="react-btn react-suggest" onclick="react(2, 'suggest', this)">⟳ Suggest Edit</button>
-        <button class="react-btn react-needs" onclick="react(2, 'needs', this)">✕ Needs Work</button>
+        <button class="react-btn react-approve" onclick="react(2,'approved',this)">✓ Approve</button>
+        <button class="react-btn react-suggest" onclick="react(2,'suggest',this)">⟳ Suggest Edit</button>
+        <button class="react-btn react-needs" onclick="react(2,'needs',this)">✕ Needs Work</button>
       </div>
-      <textarea class="notes-field visible" id="notes-2" placeholder="Any copy changes? Logo confirmations? Additional customer names?"></textarea>
+      <textarea class="notes-field" id="notes-2" placeholder="Copy changes, logo confirmations, anchor quote feedback..."></textarea>
     </div>
   </div>
 
   <!-- SECTION 3: PILLAR 3 -->
   <div class="msg-section" data-section="3">
     <div class="section-header">
-      <div>
-        <div class="section-tag">Section 3 of 5</div>
-        <div class="section-title">Pillar 3 — OEM Partner Trust</div>
-      </div>
-      <div class="section-status status-approved" id="status-3">✓ Approved</div>
+      <div><div class="section-tag">Section 3 of 6</div><div class="section-title">Pillar 3 — OEM Partner Trust</div></div>
+      <div class="section-status status-pending" id="status-3">Pending</div>
     </div>
     <div class="section-body">
-      <div class="pillar-label pillar-3">Pillar 3 — OEM Partner Trust</div>
-
       <div class="copy-block">
-        <div class="copy-label">Section Headline — Approved</div>
-        <div class="copy-headline">The world's most scrutinizing manufacturers <span class="accent">chose Neverfail.</span></div>
+        <div class="copy-label">Headline</div>
+        <div class="copy-headline">The world's most scrutinizing manufacturers <span class="accent">build with Neverfail.</span></div>
       </div>
-
       <div class="copy-block">
-        <div class="copy-label">Body Copy — Approved</div>
-        <div class="copy-text">When lives are literally on the line, mission-critical industrial manufacturers don't make technology decisions lightly. Honeywell, Schneider Electric, Siemens, CentralSquare, SolarWinds, OpenText, and others have independently reached the same conclusion: when their mission-critical solutions require the highest resiliency standard, they build with Neverfail.<br><br><strong>The message is clear. NEVERFAIL is that standard.</strong></div>
+        <div class="copy-label">Body Copy</div>
+        <div class="copy-text">When lives are on the line, mission-critical manufacturers like Honeywell, Schneider Electric, Siemens, CentralSquare, OpenText, and others reach the same resiliency standard conclusion. Neverfail is the standard.</div>
       </div>
-
       <div class="copy-divider"></div>
-
-      <div class="copy-label">OEM Partner Logos — 16 Partners</div>
+      <div class="copy-label">OEM Partner Logos — 15 Partners</div>
       <div class="logo-grid">
         <div class="logo-chip oem">Honeywell</div>
         <div class="logo-chip oem">Schneider Electric</div>
@@ -414,147 +353,196 @@ footer { text-align: center; padding: 32px 40px; border-top: 1px solid var(--bor
         <div class="logo-chip oem">OpenText</div>
         <div class="logo-chip oem">OPSWAT</div>
         <div class="logo-chip oem">Progress</div>
-        <div class="logo-chip oem">SolarWinds</div>
         <div class="logo-chip oem">AVST</div>
         <div class="logo-chip oem">Clever Devices</div>
         <div class="logo-chip oem">Southern</div>
       </div>
     </div>
     <div class="reaction-area">
-      <div class="reaction-label">Your reaction to this section</div>
+      <div class="reaction-label">Your reaction</div>
       <div class="reaction-buttons">
-        <button class="react-btn react-approve active" onclick="react(3, 'approved', this)">✓ Approved</button>
-        <button class="react-btn react-suggest" onclick="react(3, 'suggest', this)">⟳ Suggest Edit</button>
-        <button class="react-btn react-needs" onclick="react(3, 'needs', this)">✕ Needs Work</button>
+        <button class="react-btn react-approve" onclick="react(3,'approved',this)">✓ Approve</button>
+        <button class="react-btn react-suggest" onclick="react(3,'suggest',this)">⟳ Suggest Edit</button>
+        <button class="react-btn react-needs" onclick="react(3,'needs',this)">✕ Needs Work</button>
       </div>
-      <textarea class="notes-field visible" id="notes-3" placeholder="Any OEM partners to add or remove? Copy changes?"></textarea>
+      <textarea class="notes-field" id="notes-3" placeholder="Copy changes, OEM partner additions or removals..."></textarea>
     </div>
   </div>
 
   <!-- SECTION 4: THE STAKES -->
   <div class="msg-section" data-section="4">
     <div class="section-header">
-      <div>
-        <div class="section-tag">Section 4 of 5 — New</div>
-        <div class="section-title">The Stakes — Engine Transition</div>
-      </div>
+      <div><div class="section-tag">Section 4 of 6</div><div class="section-title">The Stakes — Engine Transition</div></div>
       <div class="section-status status-pending" id="status-4">Pending</div>
     </div>
     <div class="section-body">
-      <div class="pillar-label pillar-stakes">Section 04 — Engine Transition</div>
-
-      <div class="callout callout-insight">
-        <div class="callout-label">What this section does</div>
-        <div class="callout-text">This is the bridge from reputation/pillars to Engine. Five real-world deployment scenarios — each showing a life-or-death consequence and how Engine prevents it. Closes with the transition into the Engine product sections.</div>
-      </div>
-
-      <div class="copy-block" style="margin-top:20px;">
+      <div class="copy-block">
         <div class="copy-label">Section Eyebrow</div>
-        <div class="copy-text" style="font-size:12px; font-weight:600; letter-spacing:0.14em; text-transform:uppercase; color:rgba(139,58,58,0.9);">Real Environments. Real Consequences.</div>
+        <div class="copy-text" style="font-size:11px; font-weight:600; letter-spacing:0.14em; text-transform:uppercase; color:var(--green);">Real Environments. Real Consequences.</div>
       </div>
-
       <div class="copy-block">
-        <div class="copy-label">Section Headline</div>
-        <div class="copy-headline">When the stakes are this high, there is <span class="accent">only one choice.</span></div>
+        <div class="copy-label">Headline</div>
+        <div class="copy-headline">Not hypotheticals, but <span class="accent">real live deployments.</span></div>
       </div>
-
       <div class="copy-block">
-        <div class="copy-label">Section Subhead</div>
-        <div class="copy-text">These aren't hypothetical scenarios. They are live deployments — running right now, around the world, around the clock. Neverfail is behind every single one.</div>
+        <div class="copy-label">Subhead</div>
+        <div class="copy-text">Live deployments. Running right now around the world. Neverfail is behind every one.</div>
       </div>
-
       <div class="copy-divider"></div>
-
       <div class="copy-label">Five Scenario Cards</div>
       <div class="scenario-preview">
-
         <div class="scenario-item">
           <div class="scenario-oem">CentralSquare · E911 Computer-Aided Dispatch</div>
-          <div class="scenario-text">It's 2:47am. A dispatcher receives a mass casualty call. The E911 computer-aided dispatch system is the only thing standing between that call and every first responder in the city.</div>
-          <div class="scenario-engine"><strong>Engine detects a critical service anomaly and fails over in under 10 seconds</strong> — before the queue freezes, before a single call drops, before any dispatcher looks up from their screen.</div>
-          <div class="scenario-closer">The ambulances are already moving. Nobody notices.</div>
+          <div class="scenario-text">It's 2:47am. A mass casualty call comes in. The E911 dispatch system is the only thing standing between that call and every first responder in the city.</div>
+          <div class="scenario-engine"><strong>Engine detects the anomaly and fails over in seconds</strong> — before a single call drops.</div>
+          <div class="scenario-closer">The ambulances are already moving. <strong>Nobody notices.</strong></div>
         </div>
-
         <div class="scenario-item">
           <div class="scenario-oem">Schneider Electric · SecurityExpert</div>
-          <div class="scenario-text">35 million passengers move through Boston Logan Airport every year. Every access door, every security checkpoint, every restricted zone runs on Schneider Electric's SecurityExpert platform.</div>
-          <div class="scenario-engine"><strong>Engine keeps SecurityExpert continuously available</strong> — no reboot windows, no failover gaps, no exposure. When a dependency fails at the application layer, Engine remediates before a single door goes offline.</div>
-          <div class="scenario-closer">The doors open. The doors close. Nobody notices.</div>
+          <div class="scenario-text">35 million passengers. Every door. Every checkpoint. Every restricted zone — running on Schneider Electric's SecurityExpert.</div>
+          <div class="scenario-engine"><strong>Engine keeps SecurityExpert continuously available.</strong> No reboot windows. No gaps. No exposure.</div>
+          <div class="scenario-closer">The doors open. The doors close. <strong>Nobody notices.</strong></div>
         </div>
-
         <div class="scenario-item">
           <div class="scenario-oem">Clever Devices · CleverCAD</div>
-          <div class="scenario-text">A major city's entire transit and emergency vehicle dispatch network runs on a single mission-critical platform. Ambulances, fire, transit — all routed through one system, serving millions of daily riders and responders.</div>
-          <div class="scenario-engine"><strong>Engine monitors the application stack in real time.</strong> When a dependency fails at the OS layer, it remediates locally — in seconds, before dispatch goes dark, before a single emergency vehicle loses its route.</div>
-          <div class="scenario-closer">Every vehicle gets its route. Every call gets answered. Nobody notices.</div>
+          <div class="scenario-text">An entire city's ambulances, fire, and transit — all routed through one mission-critical platform. One system. Millions depending on it.</div>
+          <div class="scenario-engine"><strong>Engine remediates in seconds</strong> — before dispatch goes dark, before a single vehicle loses its route.</div>
+          <div class="scenario-closer">Every vehicle gets its route. Every call gets answered. <strong>Nobody notices.</strong></div>
         </div>
-
         <div class="scenario-item">
           <div class="scenario-oem">Community Health Group · Critical Apps</div>
-          <div class="scenario-text">Inside a regional health system, clinical staff depend on mission-critical Windows applications for patient records, medication routing, and care coordination. A failure at 6am means delayed care for hundreds of patients.</div>
-          <div class="scenario-engine"><strong>Engine replicates continuously and fails over automatically</strong> — zero data loss, zero application restart, zero patient impact. The passive node assumes active identity in seconds, invisibly.</div>
-          <div class="scenario-closer">The morning shift starts on time. The records are there. Nobody notices.</div>
+          <div class="scenario-text">Clinical staff depend on mission-critical apps for patient records, medication routing, and care. A failure at 6am means hundreds of patients wait.</div>
+          <div class="scenario-engine"><strong>Engine fails over automatically</strong> — zero data loss, zero restart, zero patient impact.</div>
+          <div class="scenario-closer">The morning shift starts on time. The records are there. <strong>Nobody notices.</strong></div>
         </div>
-
         <div class="scenario-item">
           <div class="scenario-oem">Honeywell · Pro-Watch</div>
-          <div class="scenario-text">A global enterprise's entire physical security infrastructure — access control, surveillance, threat detection — runs on Honeywell Pro-Watch across dozens of facilities worldwide. An application outage means uncontrolled access.</div>
-          <div class="scenario-engine"><strong>Engine watches the Pro-Watch application stack around the clock.</strong> When performance counters signal degradation, Engine remediates before a single access point goes offline — before security is compromised.</div>
-          <div class="scenario-closer">Every door is controlled. Every camera is live. Nobody notices.</div>
+          <div class="scenario-text">Access control. Surveillance. Threat detection. All of it running on Honeywell Pro-Watch across dozens of global facilities. An outage means uncontrolled access.</div>
+          <div class="scenario-engine"><strong>Engine watches around the clock.</strong> When degradation is detected, it remediates before a single access point goes offline.</div>
+          <div class="scenario-closer">Every door is controlled. Every camera is live. <strong>Nobody notices.</strong></div>
         </div>
-
       </div>
-
       <div class="copy-divider"></div>
-
       <div class="copy-block">
-        <div class="copy-label">Section Closer — Engine Transition</div>
-        <div class="copy-text" style="font-family:var(--font-d); font-size:18px; font-style:italic; color:var(--navy); margin-bottom:12px;">"When the stakes are so high that failure is simply not an option — the world's most critical organizations don't gamble. They don't hope. They don't cross their fingers."</div>
-        <div class="copy-text" style="font-weight:600; letter-spacing:0.08em; text-transform:uppercase; font-size:13px; color:var(--grey); margin-bottom:12px;">They choose Neverfail.</div>
-        <div class="copy-text" style="font-family:var(--font-d); font-size:20px; font-style:italic; color:var(--navy);">This is <span style="color:var(--red);">Engine.</span> The product that makes it possible.</div>
+        <div class="copy-label">Section Closer</div>
+        <div class="copy-text" style="font-family:var(--font-d); font-size:20px; font-style:italic; margin-bottom:12px;">"The world's most critical organizations don't gamble. They don't hope. They don't cross their fingers."</div>
+        <div class="copy-text" style="font-family:var(--font-d); font-size:22px; font-style:italic;">This is <span style="color:var(--green);">Engine.</span></div>
       </div>
     </div>
     <div class="reaction-area">
-      <div class="reaction-label">Your reaction to this section</div>
+      <div class="reaction-label">Your reaction</div>
       <div class="reaction-buttons">
-        <button class="react-btn react-approve" onclick="react(4, 'approved', this)">✓ Approve</button>
-        <button class="react-btn react-suggest" onclick="react(4, 'suggest', this)">⟳ Suggest Edit</button>
-        <button class="react-btn react-needs" onclick="react(4, 'needs', this)">✕ Needs Work</button>
+        <button class="react-btn react-approve" onclick="react(4,'approved',this)">✓ Approve</button>
+        <button class="react-btn react-suggest" onclick="react(4,'suggest',this)">⟳ Suggest Edit</button>
+        <button class="react-btn react-needs" onclick="react(4,'needs',this)">✕ Needs Work</button>
       </div>
-      <textarea class="notes-field visible" id="notes-4" placeholder="Scenario copy feedback, headline changes, closer adjustments, or overall direction notes?" rows="4"></textarea>
+      <textarea class="notes-field" id="notes-4" placeholder="Scenario copy, headline, subhead, or closer feedback..."></textarea>
     </div>
   </div>
 
-  <!-- SECTION 5: OPEN FEEDBACK -->
+  <!-- SECTION 5: WHY ENGINE -->
   <div class="msg-section" data-section="5">
     <div class="section-header">
-      <div>
-        <div class="section-tag">Section 5 of 5</div>
-        <div class="section-title">Open Feedback & Direction Notes</div>
-      </div>
+      <div><div class="section-tag">Section 5 of 6</div><div class="section-title">Why Engine — Comparison</div></div>
       <div class="section-status status-pending" id="status-5">Pending</div>
     </div>
     <div class="section-body">
-      <div class="copy-text">Anything else on your mind — tone, missing angles, overall direction, or what's resonating most. This is your space.</div>
+      <div class="copy-block">
+        <div class="copy-label">Headline</div>
+        <div class="copy-headline">You already have backup.<br>You already have VMware.</div>
+      </div>
+      <div class="copy-block">
+        <div class="copy-label">Subhead</div>
+        <div class="copy-text">They were built for different problems. Here's the gap they cannot close.</div>
+      </div>
+      <div class="copy-divider"></div>
+      <div class="copy-label">Comparison Table — Key Rows</div>
+      <div class="callout callout-insight">
+        <div class="callout-label">Table Structure</div>
+        <div class="callout-text">4 columns: Dimension | Backup/Veeam | VMware HA/SRM | Neverfail Engine. Rows: Recovery Time (RTO), Data Loss (RPO), Application Awareness, Ransomware Recovery, Deployment Complexity, Cost of Downtime. Neverfail column highlighted in green.</div>
+      </div>
     </div>
     <div class="reaction-area">
-      <div class="reaction-label">Overall direction feedback</div>
+      <div class="reaction-label">Your reaction</div>
       <div class="reaction-buttons">
-        <button class="react-btn react-approve" onclick="react(5, 'approved', this)">✓ On the right track</button>
-        <button class="react-btn react-suggest" onclick="react(5, 'suggest', this)">⟳ Some adjustments needed</button>
-        <button class="react-btn react-needs" onclick="react(5, 'needs', this)">✕ Need to rethink</button>
+        <button class="react-btn react-approve" onclick="react(5,'approved',this)">✓ Approve</button>
+        <button class="react-btn react-suggest" onclick="react(5,'suggest',this)">⟳ Suggest Edit</button>
+        <button class="react-btn react-needs" onclick="react(5,'needs',this)">✕ Needs Work</button>
       </div>
-      <textarea class="notes-field visible" id="notes-5" placeholder="Your open thoughts on messaging direction, tone, what's landing, what's missing..." rows="5"></textarea>
+      <textarea class="notes-field" id="notes-5" placeholder="Headline, subhead, or comparison table row feedback..."></textarea>
+    </div>
+  </div>
+
+  <!-- SECTION 6: HOW ENGINE WORKS -->
+  <div class="msg-section" data-section="6">
+    <div class="section-header">
+      <div><div class="section-tag">Section 6 of 6</div><div class="section-title">How Engine Works</div></div>
+      <div class="section-status status-pending" id="status-6">Pending</div>
+    </div>
+    <div class="section-body">
+      <div class="copy-block">
+        <div class="copy-label">Headline</div>
+        <div class="copy-headline">Continuous. Intelligent. <span class="accent">Automatic.</span></div>
+      </div>
+      <div class="copy-block">
+        <div class="copy-label">Subhead</div>
+        <div class="copy-text">Engine watches your entire application stack and acts before your users notice a problem — remediating locally first, failing over only when necessary.</div>
+      </div>
+      <div class="copy-divider"></div>
+      <div class="copy-label">Four Step Cards</div>
+      <div class="how-preview-grid">
+        <div class="how-preview-card">
+          <div class="how-preview-step">01 / 04</div>
+          <div class="how-preview-icon"><svg viewBox="0 0 24 24"><path d="M8 4H6a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2M8 4h8a2 2 0 0 1 2 2v2M8 4a2 2 0 0 0-2 2v2m0 0h12" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="how-preview-title">Replicate.</div>
+          <div class="how-preview-divider"></div>
+          <div class="how-preview-body">Continuous byte-level replication via packet-filter driver. No SAN required. Up to 80% WAN bandwidth reduction.</div>
+          <div class="how-preview-tag">Always on</div>
+        </div>
+        <div class="how-preview-card">
+          <div class="how-preview-step">02 / 04</div>
+          <div class="how-preview-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="how-preview-title">Monitor.</div>
+          <div class="how-preview-divider"></div>
+          <div class="how-preview-body">Pre-tuned plugins watch services, performance counters, dependencies, OS and network — detecting hangs the host can't see.</div>
+          <div class="how-preview-tag">Real-time</div>
+        </div>
+        <div class="how-preview-card">
+          <div class="how-preview-step">03 / 04</div>
+          <div class="how-preview-icon"><svg viewBox="0 0 24 24"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="M12 8v4M12 16h.01" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="how-preview-title">Remediate.</div>
+          <div class="how-preview-divider"></div>
+          <div class="how-preview-body">Rules engine auto-restarts services, recycles app pools, clears queues — resolving locally before escalating to failover.</div>
+          <div class="how-preview-tag">Local-first</div>
+        </div>
+        <div class="how-preview-card">
+          <div class="how-preview-step">04 / 04</div>
+          <div class="how-preview-icon"><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="how-preview-title">Failover.</div>
+          <div class="how-preview-divider"></div>
+          <div class="how-preview-body">Passive node assumes active identity in seconds. Clients reconnect automatically. No VM boot. No DNS wait. No user impact.</div>
+          <div class="how-preview-tag">Seconds</div>
+        </div>
+      </div>
+    </div>
+    <div class="reaction-area">
+      <div class="reaction-label">Your reaction</div>
+      <div class="reaction-buttons">
+        <button class="react-btn react-approve" onclick="react(6,'approved',this)">✓ Approve</button>
+        <button class="react-btn react-suggest" onclick="react(6,'suggest',this)">⟳ Suggest Edit</button>
+        <button class="react-btn react-needs" onclick="react(6,'needs',this)">✕ Needs Work</button>
+      </div>
+      <textarea class="notes-field" id="notes-6" placeholder="Card titles, body copy, tag labels, or overall structure feedback..."></textarea>
     </div>
   </div>
 
   <!-- SUBMIT -->
   <div class="submit-section">
     <div class="submit-summary">
-      <div class="summary-item"><div class="summary-count" id="count-approved" style="color:var(--green);">2</div><div class="summary-label">Approved</div></div>
+      <div class="summary-item"><div class="summary-count" id="count-approved" style="color:var(--approved);">0</div><div class="summary-label">Approved</div></div>
       <div class="summary-item"><div class="summary-count" id="count-suggest" style="color:var(--amber);">0</div><div class="summary-label">Suggestions</div></div>
       <div class="summary-item"><div class="summary-count" id="count-needs" style="color:var(--red);">0</div><div class="summary-label">Needs Work</div></div>
-      <div class="summary-item"><div class="summary-count" id="count-pending" style="color:var(--grey-2);">3</div><div class="summary-label">Pending</div></div>
+      <div class="summary-item"><div class="summary-count" id="count-pending" style="color:var(--grey-2);">6</div><div class="summary-label">Pending</div></div>
     </div>
     <button class="submit-btn" id="submitBtn" onclick="submitFeedback()">Submit Feedback →</button>
     <div class="submit-confirmation" id="submitConfirmation">✓ Feedback received. Joey will review your notes before the next session.</div>
@@ -562,24 +550,42 @@ footer { text-align: center; padding: 32px 40px; border-top: 1px solid var(--bor
 
 </div>
 
-<footer>Neverfail — Homepage Messaging Framework v2 — Confidential — June 2026</footer>
+<footer>Neverfail — Homepage Messaging Framework v3 — Confidential — June 2026</footer>
+
+<!-- HIDDEN FORM -->
+<form id="feedbackForm" action="https://formsubmit.co/joeyterrazas1@gmail.com" method="POST" style="display:none;">
+  <input type="hidden" name="_subject" value="Neverfail Messaging Framework v3 — Feedback from Brian">
+  <input type="hidden" name="_template" value="box">
+  <input type="hidden" name="_captcha" value="false">
+  <input type="hidden" id="f_timestamp" name="timestamp" value="">
+  <input type="hidden" id="f_s1_reaction" name="Section_1_Hero_Reaction" value="">
+  <input type="hidden" id="f_s2_reaction" name="Section_2_Pillar2_Reaction" value="">
+  <input type="hidden" id="f_s3_reaction" name="Section_3_Pillar3_Reaction" value="">
+  <input type="hidden" id="f_s4_reaction" name="Section_4_Stakes_Reaction" value="">
+  <input type="hidden" id="f_s5_reaction" name="Section_5_WhyEngine_Reaction" value="">
+  <input type="hidden" id="f_s6_reaction" name="Section_6_HowEngine_Reaction" value="">
+  <input type="hidden" id="f_s1_notes" name="Section_1_Notes" value="">
+  <input type="hidden" id="f_s2_notes" name="Section_2_Notes" value="">
+  <input type="hidden" id="f_s3_notes" name="Section_3_Notes" value="">
+  <input type="hidden" id="f_s4_notes" name="Section_4_Notes" value="">
+  <input type="hidden" id="f_s5_notes" name="Section_5_Notes" value="">
+  <input type="hidden" id="f_s6_notes" name="Section_6_Notes" value="">
+</form>
 
 <script>
-const state = { reactions: { 1: 'approved', 2: 'approved', 3: 'approved' }, submitted: false };
-const TOTAL = 5;
+const TOTAL = 6;
+const state = { reactions: {}, submitted: false };
 
 function react(n, type, btn) {
   if (state.reactions[n] === type) {
     delete state.reactions[n];
     btn.classList.remove('active');
     updateStatus(n, 'pending');
-    showNotes(n, false);
   } else {
     btn.closest('.reaction-area').querySelectorAll('.react-btn').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
     state.reactions[n] = type;
     updateStatus(n, type);
-    showNotes(n, type !== 'approved');
   }
   updateProgress();
   updateSummary();
@@ -592,13 +598,6 @@ function updateStatus(n, type) {
   else if (type === 'suggest') { el.classList.add('status-suggest'); el.textContent = '⟳ Suggest Edit'; }
   else if (type === 'needs') { el.classList.add('status-needs'); el.textContent = '✕ Needs Work'; }
   else { el.classList.add('status-pending'); el.textContent = 'Pending'; }
-}
-
-function showNotes(n, show) {
-  const el = document.getElementById('notes-' + n);
-  if (!el) return;
-  // Always show notes field so comments can always be added
-  el.classList.add('visible');
 }
 
 function updateProgress() {
@@ -616,53 +615,19 @@ function updateSummary() {
   document.getElementById('count-pending').textContent = TOTAL - a - s - n;
 }
 
+const reactionLabel = r => r === 'approved' ? 'Approved' : r === 'suggest' ? 'Suggest Edit' : r === 'needs' ? 'Needs Work' : 'Pending';
+
 function submitFeedback() {
   if (state.submitted) return;
-
-  const reactionLabel = r =>
-    r === 'approved' ? 'Approved' :
-    r === 'suggest'  ? 'Suggest Edit' :
-    r === 'needs'    ? 'Needs Work' : 'Pending';
-
   document.getElementById('f_timestamp').value = new Date().toLocaleString();
-  document.getElementById('f_s1_reaction').value = reactionLabel(state.reactions[1]);
-  document.getElementById('f_s2_reaction').value = reactionLabel(state.reactions[2]);
-  document.getElementById('f_s3_reaction').value = reactionLabel(state.reactions[3]);
-  document.getElementById('f_s4_reaction').value = reactionLabel(state.reactions[4]);
-  document.getElementById('f_s5_reaction').value = reactionLabel(state.reactions[5]);
-
   for (let i = 1; i <= TOTAL; i++) {
+    document.getElementById('f_s' + i + '_reaction').value = reactionLabel(state.reactions[i]);
     const el = document.getElementById('notes-' + i);
-    if (el && el.value.trim()) {
-      document.getElementById('f_s' + i + '_notes').value = el.value.trim();
-    }
+    if (el && el.value.trim()) document.getElementById('f_s' + i + '_notes').value = el.value.trim();
   }
-
   document.getElementById('feedbackForm').submit();
 }
-
-// Init
-updateProgress();
-updateSummary();
 </script>
 
-<!-- FORMSUBMIT HIDDEN FORM -->
-<form id="feedbackForm" action="https://formsubmit.co/joeyterrazas1@gmail.com" method="POST" style="display:none;">
-  <input type="hidden" name="_subject" value="Neverfail Messaging Framework v2 — Feedback from Brian">
-  <input type="hidden" name="_template" value="box">
-  <input type="hidden" name="_captcha" value="false">
-  <input type="hidden" id="f_timestamp" name="timestamp" value="">
-  <input type="hidden" id="f_s1_reaction" name="Section_1_Hero_Reaction" value="">
-  <input type="hidden" id="f_s2_reaction" name="Section_2_Pillar2_Reaction" value="">
-  <input type="hidden" id="f_s3_reaction" name="Section_3_Pillar3_Reaction" value="">
-  <input type="hidden" id="f_s4_reaction" name="Section_4_Stakes_Reaction" value="">
-  <input type="hidden" id="f_s5_reaction" name="Section_5_Open_Feedback_Reaction" value="">
-  <input type="hidden" id="f_s1_notes" name="Section_1_Notes" value="">
-  <input type="hidden" id="f_s2_notes" name="Section_2_Notes" value="">
-  <input type="hidden" id="f_s3_notes" name="Section_3_Notes" value="">
-  <input type="hidden" id="f_s4_notes" name="Section_4_Notes" value="">
-  <input type="hidden" id="f_s5_notes" name="Section_5_Notes" value="">
-</form>
 </body>
 </html>
-
